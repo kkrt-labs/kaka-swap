@@ -35,12 +35,12 @@ export const PNG: { [chainId in ChainId]: Token } = {
 
 export const wWAGMI: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 18, 'ETH', 'Ether'),
-  [ChainId.WAGMI]: new Token(ChainId.WAGMI, '0xDFBb4b49DfAe39720f68f8297ADb2368FeffaDdb', 18, 'wWAGMI', 'Wrapped WAGMI')
+  [ChainId.WAGMI]: new Token(ChainId.WAGMI, '0x3Ee7094DADda15810F191DD6AcF7E4FFa37571e4', 18, 'wWAGMI', 'Wrapped WAGMI')
 }
 
 export const OG: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 18, 'ETH', 'Ether'),
-  [ChainId.WAGMI]: new Token(ChainId.WAGMI, '0xB6157727b2989aE46e970B451A289941Ce8B41FA', 18, 'OG', 'OG')
+  [ChainId.WAGMI]: new Token(ChainId.WAGMI, '0xf312709A37D0563eabe651E54CA50c85D2F0c6Dd', 18, 'OG', 'OG')
 }
 
 export const USDT: { [chainId in ChainId]: Token } = {

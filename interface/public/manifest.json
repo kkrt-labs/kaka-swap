@@ -1,7 +1,7 @@
 {
-  "short_name": "Pangolin",
-  "name": "Pangolin",
-  "description": "Swap or provide liquidity on the Pangolin Exchange",
+  "short_name": "Kaka swap",
+  "name": "Kaka swap",
+  "description": "Swap or provide liquidity on the Kaka swap Exchange",
   "iconPath": "./images/384x384_App_Icon.png",
   "icons": [
     {
