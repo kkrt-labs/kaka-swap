@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text } from '@pangolindex/components'
-import { JSBI } from '@0xkilo/wagmi'
+import { JSBI } from '@jb1011/wagmi'
 import numeral from 'numeral'
 import { useActiveWeb3React } from 'src/hooks'
 import { useTranslation } from 'react-i18next'

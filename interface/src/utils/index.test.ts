@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { AddressZero } from '@ethersproject/constants'
-import { TokenAmount, Token, ChainId, Percent, JSBI } from '@0xkilo/wagmi'
+import { TokenAmount, Token, ChainId, Percent, JSBI } from '@jb1011/wagmi'
 
 import {
   getEtherscanLink,

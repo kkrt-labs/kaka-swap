@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 import Drawer from 'src/components/Drawer'
-import { Pair } from '@0xkilo/wagmi'
+import { Pair } from '@jb1011/wagmi'
 import { FixedSizeList } from 'react-window'
 import AutoSizer from 'react-virtualized-auto-sizer'
 import { CurrencyList } from './styled'

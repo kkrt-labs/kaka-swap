@@ -2,7 +2,7 @@ import React, { useState, useContext, useCallback, useMemo, useEffect } from 're
 import ReactGA from 'react-ga'
 import { RefreshCcw } from 'react-feather'
 import { Text, Box, Button } from '@pangolindex/components'
-import { Token, Trade, JSBI, CurrencyAmount, TokenAmount } from '@0xkilo/wagmi'
+import { Token, Trade, JSBI, CurrencyAmount, TokenAmount } from '@jb1011/wagmi'
 import { ThemeContext } from 'styled-components'
 import RetryDrawer from '../../RetryDrawer'
 import SelectTokenDrawer from '../../SelectTokenDrawer'
@@ -115,13 +115,13 @@ const MarketOrder: React.FC<Props> = ({ swapType, setSwapType }) => {
   // const betterTradeLinkVersion: Version | undefined = undefined
   const parsedAmounts = showWrap
     ? {
-        [Field.INPUT]: parsedAmount,
-        [Field.OUTPUT]: parsedAmount
-      }
+      [Field.INPUT]: parsedAmount,
+      [Field.OUTPUT]: parsedAmount
+    }
     : {
-        [Field.INPUT]: independentField === Field.INPUT ? parsedAmount : trade?.inputAmount,
-        [Field.OUTPUT]: independentField === Field.OUTPUT ? parsedAmount : trade?.outputAmount
-      }
+      [Field.INPUT]: independentField === Field.INPUT ? parsedAmount : trade?.inputAmount,
+      [Field.OUTPUT]: independentField === Field.OUTPUT ? parsedAmount : trade?.outputAmount
+    }
 
   const { onSwitchTokens, onCurrencySelection, onUserInput } = useSwapActionHandlers()
   const isValid = !swapInputError
@@ -210,8 +210,8 @@ const MarketOrder: React.FC<Props> = ({ swapType, setSwapType }) => {
             recipient === null
               ? 'Swap w/o Send'
               : (recipientAddress ?? recipient) === account
-              ? 'Swap w/o Send + recipient'
-              : 'Swap w/ Send',
+                ? 'Swap w/o Send + recipient'
+                : 'Swap w/ Send',
           label: [trade?.inputAmount?.currency?.symbol, trade?.outputAmount?.currency?.symbol, Version.v2].join('/')
         })
       })
@@ -305,8 +305,8 @@ const MarketOrder: React.FC<Props> = ({ swapType, setSwapType }) => {
             (wrapType === WrapType.WRAP
               ? t('swapPage.wrap')
               : wrapType === WrapType.UNWRAP
-              ? t('swapPage.unwrap')
-              : null)}
+                ? t('swapPage.unwrap')
+                : null)}
         </Button>
       )
     }
@@ -352,7 +352,7 @@ const MarketOrder: React.FC<Props> = ({ swapType, setSwapType }) => {
             }}
             id="swap-button"
             isDisabled={!isValid || approval !== ApprovalState.APPROVED || (priceImpactSeverity > 3 && !isExpertMode)}
-            // error={isValid && priceImpactSeverity > 2}
+          // error={isValid && priceImpactSeverity > 2}
           >
             {priceImpactSeverity > 3 && !isExpertMode
               ? t('swapPage.priceImpactHigh')
@@ -385,8 +385,8 @@ const MarketOrder: React.FC<Props> = ({ swapType, setSwapType }) => {
         {swapInputError
           ? swapInputError
           : priceImpactSeverity > 3 && !isExpertMode
-          ? t('swapPage.priceImpactHigh')
-          : t('swapPage.swap') + `${priceImpactSeverity > 2 ? t('swapPage.anyway') : ''}`}
+            ? t('swapPage.priceImpactHigh')
+            : t('swapPage.swap') + `${priceImpactSeverity > 2 ? t('swapPage.anyway') : ''}`}
       </Button>
     )
   }

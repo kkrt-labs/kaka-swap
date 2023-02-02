@@ -1,5 +1,5 @@
 import { createAction } from '@reduxjs/toolkit'
-import { ChainId } from '@0xkilo/wagmi'
+import { ChainId } from '@jb1011/wagmi'
 
 export interface SerializableTransactionReceipt {
   to: string

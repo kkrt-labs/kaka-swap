@@ -1,7 +1,7 @@
 import React, { useContext, useMemo } from 'react'
 import { ArrowDown, AlertTriangle, ArrowUpCircle } from 'react-feather'
 import { useTranslation } from 'react-i18next'
-import { Trade, TradeType } from '@0xkilo/wagmi'
+import { Trade, TradeType } from '@jb1011/wagmi'
 import { CurrencyLogo, Text, Box, Button } from '@pangolindex/components'
 import { ThemeContext } from 'styled-components'
 import { getEtherscanLink, tradeMeaningfullyDiffers } from 'src/utils'
@@ -71,9 +71,8 @@ const ConfirmSwapDrawer: React.FC<Props> = props => {
   )
 
   // text to show while loading
-  const pendingText = `Swapping ${trade?.inputAmount?.toSignificant(6)} ${
-    trade?.inputAmount?.currency?.symbol
-  } for ${trade?.outputAmount?.toSignificant(6)} ${trade?.outputAmount?.currency?.symbol}`
+  const pendingText = `Swapping ${trade?.inputAmount?.toSignificant(6)} ${trade?.inputAmount?.currency?.symbol
+    } for ${trade?.outputAmount?.toSignificant(6)} ${trade?.outputAmount?.currency?.symbol}`
 
   const ConfirmContent = (
     <Root>
@@ -103,8 +102,8 @@ const ConfirmSwapDrawer: React.FC<Props> = props => {
               priceImpactSeverity > 2
                 ? 'red1'
                 : showAcceptChanges && trade.tradeType === TradeType.EXACT_INPUT
-                ? 'primary1'
-                : 'text1'
+                  ? 'primary1'
+                  : 'text1'
             }
           >
             {trade.outputAmount.toSignificant(6)}

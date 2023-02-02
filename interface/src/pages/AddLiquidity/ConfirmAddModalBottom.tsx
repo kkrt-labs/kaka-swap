@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Fraction, Percent } from '@0xkilo/wagmi'
+import { Currency, CurrencyAmount, Fraction, Percent } from '@jb1011/wagmi'
 import React from 'react'
 import { Text } from 'rebass'
 import { ButtonPrimary } from '../../components/Button'
@@ -47,15 +47,13 @@ export function ConfirmAddModalBottom({
       <RowBetween>
         <TYPE.body>{t('addLiquidity.rates')}</TYPE.body>
         <TYPE.body>
-          {`1 ${currencies[Field.CURRENCY_A]?.symbol} = ${price?.toSignificant(4)} ${
-            currencies[Field.CURRENCY_B]?.symbol
-          }`}
+          {`1 ${currencies[Field.CURRENCY_A]?.symbol} = ${price?.toSignificant(4)} ${currencies[Field.CURRENCY_B]?.symbol
+            }`}
         </TYPE.body>
       </RowBetween>
       <RowBetween style={{ justifyContent: 'flex-end' }}>
-        {`1 ${currencies[Field.CURRENCY_B]?.symbol} = ${price?.invert().toSignificant(4)} ${
-          currencies[Field.CURRENCY_A]?.symbol
-        }`}
+        {`1 ${currencies[Field.CURRENCY_B]?.symbol} = ${price?.invert().toSignificant(4)} ${currencies[Field.CURRENCY_A]?.symbol
+          }`}
       </RowBetween>
       <RowBetween>
         <TYPE.body> {t('addLiquidity.shareOfPool')}</TYPE.body>

@@ -4,7 +4,7 @@ import { RowBetween } from '../Row'
 import styled from 'styled-components'
 import { TYPE, StyledInternalLink } from '../../theme'
 import DoubleCurrencyLogo from '../DoubleLogo'
-import { CAVAX, Token } from '@0xkilo/wagmi'
+import { CAVAX, Token } from '@jb1011/wagmi'
 import { ButtonPrimary } from '../Button'
 import { DoubleSideStakingInfo, useMinichefPools } from '../../state/stake/hooks'
 import { useColor } from '../../hooks/useColor'
@@ -40,7 +40,7 @@ const AprContainer = styled.div`
   margin-left: 1rem;
 `
 
-const Wrapper = styled(AutoColumn)<{ showBackground: boolean; bgColor: any }>`
+const Wrapper = styled(AutoColumn) <{ showBackground: boolean; bgColor: any }>`
   border-radius: 12px;
   width: 100%;
   overflow: hidden;
@@ -109,8 +109,8 @@ export default function DoubleSidePoolCard({
         ? token1
         : token0
       : token0.equals(PNG[token0.chainId])
-      ? token1
-      : token0
+        ? token1
+        : token0
 
   // get the color of the token
   const backgroundColor = useColor(token)

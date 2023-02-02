@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { ArrowUpCircle } from 'react-feather'
 import { useTranslation } from 'react-i18next'
-import { CurrencyAmount } from '@0xkilo/wagmi'
+import { CurrencyAmount } from '@jb1011/wagmi'
 import { Text, Box, Button } from '@pangolindex/components'
 import { ThemeContext } from 'styled-components'
 import Drawer from 'src/components/Drawer'
@@ -20,7 +20,7 @@ interface Props {
 }
 
 const ConfirmStakeDrawer: React.FC<Props> = props => {
-  const { isOpen, onClose, attemptingTxn, txHash, parsedAmount, onComplete = () => {} } = props
+  const { isOpen, onClose, attemptingTxn, txHash, parsedAmount, onComplete = () => { } } = props
 
   const theme = useContext(ThemeContext)
   const { t } = useTranslation()

@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react'
 import { AutoColumn } from '../../components/Column'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { Token, Currency, TokenAmount } from '@0xkilo/wagmi'
+import { Token, Currency, TokenAmount } from '@jb1011/wagmi'
 import DoubleCurrencyLogo from '../../components/DoubleLogo'
 import { useWalletModalToggle } from '../../state/application/hooks'
 import { TYPE } from '../../theme'
@@ -26,7 +26,7 @@ const PageWrapper = styled(AutoColumn)`
   width: 100%;
 `
 
-const PositionInfo = styled(AutoColumn)<{ dim: any }>`
+const PositionInfo = styled(AutoColumn) <{ dim: any }>`
   position: relative;
   max-width: 640px;
   width: 100%;
@@ -39,7 +39,7 @@ const BottomSection = styled(AutoColumn)`
   position: relative;
 `
 
-const StyledDataCard = styled(DataCard)<{ bgColor?: any; showBackground?: any }>`
+const StyledDataCard = styled(DataCard) <{ bgColor?: any; showBackground?: any }>`
   background: radial-gradient(76.02% 75.41% at 1.84% 0%, #1e1a31 0%, #3d51a5 100%);
   z-index: 2;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -177,8 +177,8 @@ const Manage: React.FC<ManageProps> = ({ version, stakingInfo, currencyA, curren
       </MainDataRow>
 
       {version === '1' &&
-      stakingInfo?.stakedAmount?.greaterThan(BIG_INT_ZERO) &&
-      poolMap.hasOwnProperty(pairAddress) ? (
+        stakingInfo?.stakedAmount?.greaterThan(BIG_INT_ZERO) &&
+        poolMap.hasOwnProperty(pairAddress) ? (
         <VoteCard>
           <CardBGImage />
           <CardNoise />

@@ -1,7 +1,7 @@
 import { splitSignature } from '@ethersproject/bytes'
 import { Contract } from '@ethersproject/contracts'
 import { TransactionResponse } from '@ethersproject/providers'
-import { Currency, currencyEquals, CAVAX, Percent, WAVAX } from '@0xkilo/wagmi'
+import { Currency, currencyEquals, CAVAX, Percent, WAVAX } from '@jb1011/wagmi'
 import React, { useCallback, useContext, useMemo, useState } from 'react'
 import { ArrowDown, Plus } from 'react-feather'
 import ReactGA from 'react-ga'
@@ -42,7 +42,7 @@ import { Field } from '../../state/burn/actions'
 import { useWalletModalToggle } from '../../state/application/hooks'
 import { useUserSlippageTolerance } from '../../state/user/hooks'
 import { BigNumber } from '@ethersproject/bignumber'
-import { ChainId } from '@0xkilo/wagmi'
+import { ChainId } from '@jb1011/wagmi'
 import { useTranslation } from 'react-i18next'
 
 export default function RemoveLiquidity({
@@ -86,8 +86,8 @@ export default function RemoveLiquidity({
     [Field.LIQUIDITY_PERCENT]: parsedAmounts[Field.LIQUIDITY_PERCENT].equalTo('0')
       ? '0'
       : parsedAmounts[Field.LIQUIDITY_PERCENT].lessThan(new Percent('1', '100'))
-      ? '<1'
-      : parsedAmounts[Field.LIQUIDITY_PERCENT].toFixed(0),
+        ? '<1'
+        : parsedAmounts[Field.LIQUIDITY_PERCENT].toFixed(0),
     [Field.LIQUIDITY]:
       independentField === Field.LIQUIDITY ? typedValue : parsedAmounts[Field.LIQUIDITY]?.toSignificant(6) ?? '',
     [Field.CURRENCY_A]:
@@ -434,9 +434,8 @@ export default function RemoveLiquidity({
   }
 
   // TODO: Translate using i18n
-  const pendingText = `Removing ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(6)} ${
-    currencyA?.symbol
-  } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(6)} ${currencyB?.symbol}`
+  const pendingText = `Removing ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(6)} ${currencyA?.symbol
+    } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(6)} ${currencyB?.symbol}`
 
   const liquidityPercentChangeCallback = useCallback(
     (value: number) => {
@@ -448,8 +447,8 @@ export default function RemoveLiquidity({
   const oneCurrencyIsAVAX = currencyA === CAVAX || currencyB === CAVAX
   const oneCurrencyIsWAVAX = Boolean(
     chainId &&
-      ((currencyA && currencyEquals(WAVAX[chainId], currencyA)) ||
-        (currencyB && currencyEquals(WAVAX[chainId], currencyB)))
+    ((currencyA && currencyEquals(WAVAX[chainId], currencyA)) ||
+      (currencyB && currencyEquals(WAVAX[chainId], currencyB)))
   )
 
   const handleSelectCurrencyA = useCallback(
@@ -582,17 +581,15 @@ export default function RemoveLiquidity({
                       <RowBetween style={{ justifyContent: 'flex-end' }}>
                         {oneCurrencyIsAVAX ? (
                           <StyledInternalLink
-                            to={`/remove/${currencyA === CAVAX ? WAVAX[chainId].address : currencyIdA}/${
-                              currencyB === CAVAX ? WAVAX[chainId].address : currencyIdB
-                            }`}
+                            to={`/remove/${currencyA === CAVAX ? WAVAX[chainId].address : currencyIdA}/${currencyB === CAVAX ? WAVAX[chainId].address : currencyIdB
+                              }`}
                           >
                             {t('removeLiquidity.receiveWavax')}
                           </StyledInternalLink>
                         ) : oneCurrencyIsWAVAX ? (
                           <StyledInternalLink
-                            to={`/remove/${
-                              currencyA && currencyEquals(currencyA, WAVAX[chainId]) ? 'AVAX' : currencyIdA
-                            }/${currencyB && currencyEquals(currencyB, WAVAX[chainId]) ? 'AVAX' : currencyIdB}`}
+                            to={`/remove/${currencyA && currencyEquals(currencyA, WAVAX[chainId]) ? 'AVAX' : currencyIdA
+                              }/${currencyB && currencyEquals(currencyB, WAVAX[chainId]) ? 'AVAX' : currencyIdB}`}
                           >
                             {t('removeLiquidity.receiveAvax')}
                           </StyledInternalLink>

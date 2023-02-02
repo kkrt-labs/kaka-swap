@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, currencyEquals, CAVAX, Token } from '@0xkilo/wagmi'
+import { Currency, CurrencyAmount, currencyEquals, CAVAX, Token } from '@jb1011/wagmi'
 import React, { CSSProperties, MutableRefObject, useCallback, useMemo } from 'react'
 import { FixedSizeList } from 'react-window'
 import { Text } from 'rebass'

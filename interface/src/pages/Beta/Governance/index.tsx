@@ -21,7 +21,7 @@ import DelegateModal from 'src/components/vote/DelegateModal'
 import { useTokenBalance } from 'src/state/wallet/hooks'
 import { useActiveWeb3React } from 'src/hooks'
 import { PNG, ZERO_ADDRESS } from 'src/constants'
-import { JSBI, TokenAmount, ChainId } from '@0xkilo/wagmi'
+import { JSBI, TokenAmount, ChainId } from '@jb1011/wagmi'
 import { shortenAddress, getEtherscanLink } from 'src/utils'
 import FormattedCurrencyAmount from 'src/components/FormattedCurrencyAmount'
 

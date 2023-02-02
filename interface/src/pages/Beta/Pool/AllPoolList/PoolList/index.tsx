@@ -6,7 +6,7 @@ import { DOUBLE_SIDE_STAKING_REWARDS_INFO } from 'src/state/stake/doubleSideConf
 import PoolCard from '../PoolCard'
 import Loader from 'src/components/Loader'
 import { useActiveWeb3React } from 'src/hooks'
-import { JSBI, Token } from '@0xkilo/wagmi'
+import { JSBI, Token } from '@jb1011/wagmi'
 import { useTranslation } from 'react-i18next'
 import { Search } from 'react-feather'
 import useDebounce from 'src/hooks/useDebounce'
@@ -91,7 +91,7 @@ const PoolList: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
 
   useEffect(() => {
     Promise.all(
-      stakingInfoData.sort(function(info_a, info_b) {
+      stakingInfoData.sort(function (info_a, info_b) {
         if (sortBy.field === SortingType.totalStakedInUsd) {
           if (sortBy.desc) {
             return info_a.totalStakedInUsd?.greaterThan(info_b.totalStakedInUsd ?? BIG_INT_ZERO) ? -1 : 1
@@ -153,11 +153,11 @@ const PoolList: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
     if (stakingInfos?.length > 0) {
       Promise.all(
         stakingInfos
-          .filter(function(info) {
+          .filter(function (info) {
             // Only include pools that are live or require a migration
             return !info.isPeriodFinished || info.stakedAmount.greaterThan(BIG_INT_ZERO)
           })
-          .sort(function(info_a, info_b) {
+          .sort(function (info_a, info_b) {
             // only first has ended
             if (info_a.isPeriodFinished && !info_b.isPeriodFinished) return 1
             // only second has ended
@@ -165,7 +165,7 @@ const PoolList: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
             // greater stake in avax comes first
             return info_a.totalStakedInUsd?.greaterThan(info_b.totalStakedInUsd ?? BIG_INT_ZERO) ? -1 : 1
           })
-          .sort(function(info_a, info_b) {
+          .sort(function (info_a, info_b) {
             // only the first is being staked, so we should bring the first up
             if (info_a.stakedAmount.greaterThan(BIG_INT_ZERO) && !info_b.stakedAmount.greaterThan(BIG_INT_ZERO))
               return -1

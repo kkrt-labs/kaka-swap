@@ -1,7 +1,7 @@
 {
-  "name": "@0xkilo/wagmi",
+  "name": "@jb1011/wagmi",
   "license": "MIT",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "description": "🛠 An SDK for building applications on top of Pangolin.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",

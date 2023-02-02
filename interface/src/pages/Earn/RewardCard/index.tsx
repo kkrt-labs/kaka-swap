@@ -1,7 +1,7 @@
 import React from 'react'
 import { AutoColumn } from '../../../components/Column'
 import styled from 'styled-components'
-import { JSBI, Currency, TokenAmount } from '@0xkilo/wagmi'
+import { JSBI, Currency, TokenAmount } from '@jb1011/wagmi'
 import { TYPE } from '../../../theme'
 import { RowBetween } from '../../../components/Row'
 import { DataCard, CardNoise, CardBGImage } from '../../../components/earn/styled'
@@ -11,7 +11,7 @@ import usePrevious from '../../../hooks/usePrevious'
 import { BIG_INT_ZERO } from '../../../constants'
 import { useTranslation } from 'react-i18next'
 
-const StyledBottomCard = styled(DataCard)<{ dim: any; isOverlay: boolean }>`
+const StyledBottomCard = styled(DataCard) <{ dim: any; isOverlay: boolean }>`
   background: ${({ theme }) => theme.bg3};
   opacity: ${({ dim }) => (dim ? 0.4 : 1)};
   margin-top: ${({ isOverlay }) => (isOverlay ? '-40px' : '-24px')};

@@ -1,5 +1,5 @@
 import React, { useContext, useCallback, useState } from 'react'
-import { Currency, CAVAX, TokenAmount } from '@0xkilo/wagmi'
+import { Currency, CAVAX, TokenAmount } from '@jb1011/wagmi'
 import { PageWrapper, InputText, StyledBalanceMax, ArrowWrapper, LightCard } from './styleds'
 import { useTranslation } from 'react-i18next'
 import { Box, Button, Text } from '@pangolindex/components'
@@ -15,7 +15,7 @@ import useTransactionDeadline from 'src/hooks/useTransactionDeadline'
 import { maxAmountSpend } from 'src/utils/maxAmountSpend'
 import { ApprovalState, useApproveCallback } from 'src/hooks/useApproveCallback'
 import { ROUTER_ADDRESS } from 'src/constants'
-import { ChainId } from '@0xkilo/wagmi'
+import { ChainId } from '@jb1011/wagmi'
 import { useTransactionAdder } from 'src/state/transactions/hooks'
 import { calculateGasMargin, calculateSlippageAmount, getRouterContract } from 'src/utils'
 import { TransactionResponse } from '@ethersproject/providers'
@@ -270,7 +270,7 @@ const AddLiquidity = ({ currencyA, currencyB, onComplete }: AddLiquidityProps) =
               expertMode ? onAdd() : setShowConfirm(true)
             }}
             isDisabled={!isValid || approvalA !== ApprovalState.APPROVED || approvalB !== ApprovalState.APPROVED}
-            //error={!isValid && !!parsedAmounts[Field.CURRENCY_A] && !!parsedAmounts[Field.CURRENCY_B]}
+          //error={!isValid && !!parsedAmounts[Field.CURRENCY_A] && !!parsedAmounts[Field.CURRENCY_B]}
           >
             {error ?? t('addLiquidity.supply')}
           </Button>

@@ -1,7 +1,7 @@
 import React, { useContext, useState, useCallback } from 'react'
 import { ArrowDown, AlertTriangle, ArrowUpCircle } from 'react-feather'
 import { useTranslation } from 'react-i18next'
-import { Token, Trade, TradeType, CAVAX } from '@0xkilo/wagmi'
+import { Token, Trade, TradeType, CAVAX } from '@jb1011/wagmi'
 import { CurrencyLogo, Text, Box, Button } from '@pangolindex/components'
 import { ThemeContext } from 'styled-components'
 import { getEtherscanLink } from 'src/utils'
@@ -92,8 +92,8 @@ const ConfirmLimitOrderDrawer: React.FC<Props> = props => {
     inputCurrency1 && inputCurrency1?.symbol === CAVAX.symbol
       ? CAVAX
       : inputTokenInfo && inputTokenInfo.symbol === CAVAX.symbol
-      ? CAVAX
-      : new Token(
+        ? CAVAX
+        : new Token(
           inputTokenInfo?.chainId,
           inputTokenInfo?.address,
           inputTokenInfo?.decimals,
@@ -105,16 +105,16 @@ const ConfirmLimitOrderDrawer: React.FC<Props> = props => {
     outputCurrency1 && outputCurrency1?.symbol === CAVAX.symbol
       ? CAVAX
       : outputTokenInfo && outputTokenInfo?.symbol === CAVAX.symbol
-      ? CAVAX
-      : outputTokenInfo
-      ? new Token(
-          outputTokenInfo?.chainId,
-          outputTokenInfo?.address,
-          outputTokenInfo?.decimals,
-          outputTokenInfo?.symbol,
-          outputTokenInfo?.name
-        )
-      : undefined
+        ? CAVAX
+        : outputTokenInfo
+          ? new Token(
+            outputTokenInfo?.chainId,
+            outputTokenInfo?.address,
+            outputTokenInfo?.decimals,
+            outputTokenInfo?.symbol,
+            outputTokenInfo?.name
+          )
+          : undefined
 
   const fiatValueInput = useUSDCPrice(inputCurrency)
   const fiatValueOutput = useUSDCPrice(outputCurrency)
@@ -122,9 +122,8 @@ const ConfirmLimitOrderDrawer: React.FC<Props> = props => {
   if (!inputAmount || !outputAmount) return null
 
   // text to show while loading
-  const pendingText = `${t('swapPage.submittingOrderToSwap')} ${trade?.inputAmount?.toSignificant(6)} ${
-    inputCurrency?.symbol
-  } ${t('swapPage.for')} ${trade?.outputAmount?.toSignificant(6)} ${outputCurrency?.symbol}`
+  const pendingText = `${t('swapPage.submittingOrderToSwap')} ${trade?.inputAmount?.toSignificant(6)} ${inputCurrency?.symbol
+    } ${t('swapPage.for')} ${trade?.outputAmount?.toSignificant(6)} ${outputCurrency?.symbol}`
 
   const ConfirmContent = (
     <Root>

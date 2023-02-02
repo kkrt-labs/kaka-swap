@@ -1,7 +1,7 @@
 import { Box, Button, Text, TextInput } from '@pangolindex/components'
 import React, { useState, useCallback } from 'react'
 import useTransactionDeadline from 'src/hooks/useTransactionDeadline'
-import { TokenAmount } from '@0xkilo/wagmi'
+import { TokenAmount } from '@jb1011/wagmi'
 import { useActiveWeb3React } from 'src/hooks'
 import { maxAmountSpend } from 'src/utils/maxAmountSpend'
 import { usePngContract, useStakingContract } from 'src/hooks/useContract'

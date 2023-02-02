@@ -8,7 +8,7 @@ import { TYPE, CloseIcon } from '../../theme'
 import { ButtonConfirmed, ButtonError } from '../Button'
 import ProgressCircles from '../ProgressSteps'
 import CurrencyInputPanel from '../CurrencyInputPanel'
-import { TokenAmount, Pair, ChainId } from '@0xkilo/wagmi'
+import { TokenAmount, Pair, ChainId } from '@jb1011/wagmi'
 import { useActiveWeb3React } from '../../hooks'
 import { maxAmountSpend } from '../../utils/maxAmountSpend'
 import { usePairContract, useStakingContract } from '../../hooks/useContract'
@@ -123,21 +123,21 @@ export default function StakingModal({
         const permitArgs =
           version < 2
             ? [
-                `0x${parsedAmount.raw.toString(16)}`,
-                signatureData.deadline,
-                signatureData.v,
-                signatureData.r,
-                signatureData.s
-              ]
+              `0x${parsedAmount.raw.toString(16)}`,
+              signatureData.deadline,
+              signatureData.v,
+              signatureData.r,
+              signatureData.s
+            ]
             : [
-                poolMap[stakingInfo.stakedAmount.token.address],
-                `0x${parsedAmount.raw.toString(16)}`,
-                account,
-                signatureData.deadline,
-                signatureData.v,
-                signatureData.r,
-                signatureData.s
-              ]
+              poolMap[stakingInfo.stakedAmount.token.address],
+              `0x${parsedAmount.raw.toString(16)}`,
+              account,
+              signatureData.deadline,
+              signatureData.v,
+              signatureData.r,
+              signatureData.s
+            ]
 
         stakingContract[permitMethod](...permitArgs)
           .then((response: TransactionResponse) => {

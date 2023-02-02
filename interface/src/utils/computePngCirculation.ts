@@ -1,4 +1,4 @@
-import { JSBI, Token, TokenAmount } from '@0xkilo/wagmi'
+import { JSBI, Token, TokenAmount } from '@jb1011/wagmi'
 import { BigNumber } from 'ethers'
 
 const TREASURY_VESTING_GENESIS = 1612899125

@@ -11,7 +11,7 @@ import { AutoRow, RowBetween } from '../../components/Row'
 import { CardSection, DataCard, CardNoise, CardBGImage } from '../../components/earn/styled'
 import Loader from '../../components/Loader'
 import { useActiveWeb3React } from '../../hooks'
-import { JSBI } from '@0xkilo/wagmi'
+import { JSBI } from '@jb1011/wagmi'
 import { useTranslation } from 'react-i18next'
 import { SearchInput } from '../../components/SearchModal/styleds'
 import useDebounce from '../../hooks/useDebounce'
@@ -130,7 +130,7 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
 
   useEffect(() => {
     console.log('loading farms...')
-    const sortedFarms = stakingInfoData.sort(function(info_a, info_b) {
+    const sortedFarms = stakingInfoData.sort(function (info_a, info_b) {
       if (sortBy.field === SortingType.totalStakedInUsd) {
         if (sortBy.desc) {
           return info_a.totalStakedInUsd?.greaterThan(info_b.totalStakedInUsd ?? BIG_INT_ZERO) ? -1 : 1
@@ -186,11 +186,11 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
     if (stakingInfos?.length > 0) {
       Promise.all(
         stakingInfos
-          .filter(function(info) {
+          .filter(function (info) {
             // Only include pools that are live or require a migration
             return !info.isPeriodFinished || info.stakedAmount.greaterThan(BIG_INT_ZERO)
           })
-          .sort(function(info_a, info_b) {
+          .sort(function (info_a, info_b) {
             // only first has ended
             if (info_a.isPeriodFinished && !info_b.isPeriodFinished) return 1
             // only second has ended
@@ -198,7 +198,7 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
             // greater stake in avax comes first
             return info_a.totalStakedInUsd?.greaterThan(info_b.totalStakedInUsd ?? BIG_INT_ZERO) ? -1 : 1
           })
-          .sort(function(info_a, info_b) {
+          .sort(function (info_a, info_b) {
             // only the first is being staked, so we should bring the first up
             if (info_a.stakedAmount.greaterThan(BIG_INT_ZERO) && !info_b.stakedAmount.greaterThan(BIG_INT_ZERO))
               return -1

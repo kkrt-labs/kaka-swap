@@ -13,7 +13,7 @@ import { useCurrency } from '../../hooks/Tokens'
 import useTransactionDeadline from '../../hooks/useTransactionDeadline'
 import { useIsExpertMode, useUserSlippageTolerance } from '../../state/user/hooks'
 import { Field } from '../../state/mint/actions'
-import { CAVAX, ChainId, Currency, TokenAmount } from '@0xkilo/wagmi'
+import { CAVAX, ChainId, Currency, TokenAmount } from '@jb1011/wagmi'
 import { ApprovalState, useApproveCallback } from '../../hooks/useApproveCallback'
 import { ROUTER_ADDRESS } from '../../constants'
 import { calculateGasMargin, calculateSlippageAmount, getRouterContract } from '../../utils'
@@ -252,9 +252,8 @@ export default function AddLiquidityModal({ isOpen, onDismiss, currencyIdA: _cur
     )
   }
 
-  const pendingText = `Supplying ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(6)} ${
-    currencies[Field.CURRENCY_A]?.symbol
-  } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(6)} ${currencies[Field.CURRENCY_B]?.symbol}`
+  const pendingText = `Supplying ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(6)} ${currencies[Field.CURRENCY_A]?.symbol
+    } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(6)} ${currencies[Field.CURRENCY_B]?.symbol}`
 
   const handleCurrencyASelect = useCallback(
     (currencyA: Currency) => {
@@ -392,36 +391,36 @@ export default function AddLiquidityModal({ isOpen, onDismiss, currencyIdA: _cur
                 approvalA === ApprovalState.PENDING ||
                 approvalB === ApprovalState.NOT_APPROVED ||
                 approvalB === ApprovalState.PENDING) &&
-              isValid && (
-                <RowBetween>
-                  {approvalA !== ApprovalState.APPROVED && (
-                    <ButtonPrimary
-                      onClick={approveACallback}
-                      disabled={approvalA === ApprovalState.PENDING}
-                      width={approvalB !== ApprovalState.APPROVED ? '48%' : '100%'}
-                    >
-                      {approvalA === ApprovalState.PENDING ? (
-                        <Dots>Approving {currencies[Field.CURRENCY_A]?.symbol}</Dots>
-                      ) : (
-                        t('addLiquidity.approve') + currencies[Field.CURRENCY_A]?.symbol
-                      )}
-                    </ButtonPrimary>
-                  )}
-                  {approvalB !== ApprovalState.APPROVED && (
-                    <ButtonPrimary
-                      onClick={approveBCallback}
-                      disabled={approvalB === ApprovalState.PENDING}
-                      width={approvalA !== ApprovalState.APPROVED ? '48%' : '100%'}
-                    >
-                      {approvalB === ApprovalState.PENDING ? (
-                        <Dots>Approving {currencies[Field.CURRENCY_B]?.symbol}</Dots>
-                      ) : (
-                        t('addLiquidity.approve') + currencies[Field.CURRENCY_B]?.symbol
-                      )}
-                    </ButtonPrimary>
-                  )}
-                </RowBetween>
-              )}
+                isValid && (
+                  <RowBetween>
+                    {approvalA !== ApprovalState.APPROVED && (
+                      <ButtonPrimary
+                        onClick={approveACallback}
+                        disabled={approvalA === ApprovalState.PENDING}
+                        width={approvalB !== ApprovalState.APPROVED ? '48%' : '100%'}
+                      >
+                        {approvalA === ApprovalState.PENDING ? (
+                          <Dots>Approving {currencies[Field.CURRENCY_A]?.symbol}</Dots>
+                        ) : (
+                          t('addLiquidity.approve') + currencies[Field.CURRENCY_A]?.symbol
+                        )}
+                      </ButtonPrimary>
+                    )}
+                    {approvalB !== ApprovalState.APPROVED && (
+                      <ButtonPrimary
+                        onClick={approveBCallback}
+                        disabled={approvalB === ApprovalState.PENDING}
+                        width={approvalA !== ApprovalState.APPROVED ? '48%' : '100%'}
+                      >
+                        {approvalB === ApprovalState.PENDING ? (
+                          <Dots>Approving {currencies[Field.CURRENCY_B]?.symbol}</Dots>
+                        ) : (
+                          t('addLiquidity.approve') + currencies[Field.CURRENCY_B]?.symbol
+                        )}
+                      </ButtonPrimary>
+                    )}
+                  </RowBetween>
+                )}
               <ButtonError
                 onClick={() => {
                   expertMode ? onAdd() : setShowConfirm(true)

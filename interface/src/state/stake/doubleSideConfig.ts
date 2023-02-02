@@ -1,4 +1,4 @@
-import { ChainId, WAVAX } from '@0xkilo/wagmi'
+import { ChainId, WAVAX } from '@jb1011/wagmi'
 import {
   OG,
   MINICHEF_ADDRESS

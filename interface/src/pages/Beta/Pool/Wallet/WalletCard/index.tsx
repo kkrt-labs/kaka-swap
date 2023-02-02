@@ -1,5 +1,5 @@
 import React from 'react'
-import { Pair } from '@0xkilo/wagmi'
+import { Pair } from '@jb1011/wagmi'
 import { Panel, Divider, ActionButon, InnerWrapper, DetailButton } from './styleds'
 import Stat from 'src/components/Stat'
 import { Text, Box, DoubleCurrencyLogo } from '@pangolindex/components'

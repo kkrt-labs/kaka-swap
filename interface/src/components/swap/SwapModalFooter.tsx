@@ -1,4 +1,4 @@
-import { Trade, TradeType } from '@0xkilo/wagmi'
+import { Trade, TradeType } from '@jb1011/wagmi'
 import React, { useContext, useMemo, useState } from 'react'
 import { Repeat } from 'react-feather'
 import { Text } from 'rebass'

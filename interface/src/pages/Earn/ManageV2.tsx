@@ -8,7 +8,7 @@ import { useCurrency, useTokens } from '../../hooks/Tokens'
 import { useActiveWeb3React } from '../../hooks'
 import { useSingleContractMultipleData } from '../../state/multicall/hooks'
 import { useRewardViaMultiplierContract } from '../../hooks/useContract'
-import { JSBI, Token, TokenAmount } from '@0xkilo/wagmi'
+import { JSBI, Token, TokenAmount } from '@jb1011/wagmi'
 
 const ManageV2: React.FC<RouteComponentProps<{ currencyIdA: string; currencyIdB: string }>> = ({
   match: {

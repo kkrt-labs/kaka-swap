@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { AlertTriangle, ArrowUpCircle } from 'react-feather'
 import { useTranslation } from 'react-i18next'
-import { Currency, CurrencyAmount, Fraction, Percent, TokenAmount } from '@0xkilo/wagmi'
+import { Currency, CurrencyAmount, Fraction, Percent, TokenAmount } from '@jb1011/wagmi'
 import { CurrencyLogo, DoubleCurrencyLogo, Text, Box, Button } from '@pangolindex/components'
 import { ThemeContext } from 'styled-components'
 import { getEtherscanLink } from 'src/utils'
@@ -54,16 +54,15 @@ const ConfirmSwapDrawer: React.FC<Props> = props => {
     parsedAmounts,
     poolTokenPercentage,
     onAdd,
-    onComplete = () => {}
+    onComplete = () => { }
   } = props
 
   const { chainId } = useActiveWeb3React()
   const theme = useContext(ThemeContext)
   const { t } = useTranslation()
 
-  const pendingText = `Supplying ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(6)} ${
-    currencies[Field.CURRENCY_A]?.symbol
-  } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(6)} ${currencies[Field.CURRENCY_B]?.symbol}`
+  const pendingText = `Supplying ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(6)} ${currencies[Field.CURRENCY_A]?.symbol
+    } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(6)} ${currencies[Field.CURRENCY_B]?.symbol}`
 
   const ConfirmContent = (
     <Root>
@@ -134,15 +133,13 @@ const ConfirmSwapDrawer: React.FC<Props> = props => {
             </Text>
             <Box>
               <Text fontSize="14px" color="text1" ml="10px">
-                {`1 ${currencies[Field.CURRENCY_A]?.symbol} = ${price?.toSignificant(4)} ${
-                  currencies[Field.CURRENCY_B]?.symbol
-                }`}
+                {`1 ${currencies[Field.CURRENCY_A]?.symbol} = ${price?.toSignificant(4)} ${currencies[Field.CURRENCY_B]?.symbol
+                  }`}
               </Text>
 
               <Text fontSize="14px" color="text1" ml="10px">
-                {`1 ${currencies[Field.CURRENCY_B]?.symbol} = ${price?.invert().toSignificant(4)} ${
-                  currencies[Field.CURRENCY_A]?.symbol
-                }`}
+                {`1 ${currencies[Field.CURRENCY_B]?.symbol} = ${price?.invert().toSignificant(4)} ${currencies[Field.CURRENCY_A]?.symbol
+                  }`}
               </Text>
             </Box>
           </Box>

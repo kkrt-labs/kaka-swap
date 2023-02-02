@@ -6,7 +6,7 @@ import { Wrapper } from './styleds'
 import Modal from 'src/components/Beta/Modal'
 import { ThemeContext } from 'styled-components'
 import RemoveLiquidity from '../RemoveLiquidity'
-import { Token } from '@0xkilo/wagmi'
+import { Token } from '@jb1011/wagmi'
 import { CloseIcon } from 'src/theme/components'
 import { unwrappedToken } from 'src/utils/wrappedCurrency'
 

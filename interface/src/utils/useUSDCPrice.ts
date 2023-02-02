@@ -1,6 +1,6 @@
 // TODO: Actually calculate price
 
-import { ChainId, Currency, currencyEquals, JSBI, Price, WAVAX } from '@0xkilo/wagmi'
+import { ChainId, Currency, currencyEquals, JSBI, Price, WAVAX } from '@jb1011/wagmi'
 import { useMemo } from 'react'
 import { USDCe } from '../constants'
 import { PairState, usePairs } from '../data/Reserves'
