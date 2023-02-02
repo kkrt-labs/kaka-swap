@@ -1,5 +1,5 @@
 import React from 'react'
-import { Price } from '@0xkilo/wagmi'
+import { Price } from '@jb1011/wagmi'
 import { useContext } from 'react'
 import { Repeat } from 'react-feather'
 import { Text } from 'rebass'

@@ -1,4 +1,4 @@
-import { ChainId } from '@0xkilo/wagmi'
+import { ChainId } from '@jb1011/wagmi'
 import React, { useContext } from 'react'
 import styled, { ThemeContext } from 'styled-components'
 import Modal from '../Modal'

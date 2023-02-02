@@ -1,4 +1,4 @@
-import { Currency, CAVAX, Token } from '@0xkilo/wagmi'
+import { Currency, CAVAX, Token } from '@jb1011/wagmi'
 
 export function currencyId(currency: Currency): string {
   if (currency === CAVAX) return 'AVAX'

@@ -1,4 +1,4 @@
-import { Currency, CAVAX, Token } from '@0xkilo/wagmi'
+import { Currency, CAVAX, Token } from '@jb1011/wagmi'
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
 
@@ -17,7 +17,7 @@ export const StyledEthereumLogo = styled.img<{ size: string }>`
   border-radius: 24px;
 `
 
-const StyledLogo = styled(Logo)<{ size: string }>`
+const StyledLogo = styled(Logo) <{ size: string }>`
   width: ${({ size }) => size};
   height: ${({ size }) => size};
   border-radius: ${({ size }) => size};

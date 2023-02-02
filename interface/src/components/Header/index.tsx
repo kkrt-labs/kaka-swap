@@ -1,4 +1,4 @@
-import { ChainId, TokenAmount } from '@0xkilo/wagmi'
+import { ChainId, TokenAmount } from '@jb1011/wagmi'
 import React, { useState, useRef } from 'react'
 import { Text } from 'rebass'
 import { NavLink } from 'react-router-dom'
@@ -246,7 +246,7 @@ const StyledLink = styled.div<{ isActive: boolean }>`
 
 const StyledExternalLink = styled(ExternalLink).attrs({
   activeClassName
-})<{ isActive?: boolean }>`
+}) <{ isActive?: boolean }>`
   ${({ theme }) => theme.flexRowNoWrap}
   align-items: left;
   border-radius: 3rem;

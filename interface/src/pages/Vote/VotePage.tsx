@@ -13,7 +13,7 @@ import { useProposalData, useUserVotes, useUserDelegatee, ProposalData } from '.
 import { DateTime } from 'luxon'
 import ReactMarkdown from 'react-markdown'
 import VoteModal from '../../components/vote/VoteModal'
-import { TokenAmount, JSBI } from '@0xkilo/wagmi'
+import { TokenAmount, JSBI } from '@jb1011/wagmi'
 import { useTokenBalance } from '../../state/wallet/hooks'
 import { useActiveWeb3React } from '../../hooks'
 import { PNG, ZERO_ADDRESS } from '../../constants'
@@ -163,8 +163,8 @@ export default function VotePage({
               {startDate && startDate <= now
                 ? t('votePage.votingStarted') + (startDate && startDate.toLocaleString(DateTime.DATETIME_FULL))
                 : proposalData
-                ? t('votePage.votingStarts') + (startDate && startDate.toLocaleString(DateTime.DATETIME_FULL))
-                : ''}
+                  ? t('votePage.votingStarts') + (startDate && startDate.toLocaleString(DateTime.DATETIME_FULL))
+                  : ''}
             </TYPE.main>
           </RowBetween>
           <RowBetween>
@@ -172,18 +172,18 @@ export default function VotePage({
               {endDate && endDate < now
                 ? t('votePage.votingEnded') + (endDate && endDate.toLocaleString(DateTime.DATETIME_FULL))
                 : proposalData
-                ? t('votePage.votingEnds') + (endDate && endDate.toLocaleString(DateTime.DATETIME_FULL))
-                : ''}
+                  ? t('votePage.votingEnds') + (endDate && endDate.toLocaleString(DateTime.DATETIME_FULL))
+                  : ''}
             </TYPE.main>
           </RowBetween>
         </AutoColumn>
         {!showUnlockVoting &&
-        availableVotes &&
-        JSBI.greaterThan(availableVotes?.raw, JSBI.BigInt(0)) &&
-        endDate &&
-        endDate > now &&
-        startDate &&
-        startDate <= now ? (
+          availableVotes &&
+          JSBI.greaterThan(availableVotes?.raw, JSBI.BigInt(0)) &&
+          endDate &&
+          endDate > now &&
+          startDate &&
+          startDate <= now ? (
           <RowFixed style={{ width: '100%', gap: '12px' }}>
             <ButtonPrimary
               padding="8px"

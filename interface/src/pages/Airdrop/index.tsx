@@ -15,7 +15,7 @@ import { useActiveWeb3React } from '../../hooks'
 import Confetti from '../../components/Confetti'
 import { useTokenBalance } from '../../state/wallet/hooks'
 import { UNI, SUSHI } from '../../constants'
-import { ChainId, JSBI } from '@0xkilo/wagmi'
+import { ChainId, JSBI } from '@jb1011/wagmi'
 import { useTranslation } from 'react-i18next'
 
 const PageWrapper = styled(AutoColumn)``

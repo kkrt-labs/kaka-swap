@@ -1,4 +1,4 @@
-import { Percent } from '@0xkilo/wagmi'
+import { Percent } from '@jb1011/wagmi'
 import React from 'react'
 import { ONE_BIPS } from '../../constants'
 import { warningSeverity } from '../../utils/prices'

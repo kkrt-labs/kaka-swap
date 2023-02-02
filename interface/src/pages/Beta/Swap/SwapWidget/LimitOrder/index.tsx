@@ -2,7 +2,7 @@ import React, { useState, useContext, useCallback, useEffect } from 'react'
 import { useGelatoLimitOrders } from '@gelatonetwork/limit-orders-react'
 import { RefreshCcw, Divide, X } from 'react-feather'
 import { Text, Box, Button, ToggleButtons } from '@pangolindex/components'
-import { Token, Trade, JSBI, CurrencyAmount, TokenAmount, CAVAX } from '@0xkilo/wagmi'
+import { Token, Trade, JSBI, CurrencyAmount, TokenAmount, CAVAX } from '@jb1011/wagmi'
 import { ThemeContext } from 'styled-components'
 import SelectTokenDrawer from '../../SelectTokenDrawer'
 import ConfirmLimitOrderDrawer from '../../ConfirmLimitOrderDrawer'
@@ -81,31 +81,31 @@ const LimitOrder: React.FC<Props> = ({ swapType, setSwapType }) => {
     gelatoInputCurrency && gelatoInputCurrency?.symbol === CAVAX.symbol
       ? CAVAX
       : inputTokenInfo && inputTokenInfo.symbol === CAVAX.symbol
-      ? CAVAX
-      : inputTokenInfo
-      ? new Token(
-          inputTokenInfo?.chainId,
-          inputTokenInfo?.address,
-          inputTokenInfo?.decimals,
-          inputTokenInfo?.symbol,
-          inputTokenInfo?.name
-        )
-      : undefined
+        ? CAVAX
+        : inputTokenInfo
+          ? new Token(
+            inputTokenInfo?.chainId,
+            inputTokenInfo?.address,
+            inputTokenInfo?.decimals,
+            inputTokenInfo?.symbol,
+            inputTokenInfo?.name
+          )
+          : undefined
 
   const outputCurrency =
     gelatoOutputCurrency && gelatoOutputCurrency?.symbol === CAVAX.symbol
       ? CAVAX
       : outputTokenInfo && outputTokenInfo?.symbol === CAVAX.symbol
-      ? CAVAX
-      : outputTokenInfo
-      ? new Token(
-          outputTokenInfo?.chainId,
-          outputTokenInfo?.address,
-          outputTokenInfo?.decimals,
-          outputTokenInfo?.symbol,
-          outputTokenInfo?.name
-        )
-      : undefined
+        ? CAVAX
+        : outputTokenInfo
+          ? new Token(
+            outputTokenInfo?.chainId,
+            outputTokenInfo?.address,
+            outputTokenInfo?.decimals,
+            outputTokenInfo?.symbol,
+            outputTokenInfo?.name
+          )
+          : undefined
 
   const handleActiveTab = (tab: 'SELL' | 'BUY') => {
     if (activeTab === tab) return
@@ -341,7 +341,7 @@ const LimitOrder: React.FC<Props> = ({ swapType, setSwapType }) => {
             }}
             id="swap-button"
             isDisabled={!isValid || approval !== ApprovalState.APPROVED}
-            //error={isValid}
+          //error={isValid}
           >
             {t('swapPage.placeOrder')}
           </Button>

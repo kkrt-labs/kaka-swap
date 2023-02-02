@@ -4,7 +4,7 @@ import { ArrowLeft } from 'react-feather'
 import { DateTime } from 'luxon'
 import ReactMarkdown from 'react-markdown'
 import { useTranslation } from 'react-i18next'
-import { TokenAmount, JSBI } from '@0xkilo/wagmi'
+import { TokenAmount, JSBI } from '@jb1011/wagmi'
 import { Text } from '@pangolindex/components'
 
 import {
@@ -102,12 +102,12 @@ export default function GovernanceDetail() {
           </Text>
         </AutoColumn>
         {!showUnlockVoting &&
-        availableVotes &&
-        JSBI.greaterThan(availableVotes?.raw, JSBI.BigInt(0)) &&
-        endDate &&
-        endDate > now &&
-        startDate &&
-        startDate <= now ? (
+          availableVotes &&
+          JSBI.greaterThan(availableVotes?.raw, JSBI.BigInt(0)) &&
+          endDate &&
+          endDate > now &&
+          startDate &&
+          startDate <= now ? (
           <RowFixed style={{ width: '100%', gap: '12px' }}>
             <ButtonPrimary
               padding="8px"

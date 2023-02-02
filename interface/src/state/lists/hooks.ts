@@ -1,10 +1,10 @@
-import { ChainId, Token } from '@0xkilo/wagmi'
+import { ChainId, Token } from '@jb1011/wagmi'
 import { Tags, TokenInfo, TokenList } from '@pangolindex/token-lists'
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { AppState } from '../index'
 import { AEB_TOKENLIST } from '../../constants/lists'
-import { WAVAX } from '@0xkilo/wagmi'
+import { WAVAX } from '@jb1011/wagmi'
 import { PNG } from '../../constants'
 
 type TagDetails = Tags[keyof Tags]
@@ -76,7 +76,7 @@ export function useTokenList(urls: string[] | undefined): TokenAddressMap {
 
   let tokenList = {} as { [chainId: string]: { [tokenAddress: string]: WrappedTokenInfo } }
   return useMemo(() => {
-    ;([] as string[]).concat(urls || []).forEach(url => {
+    ; ([] as string[]).concat(urls || []).forEach(url => {
       const current = lists[url]?.current
       if (url && current) {
         try {

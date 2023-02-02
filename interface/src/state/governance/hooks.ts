@@ -1,5 +1,5 @@
 import { UNI } from './../../constants/index'
-import { TokenAmount } from '@0xkilo/wagmi'
+import { TokenAmount } from '@jb1011/wagmi'
 import { isAddress } from 'ethers/lib/utils'
 import { useGovernanceContract, usePngContract } from '../../hooks/useContract'
 import { useSingleCallResult, useSingleContractMultipleData } from '../multicall/hooks'

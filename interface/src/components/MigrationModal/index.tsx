@@ -4,7 +4,7 @@ import { useModalOpen, useMigrationModalToggle } from '../../state/application/h
 import { Wrapper } from './styleds'
 import Modal from '../Modal'
 import StepView from './StepView'
-import { Pair } from '@0xkilo/wagmi'
+import { Pair } from '@jb1011/wagmi'
 import { StakingInfo } from '../../state/stake/hooks'
 import { ThemeContext } from 'styled-components'
 

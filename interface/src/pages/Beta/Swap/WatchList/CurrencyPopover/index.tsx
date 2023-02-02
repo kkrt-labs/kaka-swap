@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { Box, TextInput } from '@pangolindex/components'
 import { useToken } from 'src/hooks/Tokens'
 import { useTokenComparator } from 'src/components/SearchModal/sorting'
-import { Currency, Token, CAVAX } from '@0xkilo/wagmi'
+import { Currency, Token, CAVAX } from '@jb1011/wagmi'
 import { filterTokens } from 'src/components/SearchModal/filtering'
 import { AddInputWrapper, PopoverContainer, CurrencyList } from './styled'
 import CurrencyRow from './CurrencyRow'
@@ -25,7 +25,7 @@ const currencyKey = (currency: Currency): string => {
   return currency instanceof Token ? currency.address : currency === CAVAX ? 'AVAX' : ''
 }
 
-const CurrencyPopover: React.FC<Props> = ({ getRef = () => {}, coins, isOpen, onSelectCurrency }) => {
+const CurrencyPopover: React.FC<Props> = ({ getRef = () => { }, coins, isOpen, onSelectCurrency }) => {
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [invertSearchOrder] = useState<boolean>(false)
 

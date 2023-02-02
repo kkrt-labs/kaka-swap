@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, Box } from '@pangolindex/components'
-import { Currency, TokenAmount } from '@0xkilo/wagmi'
+import { Currency, TokenAmount } from '@jb1011/wagmi'
 import { StateContainer } from './styleds'
 import numeral from 'numeral'
 import Stat from 'src/components/Stat'

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Pair, Token } from '@0xkilo/wagmi'
+import { Pair, Token } from '@jb1011/wagmi'
 import { createChart, CrosshairMode, IChartApi, ISeriesApi } from 'lightweight-charts'
 import { useMeasure } from 'react-use'
 import { useDarkModeManager } from 'src/state/user/hooks'
@@ -46,8 +46,8 @@ const PairChart: React.FC<Props> = ({ pair, tokenA, tokenB }) => {
     pairTokensChartData && pair?.token0 === tokenB
       ? pairTokensChartData[0]
       : pairTokensChartData
-      ? pairTokensChartData[1]
-      : []
+        ? pairTokensChartData[1]
+        : []
 
   const formattedData = (chartData || []).length > 0 ? chartData : chartData1
 

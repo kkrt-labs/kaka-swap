@@ -1,5 +1,5 @@
 import React from 'react'
-import { Currency, Percent, Price, CurrencyAmount } from '@0xkilo/wagmi'
+import { Currency, Percent, Price, CurrencyAmount } from '@jb1011/wagmi'
 import { Box } from '@pangolindex/components'
 import Stat from 'src/components/Stat'
 import { Root, GridContainer } from './styled'
@@ -41,11 +41,10 @@ const PoolPriceBar = ({ currencies, noLiquidity, poolTokenPercentage, price, par
         <Box>
           <Stat
             title={`${t('addLiquidity.shareOfPool')}`}
-            stat={`${
-              noLiquidity && price
+            stat={`${noLiquidity && price
                 ? '100'
                 : (poolTokenPercentage?.lessThan(ONE_BIPS) ? '<0.01' : poolTokenPercentage?.toFixed(2)) ?? '0'
-            }
+              }
             %`}
             titlePosition="top"
             titleFontSize={14}

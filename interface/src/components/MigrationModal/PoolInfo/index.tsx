@@ -1,7 +1,7 @@
 import React from 'react'
 import { InfoWrapper, DataBox, ContentBox, TextBox, StyledBalanceMax } from './styleds'
 import { Text, Box, DoubleCurrencyLogo, Steps, Step } from '@pangolindex/components'
-import { Pair, TokenAmount } from '@0xkilo/wagmi'
+import { Pair, TokenAmount } from '@jb1011/wagmi'
 import { useGetPairDataFromPair } from '../../../state/stake/hooks'
 import numeral from 'numeral'
 import { useTranslation } from 'react-i18next'
@@ -10,7 +10,7 @@ import { useTokenBalance } from '../../../state/wallet/hooks'
 import { useActiveWeb3React } from '../../../hooks'
 import { wrappedCurrencyAmount } from '../../../utils/wrappedCurrency'
 import { tryParseAmount } from '../../../state/swap/hooks'
-import { JSBI } from '@0xkilo/wagmi'
+import { JSBI } from '@jb1011/wagmi'
 
 export interface PoolInfoProps {
   pair: Pair
@@ -71,7 +71,7 @@ const PoolInfo = ({
   const parsedAmountWrapped = wrappedCurrencyAmount(parsedAmount, chainId)
 
   const poolOwnership = getHypotheticalPoolOwnership(
-  parsedAmountWrapped ? stakingInfo?.stakedAmount.add(parsedAmountWrapped).raw : stakingInfo?.stakedAmount.raw,
+    parsedAmountWrapped ? stakingInfo?.stakedAmount.add(parsedAmountWrapped).raw : stakingInfo?.stakedAmount.raw,
     parsedAmountWrapped ? totalPoolTokens?.add(parsedAmountWrapped).raw : totalPoolTokens?.raw
   )
 

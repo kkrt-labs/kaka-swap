@@ -1,5 +1,5 @@
 import { isAddress } from '../../utils'
-import { Token } from '@0xkilo/wagmi'
+import { Token } from '@jb1011/wagmi'
 
 export function filterTokens(tokens: Token[], search: string): Token[] {
   if (search.length === 0) return tokens

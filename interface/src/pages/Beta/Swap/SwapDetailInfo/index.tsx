@@ -1,5 +1,5 @@
 import { Text } from '@pangolindex/components'
-import { Trade, TradeType } from '@0xkilo/wagmi'
+import { Trade, TradeType } from '@jb1011/wagmi'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { INITIAL_ALLOWED_SLIPPAGE, ONE_BIPS } from 'src/constants'

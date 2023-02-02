@@ -7,7 +7,7 @@ import { unwrappedToken } from 'src/utils/wrappedCurrency'
 import Modal from 'src/components/Beta/Modal'
 import { ThemeContext } from 'styled-components'
 import AddLiquidity from '../EarnWidget/AddLiquidity'
-import { Token } from '@0xkilo/wagmi'
+import { Token } from '@jb1011/wagmi'
 import { CloseIcon } from 'src/theme/components'
 import { useTranslation } from 'react-i18next'
 

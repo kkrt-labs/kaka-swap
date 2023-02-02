@@ -8,7 +8,7 @@ import { TYPE, CloseIcon } from '../../theme'
 import { ButtonConfirmed, ButtonError } from '../Button'
 import ProgressCircles from '../ProgressSteps'
 import CurrencyInputPanel from '../CurrencyInputPanel'
-import { TokenAmount } from '@0xkilo/wagmi'
+import { TokenAmount } from '@jb1011/wagmi'
 import { useActiveWeb3React } from '../../hooks'
 import { maxAmountSpend } from '../../utils/maxAmountSpend'
 import { usePngContract, useStakingContract } from '../../hooks/useContract'
@@ -84,17 +84,17 @@ export default function StakingModalSingleSide({ isOpen, onDismiss, stakingInfo,
     if (stakingContract && parsedAmount && deadline) {
       if (approval === ApprovalState.APPROVED) {
         stakingContract
-	        .stake(`0x${parsedAmount.raw.toString(16)}`)
-	        .then((response: TransactionResponse) => {
-		        addTransaction(response, {
-			        summary: t('earnPage.stakeStakingTokens', { symbol: 'PNG' })
-		        })
-		        setHash(response.hash)
-	        })
-	        .catch((error: any) => {
-		        setAttempting(false)
-		        console.error(error)
-	        })
+          .stake(`0x${parsedAmount.raw.toString(16)}`)
+          .then((response: TransactionResponse) => {
+            addTransaction(response, {
+              summary: t('earnPage.stakeStakingTokens', { symbol: 'PNG' })
+            })
+            setHash(response.hash)
+          })
+          .catch((error: any) => {
+            setAttempting(false)
+            console.error(error)
+          })
       } else if (signatureData) {
         stakingContract
           .stakeWithPermit(
@@ -106,7 +106,7 @@ export default function StakingModalSingleSide({ isOpen, onDismiss, stakingInfo,
           )
           .then((response: TransactionResponse) => {
             addTransaction(response, {
-	            summary: t('earnPage.stakeStakingTokens', { symbol: 'PNG' })
+              summary: t('earnPage.stakeStakingTokens', { symbol: 'PNG' })
             })
             setHash(response.hash)
           })
@@ -142,16 +142,16 @@ export default function StakingModalSingleSide({ isOpen, onDismiss, stakingInfo,
     // try to gather a signature for permission
     const nonce = await stakingTokenContract.nonces(account)
 
-	  const EIP712Domain = [
-		  { name: 'name', type: 'string' },
-		  { name: 'chainId', type: 'uint256' },
-		  { name: 'verifyingContract', type: 'address' }
-	  ]
-	  const domain = {
-		  name: 'Pangolin',
-		  chainId: chainId,
-		  verifyingContract: stakingTokenContract.address
-	  }
+    const EIP712Domain = [
+      { name: 'name', type: 'string' },
+      { name: 'chainId', type: 'uint256' },
+      { name: 'verifyingContract', type: 'address' }
+    ]
+    const domain = {
+      name: 'Pangolin',
+      chainId: chainId,
+      verifyingContract: stakingTokenContract.address
+    }
     const Permit = [
       { name: 'owner', type: 'address' },
       { name: 'spender', type: 'address' },

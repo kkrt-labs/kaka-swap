@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 import ChoosePool from '../ChoosePool'
 import Unstake from '../Unstake'
 import Stake from '../Stake'
-import { Pair } from '@0xkilo/wagmi'
+import { Pair } from '@jb1011/wagmi'
 import { useGetMigrationData } from '../../../state/migrate/hooks'
 import { StakingInfo } from '../../../state/stake/hooks'
 import { AutoColumn } from '../../Column'
@@ -115,9 +115,9 @@ const StepView = ({ selectedPool, version, onDismiss }: StepProps) => {
           <Text color="text1" fontSize={32}>
             {currentStep > 0 && allChoosePoolLength > 1
               ? t('migratePage.migrateModalHeading', {
-                  current: choosePoolIndex + 1,
-                  total: allChoosePoolLength
-                })
+                current: choosePoolIndex + 1,
+                total: allChoosePoolLength
+              })
               : t('migratePage.migrate')}
           </Text>
 

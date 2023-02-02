@@ -15,7 +15,7 @@ import { useCurrency } from '../../hooks/Tokens'
 import useTransactionDeadline from '../../hooks/useTransactionDeadline'
 import { useUserSlippageTolerance } from '../../state/user/hooks'
 import { Field } from '../../state/burn/actions'
-import { CAVAX, ChainId, currencyEquals, Percent, WAVAX } from '@0xkilo/wagmi'
+import { CAVAX, ChainId, currencyEquals, Percent, WAVAX } from '@jb1011/wagmi'
 import { Contract } from '@ethersproject/contracts'
 import { ApprovalState, useApproveCallback } from '../../hooks/useApproveCallback'
 import { ROUTER_ADDRESS } from '../../constants'
@@ -379,7 +379,7 @@ export default function RemoveLiquidityModal({ isOpen, onDismiss, currencyIdA: _
         <TYPE.italic fontSize={12} color={theme.text2} textAlign="left" padding={'12px 0 0 0'}>
           {/*TODO: Translate using i18n*/}
           {`Output is estimated. If the price changes by more than ${allowedSlippage /
-          100}% your transaction will revert.`}
+            100}% your transaction will revert.`}
         </TYPE.italic>
       </AutoColumn>
     )
@@ -430,9 +430,8 @@ export default function RemoveLiquidityModal({ isOpen, onDismiss, currencyIdA: _
 
 
   // TODO: Translate using i18n
-  const pendingText = `Removing ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(6)} ${
-    currencyA?.symbol
-  } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(6)} ${currencyB?.symbol}`
+  const pendingText = `Removing ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(6)} ${currencyA?.symbol
+    } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(6)} ${currencyB?.symbol}`
 
   const liquidityPercentChangeCallback = useCallback(
     (value: number) => {

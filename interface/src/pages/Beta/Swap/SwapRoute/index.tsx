@@ -1,5 +1,5 @@
 import { CurrencyLogo, Text, Box } from '@pangolindex/components'
-import { Trade } from '@0xkilo/wagmi'
+import { Trade } from '@jb1011/wagmi'
 import React, { useContext } from 'react'
 import { ChevronRight } from 'react-feather'
 import { ThemeContext } from 'styled-components'

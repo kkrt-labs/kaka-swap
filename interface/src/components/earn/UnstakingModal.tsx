@@ -13,7 +13,7 @@ import { useTransactionAdder } from '../../state/transactions/hooks'
 import FormattedCurrencyAmount from '../FormattedCurrencyAmount'
 import { useActiveWeb3React } from '../../hooks'
 import { useTranslation } from 'react-i18next'
-import { TokenAmount } from '@0xkilo/wagmi'
+import { TokenAmount } from '@jb1011/wagmi'
 
 const ContentWrapper = styled(AutoColumn)`
   width: 100%;
@@ -61,10 +61,10 @@ export default function UnstakingModal({
         version < 2
           ? []
           : [
-              poolMap[stakingInfo.stakedAmount.token.address],
-              `0x${stakingInfo.stakedAmount?.raw.toString(16)}`,
-              account
-            ]
+            poolMap[stakingInfo.stakedAmount.token.address],
+            `0x${stakingInfo.stakedAmount?.raw.toString(16)}`,
+            account
+          ]
 
       // TODO: Support withdrawing partial amounts for v2+
       await stakingContract[method](...args)

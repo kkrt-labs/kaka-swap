@@ -1,5 +1,5 @@
 import { Button, Text } from '@pangolindex/components'
-import { ChainId, JSBI } from '@0xkilo/wagmi'
+import { ChainId, JSBI } from '@jb1011/wagmi'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { PNG, ZERO_ADDRESS } from 'src/constants'

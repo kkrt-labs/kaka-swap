@@ -2,20 +2,6 @@
 # yarn lockfile v1
 
 
-"@0xkilo/wagmi@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@0xkilo/wagmi/-/wagmi-1.1.0.tgz#4a34239c1f15a84705a0902e9ddb177c969abed0"
-  integrity sha512-9zKiXNMGGkZmWuDkq4ayJ+ThzRVHGOFEUgfwc0Q0RGXb6YccUzSC1uVPBL7hn9qQ3pUKjVUc7CYo1V3dRoJk3g==
-  dependencies:
-    "@openzeppelin/cli" "^2.8.2"
-    "@pangolindex/exchange-contracts" "^1.0.1"
-    big.js "^5.2.2"
-    decimal.js-light "^2.5.0"
-    jsbi "^3.1.1"
-    tiny-invariant "^1.1.0"
-    tiny-warning "^1.0.3"
-    toformat "^2.0.0"
-
 "@babel/code-frame@7.8.3":
   version "7.8.3"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.8.3.tgz#33e25903d7481181534e12ec0a25f16b6fcf419e"
@@ -2213,6 +2199,20 @@
   integrity sha512-foQZKJig7Ob0BMAYBfcJk8d77QtOe7Wo4ox7ff1lQYoNNAb6jwcY1ncdoy2e9wQZzvNy7ODZCYJkK8kzmcAnAg==
   dependencies:
     "@hapi/hoek" "^9.0.0"
+
+"@jb1011/wagmi@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@jb1011/wagmi/-/wagmi-1.0.0.tgz#bb92ea24805de2eb4cc1776673301df42d03ebb7"
+  integrity sha512-KkzFl/Ar24H24RPGaGXIYDYgGq4dn0tMVPneJYHgzqaN8mtBwh4+NlKfEPhM1eoZ7xm2vNldD+fhxul5VTpjKA==
+  dependencies:
+    "@openzeppelin/cli" "^2.8.2"
+    "@pangolindex/exchange-contracts" "^1.0.1"
+    big.js "^5.2.2"
+    decimal.js-light "^2.5.0"
+    jsbi "^3.1.1"
+    tiny-invariant "^1.1.0"
+    tiny-warning "^1.0.3"
+    toformat "^2.0.0"
 
 "@jest/console@^24.7.1", "@jest/console@^24.9.0":
   version "24.9.0"

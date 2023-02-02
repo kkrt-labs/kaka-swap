@@ -1,4 +1,4 @@
-import { ChainId, TokenAmount } from '@0xkilo/wagmi'
+import { ChainId, TokenAmount } from '@jb1011/wagmi'
 import { Button } from '@pangolindex/components'
 import React, { useState, useRef } from 'react'
 import { useActiveWeb3React } from '../../hooks'

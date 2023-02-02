@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text } from 'rebass'
-import { ChainId, Currency, currencyEquals, CAVAX, Token } from '@0xkilo/wagmi'
+import { ChainId, Currency, currencyEquals, CAVAX, Token } from '@jb1011/wagmi'
 import styled from 'styled-components'
 
 import { SUGGESTED_BASES } from '../../constants'

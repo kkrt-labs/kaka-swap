@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { ArrowUpCircle, Plus } from 'react-feather'
 import { useTranslation } from 'react-i18next'
-import { Currency, CurrencyAmount, Pair, Percent, TokenAmount } from '@0xkilo/wagmi'
+import { Currency, CurrencyAmount, Pair, Percent, TokenAmount } from '@jb1011/wagmi'
 import { Text, Box, Button, CurrencyLogo, DoubleCurrencyLogo } from '@pangolindex/components'
 import { ThemeContext } from 'styled-components'
 import Drawer from 'src/components/Drawer'
@@ -61,9 +61,8 @@ const ConfirmRemoveDrawer: React.FC<Props> = props => {
   const { t } = useTranslation()
 
   // TODO: i18n
-  const pendingText = `Removing ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(6)} ${
-    currencyA?.symbol
-  } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(6)} ${currencyB?.symbol}`
+  const pendingText = `Removing ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(6)} ${currencyA?.symbol
+    } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(6)} ${currencyB?.symbol}`
 
   const ConfirmContent = (
     <ConfirmWrapper>

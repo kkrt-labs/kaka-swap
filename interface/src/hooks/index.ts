@@ -1,5 +1,5 @@
 import { Web3Provider } from '@ethersproject/providers'
-import { ChainId } from '@0xkilo/wagmi'
+import { ChainId } from '@jb1011/wagmi'
 import { useWeb3React as useWeb3ReactCore } from '@web3-react/core'
 import { Web3ReactContextInterface } from '@web3-react/core/dist/types'
 import { useEffect, useState } from 'react'
@@ -20,7 +20,7 @@ export function useEagerConnect() {
 
 
   useEffect(() => {
-    if (!triedSafe){
+    if (!triedSafe) {
       gnosisSafe.isSafeApp().then((loadedInSafe) => {
         if (loadedInSafe) {
           activate(gnosisSafe, undefined, true).catch(() => {

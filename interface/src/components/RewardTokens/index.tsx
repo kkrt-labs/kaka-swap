@@ -1,4 +1,4 @@
-import { ChainId, Token } from '@0xkilo/wagmi'
+import { ChainId, Token } from '@jb1011/wagmi'
 import React from 'react'
 import styled from 'styled-components'
 import { PNG } from '../../constants'
@@ -18,7 +18,7 @@ interface RewardTokensLogoProps {
   rewardTokens?: Array<Token | null | undefined> | null
 }
 
-const CoveredLogo = styled(CurrencyLogo)<{ sizeraw: number }>`
+const CoveredLogo = styled(CurrencyLogo) <{ sizeraw: number }>`
   position: absolute;
   left: ${({ sizeraw }) => '-' + (sizeraw / 2).toString() + 'px'} !important;
 `

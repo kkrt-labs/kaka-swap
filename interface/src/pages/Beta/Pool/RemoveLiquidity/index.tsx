@@ -4,7 +4,7 @@ import { PageWrapper, InputText, ContentBox, DataBox } from './styleds'
 import { Box, Text, Button, Steps, Step } from '@pangolindex/components'
 import ReactGA from 'react-ga'
 import { useActiveWeb3React } from 'src/hooks'
-import { Currency, ChainId, Percent, CAVAX } from '@0xkilo/wagmi'
+import { Currency, ChainId, Percent, CAVAX } from '@jb1011/wagmi'
 import { useApproveCallback, ApprovalState } from 'src/hooks/useApproveCallback'
 import { splitSignature } from 'ethers/lib/utils'
 import { TransactionResponse } from '@ethersproject/providers'
@@ -61,8 +61,8 @@ const RemoveLiquidity = ({ currencyA, currencyB, onClose }: RemoveLiquidityProps
     [Field.LIQUIDITY_PERCENT]: parsedAmounts[Field.LIQUIDITY_PERCENT].equalTo('0')
       ? '0'
       : parsedAmounts[Field.LIQUIDITY_PERCENT].lessThan(new Percent('1', '100'))
-      ? '<1'
-      : parsedAmounts[Field.LIQUIDITY_PERCENT].toFixed(0),
+        ? '<1'
+        : parsedAmounts[Field.LIQUIDITY_PERCENT].toFixed(0),
     [Field.LIQUIDITY]:
       independentField === Field.LIQUIDITY ? typedValue : parsedAmounts[Field.LIQUIDITY]?.toSignificant(6) ?? '',
     [Field.CURRENCY_A]:
@@ -413,8 +413,8 @@ const RemoveLiquidity = ({ currencyA, currencyB, onClose }: RemoveLiquidityProps
                 {approval === ApprovalState.PENDING
                   ? t('removeLiquidity.approving')
                   : approval === ApprovalState.APPROVED || signatureData !== null
-                  ? t('removeLiquidity.approved')
-                  : t('removeLiquidity.approve')}
+                    ? t('removeLiquidity.approved')
+                    : t('removeLiquidity.approve')}
               </Button>
             </Box>
 

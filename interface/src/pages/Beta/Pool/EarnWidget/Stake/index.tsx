@@ -6,7 +6,7 @@ import { PageWrapper, InputText, ContentBox, DataBox, PoolSelectWrapper } from '
 import { Box, Text, Button, Steps, Step, DoubleCurrencyLogo } from '@pangolindex/components'
 import { useTokenBalance } from 'src/state/wallet/hooks'
 import { useActiveWeb3React } from 'src/hooks'
-import { TokenAmount, Pair, ChainId, JSBI, Token } from '@0xkilo/wagmi'
+import { TokenAmount, Pair, ChainId, JSBI, Token } from '@jb1011/wagmi'
 import { unwrappedToken } from 'src/utils/wrappedCurrency'
 import { useGetPoolDollerWorth, useMinichefStakingInfos } from 'src/state/stake/hooks'
 import { usePairContract, useStakingContract } from 'src/hooks/useContract'
@@ -120,21 +120,21 @@ const Stake = ({ pair, version, onComplete }: StakeProps) => {
         const permitArgs =
           version < 2
             ? [
-                `0x${parsedAmount.raw.toString(16)}`,
-                signatureData.deadline,
-                signatureData.v,
-                signatureData.r,
-                signatureData.s
-              ]
+              `0x${parsedAmount.raw.toString(16)}`,
+              signatureData.deadline,
+              signatureData.v,
+              signatureData.r,
+              signatureData.s
+            ]
             : [
-                poolMap[stakingInfo.stakedAmount.token.address],
-                `0x${parsedAmount.raw.toString(16)}`,
-                account,
-                signatureData.deadline,
-                signatureData.v,
-                signatureData.r,
-                signatureData.s
-              ]
+              poolMap[stakingInfo.stakedAmount.token.address],
+              `0x${parsedAmount.raw.toString(16)}`,
+              account,
+              signatureData.deadline,
+              signatureData.v,
+              signatureData.r,
+              signatureData.s
+            ]
 
         stakingContract[permitMethod](...permitArgs)
           .then((response: TransactionResponse) => {

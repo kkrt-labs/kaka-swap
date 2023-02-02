@@ -10,7 +10,7 @@ import { currencyId } from '../../utils/currencyId'
 import { Break } from './styled'
 import { useTranslation } from 'react-i18next'
 import CurrencyLogo from '../CurrencyLogo'
-import { JSBI } from "@0xkilo/wagmi";
+import { JSBI } from "@jb1011/wagmi";
 
 const StatContainer = styled.div`
   display: flex;
@@ -35,7 +35,7 @@ const AprContainer = styled.div`
   margin-left: 1rem;
 `
 
-const Wrapper = styled(AutoColumn)<{ showBackground: boolean; bgColor: any }>`
+const Wrapper = styled(AutoColumn) <{ showBackground: boolean; bgColor: any }>`
   border-radius: 12px;
   width: 100%;
   overflow: hidden;
@@ -79,7 +79,7 @@ export default function SingleSidePoolCard({
   version,
 }: {
   stakingInfo: SingleSideStakingInfo
-	migration?: SingleSideStaking
+  migration?: SingleSideStaking
   version: string
 }) {
   const { t } = useTranslation()

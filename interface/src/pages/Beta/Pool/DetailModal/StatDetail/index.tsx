@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, Box } from '@pangolindex/components'
-import { JSBI, Pair, TokenAmount, Currency } from '@0xkilo/wagmi'
+import { JSBI, Pair, TokenAmount, Currency } from '@jb1011/wagmi'
 import { useTotalSupply } from 'src/data/TotalSupply'
 
 import { StateContainer } from './styleds'
@@ -20,14 +20,14 @@ export default function StatDetail({ title, totalAmount, pair, pgl, currency0, c
 
   const [token0Deposited, token1Deposited] =
     !!pair &&
-    !!totalPoolTokens &&
-    !!pgl &&
-    // this condition is a short-circuit in the case where useTokenBalance updates sooner than useTotalSupply
-    JSBI.greaterThanOrEqual(totalPoolTokens.raw, pgl.raw)
+      !!totalPoolTokens &&
+      !!pgl &&
+      // this condition is a short-circuit in the case where useTokenBalance updates sooner than useTotalSupply
+      JSBI.greaterThanOrEqual(totalPoolTokens.raw, pgl.raw)
       ? [
-          pair.getLiquidityValue(pair.token0, totalPoolTokens, pgl, false),
-          pair.getLiquidityValue(pair.token1, totalPoolTokens, pgl, false)
-        ]
+        pair.getLiquidityValue(pair.token0, totalPoolTokens, pgl, false),
+        pair.getLiquidityValue(pair.token1, totalPoolTokens, pgl, false)
+      ]
       : [undefined, undefined]
   return (
     <Box>

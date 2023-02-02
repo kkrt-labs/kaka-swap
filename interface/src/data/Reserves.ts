@@ -1,4 +1,4 @@
-import { TokenAmount, Pair, Currency, ChainId } from '@0xkilo/wagmi'
+import { TokenAmount, Pair, Currency, ChainId } from '@jb1011/wagmi'
 import { useMemo } from 'react'
 import { abi as IPangolinPairABI } from '@pangolindex/exchange-contracts/artifacts/contracts/pangolin-core/interfaces/IPangolinPair.sol/IPangolinPair.json'
 import { Interface } from '@ethersproject/abi'

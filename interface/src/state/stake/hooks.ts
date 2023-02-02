@@ -1,4 +1,4 @@
-import { ChainId, CurrencyAmount, JSBI, Token, TokenAmount, WAVAX, Pair, Percent } from '@0xkilo/wagmi'
+import { ChainId, CurrencyAmount, JSBI, Token, TokenAmount, WAVAX, Pair, Percent } from '@jb1011/wagmi'
 import { useMemo, useEffect, useState } from 'react'
 import { PNG, USDTe, USDCe, DAIe, MINICHEF_ADDRESS, BIG_INT_ZERO, BIG_INT_TWO, BIG_INT_ONE } from '../../constants'
 import { STAKING_REWARDS_INTERFACE } from '../../constants/abis/staking-rewards'
@@ -102,7 +102,7 @@ export interface StakingInfo extends DoubleSideStakingInfo {
   combinedApr?: number
 }
 
-const calculateTotalStakedAmountInAvaxFromPng = function(
+const calculateTotalStakedAmountInAvaxFromPng = function (
   amountStaked: JSBI,
   amountAvailable: JSBI,
   avaxPngPairReserveOfPng: JSBI,
@@ -129,7 +129,7 @@ const calculateTotalStakedAmountInAvaxFromPng = function(
   )
 }
 
-const calculateRewardRateInPng = function(rewardRate: JSBI, valueOfPng: JSBI | null): JSBI {
+const calculateRewardRateInPng = function (rewardRate: JSBI, valueOfPng: JSBI | null): JSBI {
   if (!valueOfPng || JSBI.EQ(valueOfPng, 0)) return JSBI.BigInt(0)
 
   // TODO: Handle situation where stakingToken and rewardToken have different decimals
@@ -141,7 +141,7 @@ const calculateRewardRateInPng = function(rewardRate: JSBI, valueOfPng: JSBI | n
   )
 }
 
-const calculateApr = function(rewardRatePerSecond: JSBI, totalSupply: JSBI): JSBI {
+const calculateApr = function (rewardRatePerSecond: JSBI, totalSupply: JSBI): JSBI {
   if (JSBI.EQ(totalSupply, 0)) {
     return JSBI.BigInt(0)
   }
@@ -154,7 +154,7 @@ const calculateApr = function(rewardRatePerSecond: JSBI, totalSupply: JSBI): JSB
   return JSBI.divide(JSBI.multiply(rewardsPerYear, JSBI.BigInt(100)), totalSupply)
 }
 
-const calculateTotalStakedAmountInAvax = function(
+const calculateTotalStakedAmountInAvax = function (
   amountStaked: JSBI,
   amountAvailable: JSBI,
   reserveInWavax: JSBI
@@ -184,13 +184,13 @@ export function useStakingInfo(version: number, pairToFilterBy?: Pair | null): D
     () =>
       chainId
         ? DOUBLE_SIDE_STAKING_REWARDS_INFO[chainId]?.[version]?.filter(stakingRewardInfo =>
-            pairToFilterBy === undefined
-              ? true
-              : pairToFilterBy === null
+          pairToFilterBy === undefined
+            ? true
+            : pairToFilterBy === null
               ? false
               : pairToFilterBy.involvesToken(stakingRewardInfo.tokens[0]) &&
-                pairToFilterBy.involvesToken(stakingRewardInfo.tokens[1])
-          ) ?? []
+              pairToFilterBy.involvesToken(stakingRewardInfo.tokens[1])
+        ) ?? []
         : [],
     [chainId, pairToFilterBy, version]
   )
@@ -303,12 +303,12 @@ export function useStakingInfo(version: number, pairToFilterBy?: Pair | null): D
         const totalStakedInWavax = isAvaxPool
           ? calculateTotalStakedAmountInAvax(totalSupplyStaked, totalSupplyAvailable, pair.reserveOf(wavax).raw)
           : calculateTotalStakedAmountInAvaxFromPng(
-              totalSupplyStaked,
-              totalSupplyAvailable,
-              avaxPngPair.reserveOf(png).raw,
-              avaxPngPair.reserveOf(WAVAX[tokens[1].chainId]).raw,
-              pair.reserveOf(png).raw
-            )
+            totalSupplyStaked,
+            totalSupplyAvailable,
+            avaxPngPair.reserveOf(png).raw,
+            avaxPngPair.reserveOf(WAVAX[tokens[1].chainId]).raw,
+            pair.reserveOf(png).raw
+          )
 
         const totalStakedInUsd = totalStakedInWavax && (usdPrice?.quote(totalStakedInWavax) as TokenAmount)
         const getHypotheticalRewardRate = (
@@ -374,12 +374,12 @@ export function useSingleSideStakingInfo(
     () =>
       chainId
         ? SINGLE_SIDE_STAKING_REWARDS_INFO[chainId]?.[version]?.filter(stakingRewardInfo =>
-            rewardTokenToFilterBy === undefined
-              ? true
-              : rewardTokenToFilterBy === null
+          rewardTokenToFilterBy === undefined
+            ? true
+            : rewardTokenToFilterBy === null
               ? false
               : rewardTokenToFilterBy.equals(stakingRewardInfo.rewardToken)
-          ) ?? []
+        ) ?? []
         : [],
     [chainId, rewardTokenToFilterBy, version]
   )
@@ -696,14 +696,14 @@ export function useGetPairDataFromPair(pair: Pair) {
 
   const [token0Deposited, token1Deposited] =
     !!pair &&
-    !!totalPoolTokens &&
-    !!userPoolBalance &&
-    // this condition is a short-circuit in the case where useTokenBalance updates sooner than useTotalSupply
-    JSBI.greaterThanOrEqual(totalPoolTokens.raw, userPoolBalance.raw)
+      !!totalPoolTokens &&
+      !!userPoolBalance &&
+      // this condition is a short-circuit in the case where useTokenBalance updates sooner than useTotalSupply
+      JSBI.greaterThanOrEqual(totalPoolTokens.raw, userPoolBalance.raw)
       ? [
-          pair.getLiquidityValue(pair.token0, totalPoolTokens, userPoolBalance, false),
-          pair.getLiquidityValue(pair.token1, totalPoolTokens, userPoolBalance, false)
-        ]
+        pair.getLiquidityValue(pair.token0, totalPoolTokens, userPoolBalance, false),
+        pair.getLiquidityValue(pair.token1, totalPoolTokens, userPoolBalance, false)
+      ]
       : [zeroTokenAmount0, zeroTokenAmount1]
 
   const usdAmountCurrency0: CurrencyAmount = usdPriceCurrency0?.quote(token0Deposited) ?? zeroTokenAmount0
@@ -749,12 +749,12 @@ export const useMinichefStakingInfos = (version = 2, pairToFilterBy?: Pair | nul
     () =>
       chainId
         ? DOUBLE_SIDE_STAKING_REWARDS_INFO[chainId]?.[version]?.filter(item =>
-            pairToFilterBy === undefined
-              ? true
-              : pairToFilterBy === null
+          pairToFilterBy === undefined
+            ? true
+            : pairToFilterBy === null
               ? false
               : pairToFilterBy.involvesToken(item.tokens[0]) && pairToFilterBy.involvesToken(item.tokens[1])
-          ) ?? []
+        ) ?? []
         : [],
     [chainId, pairToFilterBy, version]
   )
@@ -1011,14 +1011,14 @@ export function useGetPoolDollerWorth(pair: Pair | null) {
 
   const [token0Deposited] =
     !!pair &&
-    !!totalPoolTokens &&
-    !!userPgl &&
-    // this condition is a short-circuit in the case where useTokenBalance updates sooner than useTotalSupply
-    JSBI.greaterThanOrEqual(totalPoolTokens.raw, userPgl.raw)
+      !!totalPoolTokens &&
+      !!userPgl &&
+      // this condition is a short-circuit in the case where useTokenBalance updates sooner than useTotalSupply
+      JSBI.greaterThanOrEqual(totalPoolTokens.raw, userPgl.raw)
       ? [
-          pair.getLiquidityValue(pair.token0, totalPoolTokens, userPgl, false),
-          pair.getLiquidityValue(pair.token1, totalPoolTokens, userPgl, false)
-        ]
+        pair.getLiquidityValue(pair.token0, totalPoolTokens, userPgl, false),
+        pair.getLiquidityValue(pair.token1, totalPoolTokens, userPgl, false)
+      ]
       : [undefined, undefined]
 
   const liquidityInUSD =

@@ -1,4 +1,4 @@
-import { ChainId, JSBI, Percent, Token, WAVAX } from '@0xkilo/wagmi'
+import { ChainId, JSBI, Percent, Token, WAVAX } from '@jb1011/wagmi'
 import { AbstractConnector } from '@web3-react/abstract-connector'
 
 import { gnosisSafe, injected, walletlink, walletconnect } from '../connectors'
