@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "kakaswap-contracts"
+version = "0.1.0"
+description = ""
+authors = ["Clément Walter <clement0walter@gmail.com>"]
+readme = "README.md"
+packages = [{include = "kakaswap_contracts"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+
+[tool.poetry.group.dev.dependencies]
+python-dotenv = "^0.21.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
