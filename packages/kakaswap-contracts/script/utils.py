@@ -9,6 +9,8 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 load_dotenv()
+logging.basicConfig(level=logging.INFO)
+
 logger = logging.getLogger()
 
 deployments = {}
@@ -53,16 +55,16 @@ chain_id = int(
 def dump():
     previous_deployments = {}
     if Path("deployments.json").is_file():
-        previous_deployments = json.loads(Path("deployments.json").read_text())
+        previous_deployments = json.loads(Path("deployments.json").read_text()).get(
+            str(chain_id), {}
+        )
     _deployments = {
-        **previous_deployments.get("deployments", {}),
-        **deployments["deployments"],
+        **previous_deployments,
+        **deployments,
     }
     json.dump(
         {
-            "rpc": RPC,
-            "chain_id": chain_id,
-            "deployments": _deployments,
+            str(chain_id): _deployments,
         },
         open("deployments.json", "w"),
         indent=2,
