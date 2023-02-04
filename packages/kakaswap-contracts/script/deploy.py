@@ -2,10 +2,9 @@ import os
 
 from dotenv import load_dotenv
 
-from script.utils import deploy_contract, dump
-
 load_dotenv()
 
+from script.utils import deploy_contract, dump
 
 deploy_contract(path="src/Multicall.sol:Multicall")
 deploy_contract(path="src/Multicall.sol:Multicall2")
