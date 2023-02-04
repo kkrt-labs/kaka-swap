@@ -14,7 +14,7 @@
   },
   "tokens": [
     {
-      "chainId": 59140,
+      "chainId": 5,
       "address": "0x3Ee7094DADda15810F191DD6AcF7E4FFa37571e4",
       "decimals": 18,
       "name": "Weth",
@@ -22,7 +22,7 @@
       "logoURI": "https://raw.githubusercontent.com/antiyro/WagmiTokenList/master/wagmi.png"
     },
     {
-      "chainId": 59140,
+      "chainId": 5,
       "address": "",
       "decimals": 18,
       "name": "",
