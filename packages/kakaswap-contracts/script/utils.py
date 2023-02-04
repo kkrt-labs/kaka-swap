@@ -26,7 +26,7 @@ logger.info(f"Using CHAIN_ID {CHAIN_ID} with RPC {RPC}")
 
 
 def deploy_contract(path: str, *args):
-    contract_name = path.split(":")[-1].replace(".sol", "")
+    contract_name = path.split(":")[-1]
     logger.info(f"⏳ Deploying {contract_name}")
     res = subprocess.run(
         shlex.split(
@@ -47,7 +47,7 @@ def deploy_contract(path: str, *args):
     if address is None:
         raise ValueError(f"Cannot deploy {path}: {res.stderr}")
 
-    deployments[path.split(":")[-1].replace(".sol", "")] = address[1].strip()
+    deployments[contract_name] = address[1].strip()
     logger.info(f"✅ {contract_name} deployed at {address[1].strip()}")
     return address[1].strip()
 
