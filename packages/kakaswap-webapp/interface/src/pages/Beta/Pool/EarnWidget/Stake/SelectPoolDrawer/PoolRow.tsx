@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import { Text, DoubleCurrencyLogo, Box } from '@pangolindex/components'
 import { CurrencyRowRoot, Balance } from './styled'
-import { Pair } from '@jb1011/wagmi'
+import { Pair } from '@jean1011/kakarot'
 import { unwrappedToken } from 'src/utils/wrappedCurrency'
 import { useGetPoolDollerWorth } from 'src/state/stake/hooks'
 

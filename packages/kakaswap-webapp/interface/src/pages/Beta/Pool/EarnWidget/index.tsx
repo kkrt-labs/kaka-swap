@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Currency, Pair } from '@jb1011/wagmi'
+import { Currency, Pair } from '@jean1011/kakarot'
 import { Root } from './styled'
 import EarnOption from './EarnOption'
 import AddLiquidity from './AddLiquidity'

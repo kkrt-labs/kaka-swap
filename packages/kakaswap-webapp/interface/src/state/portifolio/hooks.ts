@@ -1,4 +1,4 @@
-import { CAVAX, ChainId, Currency, Pair, Token } from '@jb1011/wagmi'
+import { CAVAX, ChainId, Currency, Pair, Token } from '@jean1011/kakarot'
 import { ethers } from 'ethers'
 import { useEffect, useState } from 'react'
 import { CHAINS, ChainsId } from 'src/constants/chains'

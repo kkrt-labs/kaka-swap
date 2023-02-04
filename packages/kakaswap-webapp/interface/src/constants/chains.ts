@@ -26,7 +26,7 @@ export enum ChainsId {
   BTT = 199,
   AURORA = 1313161554,
   MOBM = 1284,
-  WAGMI = 11111
+  WAGMI = 5
 }
 
 export const CHAINS = {
@@ -126,8 +126,8 @@ export const CHAINS = {
     logo: 'https://static.debank.com/image/chain/logo_url/mobm/a8442077d76b258297181c3e6eb8c9cc.png'
   },
   [ChainsId.WAGMI]: {
-    name: 'Wagmi',
-    symbol: 'WGM',
+    name: 'Kakarot',
+    symbol: 'WETH9',
     logo: 'https://static.debank.com/image/chain/logo_url/mobm/a8442077d76b258297181c3e6eb8c9cc.png'
   }
 }

@@ -5,7 +5,7 @@ import { JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
 import { BigNumber } from '@ethersproject/bignumber'
 import { abi as IPangolinRouterABI } from '@pangolindex/exchange-contracts/artifacts/contracts/pangolin-periphery/interfaces/IPangolinRouter.sol/IPangolinRouter.json'
 import { ROUTER_ADDRESS } from '../constants'
-import { ChainId, JSBI, Percent, Token, CurrencyAmount, Currency, CAVAX, currencyEquals, Trade } from '@jb1011/wagmi'
+import { ChainId, JSBI, Percent, Token, CurrencyAmount, Currency, CAVAX, currencyEquals, Trade } from '@jean1011/kakarot'
 import { TokenAddressMap } from '../state/lists/hooks'
 
 // returns the checksummed address if the address is valid, otherwise returns false
@@ -19,7 +19,7 @@ export function isAddress(value: any): string | false {
 
 const ETHERSCAN_PREFIXES: { [chainId in ChainId]: string } = {
   43113: 'https://testnet.snowtrace.io',
-  11111: 'https://snowtrace.io'
+  5: 'https://goerli.etherscan.io/'
 }
 
 export function getEtherscanLink(
@@ -27,7 +27,7 @@ export function getEtherscanLink(
   data: string,
   type: 'transaction' | 'token' | 'address' | 'block'
 ): string {
-  const prefix = `${ETHERSCAN_PREFIXES[chainId] || ETHERSCAN_PREFIXES[11111]}`
+  const prefix = `${ETHERSCAN_PREFIXES[chainId] || ETHERSCAN_PREFIXES[5]}`
 
   switch (type) {
     case 'transaction': {

@@ -1,10 +1,10 @@
-import { ChainId, Token } from '@jb1011/wagmi'
+import { ChainId, Token } from '@jean1011/kakarot'
 import { Tags, TokenInfo, TokenList } from '@pangolindex/token-lists'
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { AppState } from '../index'
 import { AEB_TOKENLIST } from '../../constants/lists'
-import { WAVAX } from '@jb1011/wagmi'
+import { WAVAX } from '@jean1011/kakarot'
 import { PNG } from '../../constants'
 
 type TagDetails = Tags[keyof Tags]

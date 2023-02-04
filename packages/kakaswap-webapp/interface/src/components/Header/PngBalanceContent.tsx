@@ -1,4 +1,4 @@
-import { TokenAmount, JSBI } from '@jb1011/wagmi'
+import { TokenAmount, JSBI } from '@jean1011/kakarot'
 import React, { useMemo, useState } from 'react'
 import { X } from 'react-feather'
 import styled from 'styled-components'

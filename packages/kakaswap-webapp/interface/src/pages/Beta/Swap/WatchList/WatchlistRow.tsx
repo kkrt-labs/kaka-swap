@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Text, Box, CurrencyLogo } from '@pangolindex/components'
 import { LineChart, Line, ResponsiveContainer } from 'recharts'
-import { Token } from '@jb1011/wagmi'
+import { Token } from '@jean1011/kakarot'
 import { RowWrapper } from './styleds'
 import { ThemeContext } from 'styled-components'
 import useUSDCPrice from 'src/utils/useUSDCPrice'

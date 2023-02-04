@@ -13,7 +13,7 @@ import { useCurrency } from '../../hooks/Tokens'
 import useTransactionDeadline from '../../hooks/useTransactionDeadline'
 import { useIsExpertMode, useUserSlippageTolerance } from '../../state/user/hooks'
 import { Field } from '../../state/mint/actions'
-import { CAVAX, ChainId, Currency, TokenAmount } from '@jb1011/wagmi'
+import { CAVAX, ChainId, Currency, TokenAmount } from '@jean1011/kakarot'
 import { ApprovalState, useApproveCallback } from '../../hooks/useApproveCallback'
 import { ROUTER_ADDRESS } from '../../constants'
 import { calculateGasMargin, calculateSlippageAmount, getRouterContract } from '../../utils'
@@ -162,6 +162,7 @@ export default function AddLiquidityModal({ isOpen, onDismiss, currencyIdA: _cur
     } else {
       estimate = router.estimateGas.addLiquidity
       method = router.addLiquidity
+
       args = [
         wrappedCurrency(currencyA, chainId)?.address ?? '',
         wrappedCurrency(currencyB, chainId)?.address ?? '',

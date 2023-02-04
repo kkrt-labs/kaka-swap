@@ -14,7 +14,7 @@ import {
   StatisticImage,
   HideSmall
 } from './styleds'
-import { Pair } from '@jb1011/wagmi'
+import { Pair } from '@jean1011/kakarot'
 import { useParams } from 'react-router-dom'
 import { useActiveWeb3React } from '../../hooks'
 import { Dots } from '../../components/swap/styleds'

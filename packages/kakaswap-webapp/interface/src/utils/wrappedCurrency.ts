@@ -1,4 +1,4 @@
-import { ChainId, Currency, CurrencyAmount, CAVAX, Token, TokenAmount, WAVAX } from '@jb1011/wagmi'
+import { ChainId, Currency, CurrencyAmount, CAVAX, Token, TokenAmount, WAVAX } from '@jean1011/kakarot'
 
 export function wrappedCurrency(currency: Currency | undefined, chainId: ChainId | undefined): Token | undefined {
   return chainId && currency === CAVAX ? WAVAX[chainId] : currency instanceof Token ? currency : undefined

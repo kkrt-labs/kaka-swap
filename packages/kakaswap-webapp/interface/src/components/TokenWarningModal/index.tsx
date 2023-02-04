@@ -1,4 +1,4 @@
-import { Token } from '@jb1011/wagmi'
+import { Token } from '@jean1011/kakarot'
 import { transparentize } from 'polished'
 import React, { useCallback, useMemo, useState } from 'react'
 import styled from 'styled-components'

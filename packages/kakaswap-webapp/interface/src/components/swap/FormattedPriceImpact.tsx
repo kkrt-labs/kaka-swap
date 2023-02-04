@@ -1,4 +1,4 @@
-import { Percent } from '@jb1011/wagmi'
+import { Percent } from '@jean1011/kakarot'
 import React from 'react'
 import { ONE_BIPS } from '../../constants'
 import { warningSeverity } from '../../utils/prices'

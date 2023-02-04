@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, CAVAX, InsufficientInputAmountError, JSBI, Pair, Percent, Price, TokenAmount } from '@jb1011/wagmi'
+import { Currency, CurrencyAmount, CAVAX, InsufficientInputAmountError, JSBI, Pair, Percent, Price, TokenAmount } from '@jean1011/kakarot'
 import { useCallback, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { PairState, usePair } from '../../data/Reserves'

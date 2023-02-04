@@ -2,7 +2,7 @@ import React, { useState, useContext, useCallback, useMemo, useEffect } from 're
 import ReactGA from 'react-ga'
 import { RefreshCcw } from 'react-feather'
 import { Text, Box, Button } from '@pangolindex/components'
-import { Token, Trade, JSBI, CurrencyAmount, TokenAmount } from '@jb1011/wagmi'
+import { Token, Trade, JSBI, CurrencyAmount, TokenAmount } from '@jean1011/kakarot'
 import { ThemeContext } from 'styled-components'
 import RetryDrawer from '../../RetryDrawer'
 import SelectTokenDrawer from '../../SelectTokenDrawer'

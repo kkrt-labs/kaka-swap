@@ -1,5 +1,5 @@
 import React from 'react'
-import { Pair, Fraction } from '@jb1011/wagmi'
+import { Pair, Fraction } from '@jean1011/kakarot'
 import { Panel, OptionButton, OptionsWrapper, Divider, MigrateButton, InnerWrapper } from './styleds'
 import Stat from '../Stat'
 import { Text, Box, DoubleCurrencyLogo } from '@pangolindex/components'

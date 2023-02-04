@@ -1,4 +1,4 @@
-import { ChainId } from '@jb1011/wagmi'
+import { ChainId } from '@jean1011/kakarot'
 import { createStore, Store } from 'redux'
 import { addPopup, ApplicationModal, removePopup, setOpenModal, updateBlockNumber } from './actions'
 import reducer, { ApplicationState } from './reducer'

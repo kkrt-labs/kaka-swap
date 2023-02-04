@@ -1,4 +1,4 @@
-import { ChainId, WAVAX } from '@jb1011/wagmi'
+import { ChainId, WAVAX } from '@jean1011/kakarot'
 import { PNG } from '../../constants'
 import { SingleSideStaking } from './hooks'
 

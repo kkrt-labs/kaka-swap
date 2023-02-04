@@ -1,6 +1,6 @@
 import { Version } from '../../hooks/useToggledVersion'
 import { parseUnits } from '@ethersproject/units'
-import { Currency, CurrencyAmount, CAVAX, JSBI, Token, TokenAmount, Trade, FACTORY_ADDRESS, ChainId } from '@jb1011/wagmi'
+import { Currency, CurrencyAmount, CAVAX, JSBI, Token, TokenAmount, Trade, ChainId } from '@jean1011/kakarot'
 import { ParsedQs } from 'qs'
 import { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -16,7 +16,7 @@ import { SwapState } from './reducer'
 import useToggledVersion from '../../hooks/useToggledVersion'
 import { useUserSlippageTolerance } from '../user/hooks'
 import { computeSlippageAdjustedAmounts } from '../../utils/prices'
-import { ROUTER_ADDRESS, SWAP_DEFAULT_CURRENCY } from '../../constants'
+import { ROUTER_ADDRESS, SWAP_DEFAULT_CURRENCY, FACTORY_ADDRESS } from '../../constants'
 import { useTranslation } from 'react-i18next'
 
 export function useSwapState(): AppState['swap'] {

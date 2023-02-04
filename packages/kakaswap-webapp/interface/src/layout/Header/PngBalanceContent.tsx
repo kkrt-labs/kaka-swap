@@ -1,4 +1,4 @@
-import { TokenAmount, WAVAX, JSBI } from '@jb1011/wagmi'
+import { TokenAmount, WAVAX, JSBI } from '@jean1011/kakarot'
 import React, { useMemo, useState } from 'react'
 import { X } from 'react-feather'
 import styled from 'styled-components'
@@ -69,7 +69,7 @@ export default function PngBalanceContent({ setShowPngBalanceModal }: { setShowP
   const totalSupply: TokenAmount | undefined = useTotalSupply(png)
 
   // Determine PNG price in AVAX
-  const wavax = WAVAX[chainId ? chainId : 11111]
+  const wavax = WAVAX[chainId ? chainId : 5]
   const [, avaxPngTokenPair] = usePair(wavax, png)
   const oneToken = JSBI.BigInt(1000000000000000000)
   const { t } = useTranslation()

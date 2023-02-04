@@ -1,4 +1,4 @@
-import { Currency } from '@jb1011/wagmi'
+import { Currency } from '@jean1011/kakarot'
 import React, { useCallback, useEffect, useState } from 'react'
 import ReactGA from 'react-ga'
 import useLast from '../../hooks/useLast'

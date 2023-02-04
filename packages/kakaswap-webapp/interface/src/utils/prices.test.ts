@@ -1,4 +1,4 @@
-import { ChainId, JSBI, Pair, Route, Token, TokenAmount, Trade, TradeType } from '@jb1011/wagmi'
+import { ChainId, JSBI, Pair, Route, Token, TokenAmount, Trade, TradeType } from '@jean1011/kakarot'
 import { computeTradePriceBreakdown } from './prices'
 
 describe('prices', () => {

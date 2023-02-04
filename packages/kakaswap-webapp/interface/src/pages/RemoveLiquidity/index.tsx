@@ -1,7 +1,7 @@
 import { splitSignature } from '@ethersproject/bytes'
 import { Contract } from '@ethersproject/contracts'
 import { TransactionResponse } from '@ethersproject/providers'
-import { Currency, currencyEquals, CAVAX, Percent, WAVAX } from '@jb1011/wagmi'
+import { Currency, currencyEquals, CAVAX, Percent, WAVAX } from '@jean1011/kakarot'
 import React, { useCallback, useContext, useMemo, useState } from 'react'
 import { ArrowDown, Plus } from 'react-feather'
 import ReactGA from 'react-ga'
@@ -42,7 +42,7 @@ import { Field } from '../../state/burn/actions'
 import { useWalletModalToggle } from '../../state/application/hooks'
 import { useUserSlippageTolerance } from '../../state/user/hooks'
 import { BigNumber } from '@ethersproject/bignumber'
-import { ChainId } from '@jb1011/wagmi'
+import { ChainId } from '@jean1011/kakarot'
 import { useTranslation } from 'react-i18next'
 
 export default function RemoveLiquidity({

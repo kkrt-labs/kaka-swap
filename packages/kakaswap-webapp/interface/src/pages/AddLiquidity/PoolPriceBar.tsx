@@ -1,4 +1,4 @@
-import { Currency, Percent, Price } from '@jb1011/wagmi'
+import { Currency, Percent, Price } from '@jean1011/kakarot'
 import React, { useContext } from 'react'
 import { Text } from 'rebass'
 import { ThemeContext } from 'styled-components'

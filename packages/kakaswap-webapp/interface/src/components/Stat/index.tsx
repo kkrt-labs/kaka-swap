@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, Box, CurrencyLogo } from '@pangolindex/components'
-import { Currency } from '@jb1011/wagmi'
+import { Currency } from '@jean1011/kakarot'
 import { Colors } from 'src/theme/styled'
 
 export interface StatProps {

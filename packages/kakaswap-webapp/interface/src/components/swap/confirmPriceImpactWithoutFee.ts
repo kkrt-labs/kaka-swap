@@ -1,4 +1,4 @@
-import { Percent } from '@jb1011/wagmi'
+import { Percent } from '@jean1011/kakarot'
 import { ALLOWED_PRICE_IMPACT_HIGH, PRICE_IMPACT_WITHOUT_FEE_CONFIRM_MIN } from '../../constants'
 import i18next from '../../i18n'
 

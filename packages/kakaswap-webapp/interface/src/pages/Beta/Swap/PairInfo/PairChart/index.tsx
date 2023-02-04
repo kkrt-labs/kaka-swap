@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Pair, Token } from '@jb1011/wagmi'
+import { Pair, Token } from '@jean1011/kakarot'
 import { createChart, CrosshairMode, IChartApi, ISeriesApi } from 'lightweight-charts'
 import { useMeasure } from 'react-use'
 import { useDarkModeManager } from 'src/state/user/hooks'

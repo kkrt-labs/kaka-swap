@@ -1,4 +1,4 @@
-import { ChainId, Token } from '@jb1011/wagmi'
+import { ChainId, Token } from '@jean1011/kakarot'
 import React from 'react'
 import styled from 'styled-components'
 import { PNG } from '../../constants'

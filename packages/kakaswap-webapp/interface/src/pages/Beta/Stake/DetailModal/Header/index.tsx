@@ -1,6 +1,6 @@
 import { Box, DoubleCurrencyLogo, Text } from '@pangolindex/components'
 import React, { useContext } from 'react'
-import { JSBI } from '@jb1011/wagmi'
+import { JSBI } from '@jean1011/kakarot'
 import Stat from 'src/components/Stat'
 import { SingleSideStakingInfo } from 'src/state/stake/hooks'
 import { unwrappedToken } from 'src/utils/wrappedCurrency'

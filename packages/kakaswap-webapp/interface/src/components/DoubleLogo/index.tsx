@@ -1,4 +1,4 @@
-import { Currency } from '@jb1011/wagmi'
+import { Currency } from '@jean1011/kakarot'
 import React from 'react'
 import styled from 'styled-components'
 import CurrencyLogo from '../CurrencyLogo'

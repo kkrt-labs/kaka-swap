@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Fraction, Percent } from '@jb1011/wagmi'
+import { Currency, CurrencyAmount, Fraction, Percent } from '@jean1011/kakarot'
 import React from 'react'
 import { Text } from 'rebass'
 import { ButtonPrimary } from '../../components/Button'

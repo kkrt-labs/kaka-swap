@@ -1,4 +1,4 @@
-import { ChainId, JSBI, Percent, Token, WAVAX } from '@jb1011/wagmi'
+import { ChainId, JSBI, Percent, Token, WAVAX } from '@jean1011/kakarot'
 import { AbstractConnector } from '@web3-react/abstract-connector'
 
 import { gnosisSafe, injected, walletlink, walletconnect } from '../connectors'
@@ -7,8 +7,11 @@ export const GAS_PRICE = 225
 
 export const ROUTER_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: '0x2D99ABD9008Dc933ff5c0CD271B88309593aB921',
-  [ChainId.WAGMI]: '0xe8225d13Fbd632fa9541D0A2C256E993fE44cB07'
+  [ChainId.WAGMI]: '0xb0433f415e9380b8Ce4D79C2614296d5B03Ac995'
+  // [ChainId.WAGMI]: '0x6E336032d30dc94aa876C9Ff03095b76fb447a41'
 }
+
+export const FACTORY_ADDRESS = '0x38aF92A36B7671571CeeBAfF2c8667edbfDb38d7'
 
 export const LANDING_PAGE = 'https://pangolin.exchange/'
 export const ANALYTICS_PAGE = 'https://info.pangolin.exchange/'
@@ -30,17 +33,17 @@ type ChainTokenList = {
 
 export const PNG: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, '0x83080D4b5fC60e22dFFA8d14AD3BB41Dde48F199', 18, 'PNG', 'Pangolin'),
-  [ChainId.WAGMI]: new Token(ChainId.WAGMI, '0x3f54c7a3746C0409DD185027397907488F792372', 18, 'wagmiPNG', 'Pangolin')
+  [ChainId.WAGMI]: new Token(ChainId.WAGMI, '0x3f54c7a3746C0409DD185027397907488F792372', 18, 'weth9PNG', 'Pangolin')
 }
 
 export const wWAGMI: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 18, 'ETH', 'Ether'),
-  [ChainId.WAGMI]: new Token(ChainId.WAGMI, '0x3Ee7094DADda15810F191DD6AcF7E4FFa37571e4', 18, 'wWAGMI', 'Wrapped WAGMI')
+  [ChainId.WAGMI]: new Token(ChainId.WAGMI, '0xB43DEb1587711C589A868159CDe16Fd7848AA23A', 18, 'WETH', 'WETH9')
 }
 
 export const OG: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 18, 'ETH', 'Ether'),
-  [ChainId.WAGMI]: new Token(ChainId.WAGMI, '0xf312709A37D0563eabe651E54CA50c85D2F0c6Dd', 18, 'OG', 'OG')
+  [ChainId.WAGMI]: new Token(ChainId.WAGMI, '0xdFD67965602C1f4EB81aA71cC2aA35A4872fca90', 18, 'Zeni', 'Zeni')
 }
 
 export const USDT: { [chainId in ChainId]: Token } = {
@@ -183,7 +186,7 @@ export const TRUSTED_TOKEN_ADDRESSES: { readonly [chainId in ChainId]: string[] 
 
 export const SWAP_DEFAULT_CURRENCY = {
   [ChainId.WAGMI]: {
-    inputCurrency: 'WGM',
+    inputCurrency: 'WETH9',
     outputCurrnecy: ''
   },
   [ChainId.FUJI]: {
@@ -251,15 +254,15 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
 export const NetworkContextName = 'NETWORK'
 
 export const WAGMI_CHAIN_PARAMS = {
-  chainId: '0x2B67', // A 0x-prefixed hexadecimal chainId
-  chainName: 'Wagmi Mainnet',
+  chainId: '0x5', // A 0x-prefixed hexadecimal chainId
+  chainName: 'Goerli',
   nativeCurrency: {
-    name: 'Wagmi',
-    symbol: 'WGM',
+    name: 'ETH',
+    symbol: 'ETH',
     decimals: 18
   },
-  rpcUrls: ['https://api.avax.network/ext/bc/C/rpc'],
-  blockExplorerUrls: ['https://snowtrace.io//']
+  rpcUrls: ['https://goerli.infura.io/v3/f4b15957ae81470c9329a53e05cb8fa7'],
+  blockExplorerUrls: ['https://goerli.etherscan.io/']
 }
 
 // default allowed slippage, in bips

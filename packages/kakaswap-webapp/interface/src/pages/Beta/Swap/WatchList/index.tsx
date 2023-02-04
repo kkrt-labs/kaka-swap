@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useState, useMemo } from 'react'
 import { Text, Box, Button } from '@pangolindex/components'
-import { ChainId, Token } from '@jb1011/wagmi'
+import { ChainId, Token } from '@jean1011/kakarot'
 import { Plus } from 'react-feather'
 import { ThemeContext } from 'styled-components'
 import { PNG } from 'src/constants'

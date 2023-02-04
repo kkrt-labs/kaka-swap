@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { TransactionResponse } from '@ethersproject/providers'
-import { Currency, currencyEquals, CAVAX, TokenAmount, WAVAX } from '@jb1011/wagmi'
+import { Currency, currencyEquals, CAVAX, TokenAmount, WAVAX } from '@jean1011/kakarot'
 import React, { useCallback, useContext, useState } from 'react'
 import { Plus } from 'react-feather'
 import ReactGA from 'react-ga'
@@ -38,7 +38,7 @@ import { Dots, Wrapper } from '../Pool/styleds'
 import { ConfirmAddModalBottom } from './ConfirmAddModalBottom'
 import { currencyId } from '../../utils/currencyId'
 import { PoolPriceBar } from './PoolPriceBar'
-import { ChainId } from '@jb1011/wagmi'
+import { ChainId } from '@jean1011/kakarot'
 import { useTranslation } from 'react-i18next'
 
 export default function AddLiquidity({
@@ -132,6 +132,7 @@ export default function AddLiquidity({
   const addTransaction = useTransactionAdder()
 
   async function onAdd() {
+
     if (!chainId || !library || !account) return
     const router = getRouterContract(chainId, library, account)
 
@@ -149,6 +150,7 @@ export default function AddLiquidity({
       method: (...args: any) => Promise<TransactionResponse>,
       args: Array<string | string[] | number>,
       value: BigNumber | null
+
     if (currencyA === CAVAX || currencyB === CAVAX) {
       const tokenBIsETH = currencyB === CAVAX
       estimate = router.estimateGas.addLiquidityAVAX
@@ -163,6 +165,8 @@ export default function AddLiquidity({
       ]
       value = BigNumber.from((tokenBIsETH ? parsedAmountB : parsedAmountA).raw.toString())
     } else {
+      console.log("hey0", deadline)
+
       estimate = router.estimateGas.addLiquidity
       method = router.addLiquidity
       args = [
@@ -179,6 +183,8 @@ export default function AddLiquidity({
     }
 
     setAttemptingTxn(true)
+    console.log("hey0", value)
+
     await estimate(...args, value ? { value } : {})
       .then(estimatedGasLimit =>
         method(...args, {
@@ -186,6 +192,7 @@ export default function AddLiquidity({
           gasLimit: calculateGasMargin(estimatedGasLimit)
         }).then(response => {
           setAttemptingTxn(false)
+          console.log("hey1")
 
           addTransaction(response, {
             summary:
@@ -200,7 +207,7 @@ export default function AddLiquidity({
           })
 
           setTxHash(response.hash)
-
+          console.log("hey2")
           ReactGA.event({
             category: 'Liquidity',
             action: 'Add',
@@ -209,6 +216,7 @@ export default function AddLiquidity({
         })
       )
       .catch(error => {
+        console.log('nooo')
         setAttemptingTxn(false)
         // we only care if the error is something _other_ than the user rejected the tx
         if (error?.code !== 4001) {

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { ThemeContext } from 'styled-components'
 import { Wrapper, PanelWrapper, HeaderGridContainer, EarnWrapper, DetailContainer, TabView } from './styleds'
-import { Fraction } from '@jb1011/wagmi'
+import { Fraction } from '@jean1011/kakarot'
 import { CloseIcon } from 'src/theme/components'
 import { StakingInfo, useGetPoolDollerWorth } from 'src/state/stake/hooks'
 import { Text, Box, DoubleCurrencyLogo } from '@pangolindex/components'
@@ -81,8 +81,8 @@ const DetailView = ({ stakingInfo, onDismiss, version, onOpenClaimModal, onOpenW
             <Stat
               title={`Total APR:`}
               stat={`${stakingInfo?.swapFeeApr && !stakingInfo.isPeriodFinished
-                  ? `${stakingInfo?.swapFeeApr + (stakingInfo?.stakingApr || 0)}%`
-                  : '-'
+                ? `${stakingInfo?.swapFeeApr + (stakingInfo?.stakingApr || 0)}%`
+                : '-'
                 }`}
               titlePosition="top"
               titleFontSize={14}

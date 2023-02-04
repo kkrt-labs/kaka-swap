@@ -1,5 +1,5 @@
 import { Box, Button, Text, ToggleButtons } from '@pangolindex/components'
-import { JSBI } from '@jb1011/wagmi'
+import { JSBI } from '@jean1011/kakarot'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import numeral from 'numeral'

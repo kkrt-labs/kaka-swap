@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Wrapper } from './styleds'
 import { Box, Button } from '@pangolindex/components'
-import { Pair, JSBI, TokenAmount } from '@jb1011/wagmi'
+import { Pair, JSBI, TokenAmount } from '@jean1011/kakarot'
 import PoolInfo from '../PoolInfo'
 import { StakingInfo } from '../../../state/stake/hooks'
 import { tryParseAmount } from '../../../state/swap/hooks'

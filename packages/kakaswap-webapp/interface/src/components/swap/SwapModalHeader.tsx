@@ -1,4 +1,4 @@
-import { Trade, TradeType } from '@jb1011/wagmi'
+import { Trade, TradeType } from '@jean1011/kakarot'
 import React, { useContext, useMemo } from 'react'
 import { ArrowDown, AlertTriangle } from 'react-feather'
 import { Text } from 'rebass'

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, Box } from '@pangolindex/components'
-import { Currency } from '@jb1011/wagmi'
+import { Currency } from '@jean1011/kakarot'
 import { useCoinGeckoTokenData } from 'src/hooks/Tokens'
 import { ExternalLink } from 'src/theme'
 import ReactHtmlParser from 'react-html-parser'

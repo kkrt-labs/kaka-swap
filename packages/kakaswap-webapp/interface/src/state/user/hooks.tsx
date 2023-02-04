@@ -1,4 +1,4 @@
-import { ChainId, Pair, Token } from '@jb1011/wagmi'
+import { ChainId, Pair, Token } from '@jean1011/kakarot'
 import flatMap from 'lodash.flatmap'
 import { useCallback, useMemo } from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'

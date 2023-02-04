@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Pair, Token, Trade } from '@jb1011/wagmi'
+import { Currency, CurrencyAmount, Pair, Token, Trade } from '@jean1011/kakarot'
 import flatMap from 'lodash.flatmap'
 import { useMemo } from 'react'
 

@@ -1,4 +1,4 @@
-import { ChainId, TokenAmount } from '@jb1011/wagmi'
+import { ChainId, TokenAmount } from '@jean1011/kakarot'
 import { Button } from '@pangolindex/components'
 import React, { useState, useRef } from 'react'
 import { useActiveWeb3React } from '../../hooks'
@@ -38,7 +38,7 @@ import { useTranslation } from 'react-i18next'
 
 const NETWORK_LABELS: { [chainId in ChainId]?: string } = {
   [ChainId.FUJI]: 'Fuji',
-  [ChainId.WAGMI]: 'Wagmi'
+  [ChainId.WAGMI]: 'WETH9'
 }
 
 interface HeaderProps {
@@ -107,7 +107,7 @@ export default function Header({ onCollapsed }: HeaderProps) {
                     </TYPE.white>
                   </HideSmall>
                 )}
-                wagmiPNG
+                weth9PNG
               </PNGAmount>
               <CardNoise />
             </PNGWrapper>
