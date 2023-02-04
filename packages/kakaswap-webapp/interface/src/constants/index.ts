@@ -261,7 +261,7 @@ export const WAGMI_CHAIN_PARAMS = {
     decimals: 18
   },
   rpcUrls: ['https://consensys-zkevm-goerli-prealpha.infura.io/v3/f4b15957ae81470c9329a53e05cb8fa7'],
-  blockExplorerUrls: ['']
+  blockExplorerUrls: ['https://etherscan.io/']
 }
 
 // default allowed slippage, in bips

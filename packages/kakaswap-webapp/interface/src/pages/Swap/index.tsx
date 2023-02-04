@@ -43,39 +43,32 @@ import AppBody from '../AppBody'
 import { ClickableText } from '../Pool/styleds'
 import Loader from '../../components/Loader'
 import useENS from '../../hooks/useENS'
-import { Trans, useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 import { useIsSelectedAEBToken, useSelectedTokenList, useTokenList } from '../../state/lists/hooks'
 import { DeprecatedWarning } from '../../components/Warning'
 import { isTokenOnList } from '../../utils'
 import { DEFI_TOKEN_LIST, AVAX_BRIDGE_LIST } from '../../constants/lists'
 
-const TopText = styled.span`
-  margin-bottom: 8px;
-  font-size: 18px;
-`
 
-const BottomText = styled.span`
-  margin-top: 8px;
-  font-size: 18px;
-`
 
-const VeloxLink = styled.a`
-  color: #f25c23;
-  text-decoration: none;
-`
+// const BottomText = styled.span`
+//   margin-top: 8px;
+//   font-size: 18px;
+// `
 
-const MarginswapLink = styled.a`
-  color: #f25c23;
-  text-decoration: none;
-  margin-right: 5px;
-  margin-left: 5px;
-`
 
-const WowSwapLink = styled.a`
-  color: #f25c23;
-  text-decoration: none;
-  margin-left: 5px;
-`
+// const MarginswapLink = styled.a`
+//   color: #f25c23;
+//   text-decoration: none;
+//   margin-right: 5px;
+//   margin-left: 5px;
+// `
+
+// const WowSwapLink = styled.a`
+//   color: #f25c23;
+//   text-decoration: none;
+//   margin-left: 5px;
+// `
 
 const WarningWrapper = styled.div`
   max-width: 420px;
@@ -325,14 +318,14 @@ export default function Swap() {
         </WarningWrapper>
       )}
 
-      <TopText>
+      {/* <TopText>
         <Trans i18nKey="swapPage.velox">
           Set a limit order on
           <VeloxLink href={'https://app.velox.global/'} target={'_blank'}>
             Velox
           </VeloxLink>
         </Trans>
-      </TopText>
+      </TopText> */}
 
       <AppBody>
         <SwapPoolTabs active={'swap'} />
@@ -550,7 +543,7 @@ export default function Swap() {
 
       <AdvancedSwapDetailsDropdown trade={trade} />
 
-      <BottomText>
+      {/* <BottomText>
         <AutoRow>
           <Trans i18nKey="swapPage.marginSwap">
             Trade with leverage on
@@ -565,7 +558,7 @@ export default function Swap() {
             </WowSwapLink>
           </Trans>
         </AutoRow>
-      </BottomText>
+      </BottomText> */}
     </>
   )
 }
