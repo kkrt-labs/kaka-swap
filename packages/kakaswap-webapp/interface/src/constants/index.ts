@@ -32,7 +32,7 @@ type ChainTokenList = {
 
 export const PNG: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, '0x83080D4b5fC60e22dFFA8d14AD3BB41Dde48F199', 18, 'PNG', 'Pangolin'),
-  [ChainId.WAGMI]: new Token(ChainId.WAGMI, '0x3f54c7a3746C0409DD185027397907488F792372', 18, 'wagmiPNG', 'Pangolin')
+  [ChainId.WAGMI]: new Token(ChainId.WAGMI, '0x3f54c7a3746C0409DD185027397907488F792372', 18, 'weth9PNG', 'Pangolin')
 }
 
 export const wWAGMI: { [chainId in ChainId]: Token } = {
@@ -185,7 +185,7 @@ export const TRUSTED_TOKEN_ADDRESSES: { readonly [chainId in ChainId]: string[] 
 
 export const SWAP_DEFAULT_CURRENCY = {
   [ChainId.WAGMI]: {
-    inputCurrency: 'WGM',
+    inputCurrency: 'WETH9',
     outputCurrnecy: ''
   },
   [ChainId.FUJI]: {

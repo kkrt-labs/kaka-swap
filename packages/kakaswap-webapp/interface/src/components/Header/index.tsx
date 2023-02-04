@@ -2,10 +2,9 @@ import { ChainId, TokenAmount } from '@jean1011/kakarot'
 import React, { useState, useRef } from 'react'
 import { Text } from 'rebass'
 import { NavLink } from 'react-router-dom'
-import { useLocation } from 'react-router'
 import { darken } from 'polished'
 import { useTranslation } from 'react-i18next'
-import { ChevronDown } from 'react-feather'
+// import { ChevronDown } from 'react-feather'
 import styled from 'styled-components'
 import Logo from '../../assets/svg/icon.svg'
 import LogoDark from '../../assets/svg/icon.svg'
@@ -14,7 +13,7 @@ import { useDarkModeManager } from '../../state/user/hooks'
 import { useETHBalances, useAggregatePngBalance } from '../../state/wallet/hooks'
 import { CardNoise } from '../earn/styled'
 import { CountUp } from 'use-count-up'
-import { TYPE, ExternalLink } from '../../theme'
+import { TYPE } from '../../theme'
 import { RedCard } from '../Card'
 import Settings from '../Settings'
 import Menu from '../Menu'
@@ -23,11 +22,9 @@ import Web3Status from '../Web3Status'
 import Modal from '../Modal'
 import PngBalanceContent from './PngBalanceContent'
 import usePrevious from '../../hooks/usePrevious'
-import { ANALYTICS_PAGE } from '../../constants'
 import LanguageSelection from '../LanguageSelection'
 import { ApplicationModal } from '../../state/application/actions'
 import { useModalOpen, useToggleModal } from '../../state/application/hooks'
-import { MenuFlyout, MenuNavItem } from '../StyledMenu'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
 
 const HeaderFrame = styled.div`
@@ -223,75 +220,75 @@ const StyledNavLink = styled(NavLink).attrs({
   }
 `
 
-const StyledLink = styled.div<{ isActive: boolean }>`
-  ${({ theme }) => theme.flexRowNoWrap}
-  align-items: left;
-  border-radius: 3rem;
-  outline: none;
-  cursor: pointer;
-  text-decoration: none;
-  color: ${({ theme, isActive }) => (isActive ? theme.text1 : theme.text2)};
-  font-size: 1rem;
-  width: fit-content;
-  margin: 0 12px;
-  font-weight: ${({ isActive }) => (isActive ? 600 : 500)};
-  font-weight: 500;
-  line-height: 24px;
+// const StyledLink = styled.div<{ isActive: boolean }>`
+//   ${({ theme }) => theme.flexRowNoWrap}
+//   align-items: left;
+//   border-radius: 3rem;
+//   outline: none;
+//   cursor: pointer;
+//   text-decoration: none;
+//   color: ${({ theme, isActive }) => (isActive ? theme.text1 : theme.text2)};
+//   font-size: 1rem;
+//   width: fit-content;
+//   margin: 0 12px;
+//   font-weight: ${({ isActive }) => (isActive ? 600 : 500)};
+//   font-weight: 500;
+//   line-height: 24px;
 
-  :hover,
-  :focus {
-    color: ${({ theme }) => darken(0.1, theme.text1)};
-  }
-`
+//   :hover,
+//   :focus {
+//     color: ${({ theme }) => darken(0.1, theme.text1)};
+//   }
+// `
 
-const StyledExternalLink = styled(ExternalLink).attrs({
-  activeClassName
-}) <{ isActive?: boolean }>`
-  ${({ theme }) => theme.flexRowNoWrap}
-  align-items: left;
-  border-radius: 3rem;
-  outline: none;
-  cursor: pointer;
-  text-decoration: none;
-  color: ${({ theme }) => theme.text2};
-  font-size: 1rem;
-  width: fit-content;
-  margin: 0 12px;
-  font-weight: 500;
+// const StyledExternalLink = styled(ExternalLink).attrs({
+//   activeClassName
+// }) <{ isActive?: boolean }>`
+//   ${({ theme }) => theme.flexRowNoWrap}
+//   align-items: left;
+//   border-radius: 3rem;
+//   outline: none;
+//   cursor: pointer;
+//   text-decoration: none;
+//   color: ${({ theme }) => theme.text2};
+//   font-size: 1rem;
+//   width: fit-content;
+//   margin: 0 12px;
+//   font-weight: 500;
 
-  &.${activeClassName} {
-    border-radius: 12px;
-    font-weight: 600;
-    color: ${({ theme }) => theme.text1};
-  }
+//   &.${activeClassName} {
+//     border-radius: 12px;
+//     font-weight: 600;
+//     color: ${({ theme }) => theme.text1};
+//   }
 
-  :hover,
-  :focus {
-    text-decoration: none;
-    color: ${({ theme }) => darken(0.1, theme.text1)};
-  }
+//   :hover,
+//   :focus {
+//     text-decoration: none;
+//     color: ${({ theme }) => darken(0.1, theme.text1)};
+//   }
 
-  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
-      display: none;
-`}
-`
+//   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+//       display: none;
+// `}
+// `
 
-const NarrowMenuFlyout = styled(MenuFlyout)`
-  min-width: 8.125rem;
-  left: 15rem;
-  right: auto !important;
-`
+// const NarrowMenuFlyout = styled(MenuFlyout)`
+//   min-width: 8.125rem;
+//   left: 15rem;
+//   right: auto !important;
+// `
 
 const NETWORK_LABELS: { [chainId in ChainId]?: string } = {
   [ChainId.FUJI]: 'Fuji',
-  [ChainId.WAGMI]: 'Wagmi'
+  [ChainId.WAGMI]: 'WETH9'
 }
 
 export default function Header() {
   const { account, chainId } = useActiveWeb3React()
   const { t } = useTranslation()
 
-  const location: any = useLocation()
+  // const location: any = useLocation()
 
   const userEthBalance = useETHBalances(account ? [account] : [])?.[account ?? '']
   const [isDark] = useDarkModeManager()
@@ -322,9 +319,9 @@ export default function Header() {
           <StyledNavLink id={`swap-nav-link`} to={'/swap'}>
             {t('header.swap')}
           </StyledNavLink>
-          <StyledNavLink id={`swap-nav-link`} to={'/buy'}>
+          {/* <StyledNavLink id={`swap-nav-link`} to={'/buy'}>
             {t('header.buy')}
-          </StyledNavLink>
+          </StyledNavLink> */}
           <StyledNavLink
             id={`pool-nav-link`}
             to={'/pool'}
@@ -339,7 +336,7 @@ export default function Header() {
             {t('header.pool')}
           </StyledNavLink>
 
-          <StyledLink
+          {/* <StyledLink
             id={`png-nav-link`}
             onClick={toggle}
             isActive={location?.pathname?.startsWith('/png')}
@@ -356,9 +353,9 @@ export default function Header() {
                 </MenuNavItem>
               </NarrowMenuFlyout>
             )}
-          </StyledLink>
+          </StyledLink> */}
 
-          <StyledNavLink
+          {/* <StyledNavLink
             id={`stake-nav-link`}
             to={'/stake/0'}
             isActive={(match, { pathname }) => Boolean(match) || pathname.startsWith('/stake')}
@@ -370,7 +367,7 @@ export default function Header() {
           </StyledExternalLink>
           <StyledExternalLink id={`info-nav-link`} href={ANALYTICS_PAGE}>
             {t('header.charts')} <span style={{ fontSize: '11px' }}>↗</span>
-          </StyledExternalLink>
+          </StyledExternalLink> */}
         </HeaderLinks>
       </HeaderRow>
       <HeaderControls>
@@ -401,7 +398,7 @@ export default function Header() {
                     </TYPE.white>
                   </HideSmall>
                 )}
-                wagmiPNG
+                weth9PNG
               </PNGAmount>
               <CardNoise />
             </PNGWrapper>
@@ -409,7 +406,7 @@ export default function Header() {
           <AccountElement active={!!account} style={{ pointerEvents: 'auto' }}>
             {account && userEthBalance ? (
               <BalanceText style={{ flexShrink: 0 }} pl="0.75rem" pr="0.5rem" fontWeight={500}>
-                {userEthBalance?.toSignificant(4)} WGM
+                {userEthBalance?.toSignificant(4)} WETH9
               </BalanceText>
             ) : null}
             <Web3Status />

@@ -38,7 +38,7 @@ import { useTranslation } from 'react-i18next'
 
 const NETWORK_LABELS: { [chainId in ChainId]?: string } = {
   [ChainId.FUJI]: 'Fuji',
-  [ChainId.WAGMI]: 'Wagmi'
+  [ChainId.WAGMI]: 'WETH9'
 }
 
 interface HeaderProps {
@@ -107,7 +107,7 @@ export default function Header({ onCollapsed }: HeaderProps) {
                     </TYPE.white>
                   </HideSmall>
                 )}
-                wagmiPNG
+                weth9PNG
               </PNGAmount>
               <CardNoise />
             </PNGWrapper>
