@@ -6,8 +6,9 @@ import shlex
 import subprocess
 
 from dotenv import load_dotenv
+from web3 import Web3
 
-from script.constants import CHAIN_ID, DEPLOYMENTS_PATH, RPC
+from script.constants import CHAIN_ID, DEPLOYMENTS_PATH, OUT_PATH, RPC
 
 load_dotenv()
 logging.basicConfig(level=logging.INFO)
@@ -64,3 +65,18 @@ def dump():
         indent=2,
     )
     logger.info(f"✅ Deployments saved at {DEPLOYMENTS_PATH}")
+
+
+def get_contract(name):
+    w3 = Web3(Web3.HTTPProvider(RPC))
+
+    if not w3.isConnected():
+        raise ValueError(f"Cannot connect to RPC {RPC}")
+
+    deployments = json.loads(DEPLOYMENTS_PATH.read_text()).get(str(CHAIN_ID))
+
+    if deployments is None:
+        raise ValueError(f"No deployments found for CHAIN_ID {CHAIN_ID}")
+
+    abi = json.loads((OUT_PATH / "Tokens.sol" / f"{name}.json").read_text())["abi"]
+    return w3.eth.contract(address=deployments[name], abi=abi)
