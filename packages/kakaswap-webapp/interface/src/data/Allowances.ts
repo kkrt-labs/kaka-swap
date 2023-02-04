@@ -1,4 +1,4 @@
-import { Token, TokenAmount } from '@jb1011/wagmi'
+import { Token, TokenAmount } from '@jean1011/kakarot'
 import { useMemo } from 'react'
 
 import { useTokenContract } from '../hooks/useContract'

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Wrapper } from './styleds'
 import { Text, Checkbox, Box, Button } from '@pangolindex/components'
-import { Pair } from '@jb1011/wagmi'
+import { Pair } from '@jean1011/kakarot'
 import PairData from './PairData'
 import { StakingInfo } from '../../../state/stake/hooks'
 import { useTranslation } from 'react-i18next'

@@ -1,4 +1,4 @@
-import { Currency, CAVAX, JSBI, TokenAmount } from '@jb1011/wagmi'
+import { Currency, CAVAX, JSBI, TokenAmount } from '@jean1011/kakarot'
 import React, { useCallback, useEffect, useState } from 'react'
 import { Plus } from 'react-feather'
 import { Text } from 'rebass'

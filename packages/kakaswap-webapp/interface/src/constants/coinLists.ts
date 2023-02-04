@@ -12,7 +12,7 @@ import {
   UNI,
   SUSHI
 } from 'src/constants'
-import { WAVAX } from '@jb1011/wagmi'
+import { WAVAX } from '@jean1011/kakarot'
 
 export const COIN_LISTS = [
   WAVAX,

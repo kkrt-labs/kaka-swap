@@ -13,7 +13,7 @@ import { useProposalData, useUserVotes, useUserDelegatee, ProposalData } from '.
 import { DateTime } from 'luxon'
 import ReactMarkdown from 'react-markdown'
 import VoteModal from '../../components/vote/VoteModal'
-import { TokenAmount, JSBI } from '@jb1011/wagmi'
+import { TokenAmount, JSBI } from '@jean1011/kakarot'
 import { useTokenBalance } from '../../state/wallet/hooks'
 import { useActiveWeb3React } from '../../hooks'
 import { PNG, ZERO_ADDRESS } from '../../constants'

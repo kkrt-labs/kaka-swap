@@ -1,4 +1,4 @@
-import { CurrencyAmount, Percent, JSBI } from '@jb1011/wagmi'
+import { CurrencyAmount, Percent, JSBI } from '@jean1011/kakarot'
 import React, { useMemo, useContext } from 'react'
 import { ThemeContext } from 'styled-components'
 import { warningSeverity } from 'src/utils/prices'

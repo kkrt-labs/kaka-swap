@@ -1,4 +1,4 @@
-import { JSBI, Pair, Percent } from '@jb1011/wagmi'
+import { JSBI, Pair, Percent } from '@jean1011/kakarot'
 import { darken } from 'polished'
 import React, { useState } from 'react'
 import { ChevronDown, ChevronUp } from 'react-feather'

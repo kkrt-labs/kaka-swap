@@ -1,4 +1,4 @@
-import { CurrencyAmount, CAVAX, JSBI } from '@jb1011/wagmi'
+import { CurrencyAmount, CAVAX, JSBI } from '@jean1011/kakarot'
 import { MIN_ETH } from '../constants'
 
 /**

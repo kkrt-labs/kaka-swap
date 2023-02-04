@@ -1,4 +1,4 @@
-import { ChainId } from '@jb1011/wagmi'
+import { ChainId } from '@jean1011/kakarot'
 import React, { useContext } from 'react'
 import styled, { ThemeContext } from 'styled-components'
 import Modal from '../Modal'

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { ThemeContext } from 'styled-components'
-import { Token } from '@jb1011/wagmi'
+import { Token } from '@jean1011/kakarot'
 import { TYPE } from 'src/theme'
 import Card from 'src/components/Card'
 import { useActiveWeb3React } from 'src/hooks'

@@ -1,4 +1,4 @@
-import { Currency, CAVAX, Token } from '@jb1011/wagmi'
+import { Currency, CAVAX, Token } from '@jean1011/kakarot'
 import React, { KeyboardEvent, RefObject, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import ReactGA from 'react-ga'
 import { useTranslation } from 'react-i18next'

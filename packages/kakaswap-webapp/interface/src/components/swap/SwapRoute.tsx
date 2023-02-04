@@ -1,4 +1,4 @@
-import { Trade } from '@jb1011/wagmi'
+import { Trade } from '@jean1011/kakarot'
 import React, { Fragment, memo, useContext } from 'react'
 import { ChevronRight } from 'react-feather'
 import { Flex } from 'rebass'

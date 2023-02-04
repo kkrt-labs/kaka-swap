@@ -1,4 +1,4 @@
-import { Currency, Pair } from '@jb1011/wagmi'
+import { Currency, Pair } from '@jean1011/kakarot'
 import React, { useState, useContext, useCallback } from 'react'
 import styled, { ThemeContext } from 'styled-components'
 import { darken } from 'polished'

@@ -1,4 +1,4 @@
-import { Trade, TradeType } from '@jb1011/wagmi'
+import { Trade, TradeType } from '@jean1011/kakarot'
 import React, { useContext } from 'react'
 import { ThemeContext } from 'styled-components'
 import { Field } from '../../state/swap/actions'

@@ -1,4 +1,4 @@
-import { ChainId, JSBI, Token, TokenAmount } from '@jb1011/wagmi'
+import { ChainId, JSBI, Token, TokenAmount } from '@jean1011/kakarot'
 import { BigNumber } from 'ethers'
 import { ZERO_ADDRESS } from '../constants'
 import { computePngCirculation } from './computePngCirculation'

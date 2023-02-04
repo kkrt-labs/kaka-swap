@@ -1,7 +1,7 @@
 import React from 'react'
 import { AutoColumn } from '../../../components/Column'
 import styled from 'styled-components'
-import { JSBI, Currency, TokenAmount } from '@jb1011/wagmi'
+import { JSBI, Currency, TokenAmount } from '@jean1011/kakarot'
 import { TYPE } from '../../../theme'
 import { RowBetween } from '../../../components/Row'
 import { DataCard, CardNoise, CardBGImage } from '../../../components/earn/styled'

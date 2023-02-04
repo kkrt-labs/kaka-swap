@@ -1,4 +1,4 @@
-import { Currency, currencyEquals, CAVAX, WAVAX } from '@jb1011/wagmi'
+import { Currency, currencyEquals, CAVAX, WAVAX } from '@jean1011/kakarot'
 import { useMemo } from 'react'
 import { tryParseAmount } from '../state/swap/hooks'
 import { useTransactionAdder } from '../state/transactions/hooks'

@@ -13,7 +13,7 @@ import { useTransactionAdder } from '../../state/transactions/hooks'
 import FormattedCurrencyAmount from '../FormattedCurrencyAmount'
 import { useActiveWeb3React } from '../../hooks'
 import { useTranslation } from 'react-i18next'
-import { TokenAmount } from '@jb1011/wagmi'
+import { TokenAmount } from '@jean1011/kakarot'
 
 const ContentWrapper = styled(AutoColumn)`
   width: 100%;

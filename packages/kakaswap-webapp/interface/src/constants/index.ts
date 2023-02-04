@@ -1,4 +1,4 @@
-import { ChainId, JSBI, Percent, Token, WAVAX } from '@jb1011/wagmi'
+import { ChainId, JSBI, Percent, Token, WAVAX } from '@jean1011/kakarot'
 import { AbstractConnector } from '@web3-react/abstract-connector'
 
 import { gnosisSafe, injected, walletlink, walletconnect } from '../connectors'
@@ -7,8 +7,10 @@ export const GAS_PRICE = 225
 
 export const ROUTER_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: '0x2D99ABD9008Dc933ff5c0CD271B88309593aB921',
-  [ChainId.WAGMI]: '0xe8225d13Fbd632fa9541D0A2C256E993fE44cB07'
+  [ChainId.WAGMI]: '0xB21ba405133A0a03735419fbb1e078Be3C607BAb'
 }
+
+export const FACTORY_ADDRESS = '0x6Ab63167DC0f41027863aA416068004A53523e8D'
 
 export const LANDING_PAGE = 'https://pangolin.exchange/'
 export const ANALYTICS_PAGE = 'https://info.pangolin.exchange/'
@@ -35,7 +37,7 @@ export const PNG: { [chainId in ChainId]: Token } = {
 
 export const wWAGMI: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 18, 'ETH', 'Ether'),
-  [ChainId.WAGMI]: new Token(ChainId.WAGMI, '0x3Ee7094DADda15810F191DD6AcF7E4FFa37571e4', 18, 'wWAGMI', 'Wrapped WAGMI')
+  [ChainId.WAGMI]: new Token(ChainId.WAGMI, '0xa5bc6A87D9d2e0a1Db0302525D5378d01e09F7D2', 18, 'WETH', 'WETH9')
 }
 
 export const OG: { [chainId in ChainId]: Token } = {
@@ -251,15 +253,15 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
 export const NetworkContextName = 'NETWORK'
 
 export const WAGMI_CHAIN_PARAMS = {
-  chainId: '0x2B67', // A 0x-prefixed hexadecimal chainId
-  chainName: 'Wagmi Mainnet',
+  chainId: '0xE704', // A 0x-prefixed hexadecimal chainId
+  chainName: 'Kakarot Testnet',
   nativeCurrency: {
-    name: 'Wagmi',
-    symbol: 'WGM',
+    name: 'Kakarot',
+    symbol: 'Kaka',
     decimals: 18
   },
-  rpcUrls: ['https://api.avax.network/ext/bc/C/rpc'],
-  blockExplorerUrls: ['https://snowtrace.io//']
+  rpcUrls: ['https://consensys-zkevm-goerli-prealpha.infura.io/v3/f4b15957ae81470c9329a53e05cb8fa7'],
+  blockExplorerUrls: ['']
 }
 
 // default allowed slippage, in bips

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Pair } from '@jb1011/wagmi'
+import { Pair } from '@jean1011/kakarot'
 import { PairBox } from './styleds'
 import { Text, Box, DoubleCurrencyLogo, Checkbox } from '@pangolindex/components'
 import { StakingInfo } from '../../../state/stake/hooks'

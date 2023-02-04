@@ -1,4 +1,4 @@
-import { Currency, CAVAX, Token } from '@jb1011/wagmi'
+import { Currency, CAVAX, Token } from '@jean1011/kakarot'
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
 

@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { ChainId, Token } from '@jb1011/wagmi'
+import { ChainId, Token } from '@jean1011/kakarot'
 import { AppState } from '../index'
 import { COIN_LISTS } from 'src/constants/coinLists'
 import { useActiveWeb3React } from 'src/hooks'

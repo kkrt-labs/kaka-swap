@@ -1,5 +1,5 @@
 import { useMemo, useState, useEffect } from 'react'
-import { ChainId, Pair } from '@jb1011/wagmi'
+import { ChainId, Pair } from '@jean1011/kakarot'
 import { useActiveWeb3React } from '../../hooks'
 import { useTokenBalancesWithLoadingIndicator } from '../wallet/hooks'
 import { usePairs } from '../../data/Reserves'

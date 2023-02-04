@@ -1,4 +1,4 @@
-import { currencyEquals, Trade } from '@jb1011/wagmi'
+import { currencyEquals, Trade } from '@jean1011/kakarot'
 import React, { useCallback, useMemo } from 'react'
 import TransactionConfirmationModal, {
   ConfirmationModalContent,

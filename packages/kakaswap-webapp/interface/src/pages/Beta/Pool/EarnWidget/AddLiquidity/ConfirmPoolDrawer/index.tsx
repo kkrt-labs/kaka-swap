@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { AlertTriangle, ArrowUpCircle } from 'react-feather'
 import { useTranslation } from 'react-i18next'
-import { Currency, CurrencyAmount, Fraction, Percent, TokenAmount } from '@jb1011/wagmi'
+import { Currency, CurrencyAmount, Fraction, Percent, TokenAmount } from '@jean1011/kakarot'
 import { CurrencyLogo, DoubleCurrencyLogo, Text, Box, Button } from '@pangolindex/components'
 import { ThemeContext } from 'styled-components'
 import { getEtherscanLink } from 'src/utils'
