@@ -162,6 +162,7 @@ export default function AddLiquidityModal({ isOpen, onDismiss, currencyIdA: _cur
     } else {
       estimate = router.estimateGas.addLiquidity
       method = router.addLiquidity
+
       args = [
         wrappedCurrency(currencyA, chainId)?.address ?? '',
         wrappedCurrency(currencyB, chainId)?.address ?? '',

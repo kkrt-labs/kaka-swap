@@ -7,10 +7,11 @@ export const GAS_PRICE = 225
 
 export const ROUTER_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: '0x2D99ABD9008Dc933ff5c0CD271B88309593aB921',
-  [ChainId.WAGMI]: '0xB21ba405133A0a03735419fbb1e078Be3C607BAb'
+  [ChainId.WAGMI]: '0xb0433f415e9380b8Ce4D79C2614296d5B03Ac995'
+  // [ChainId.WAGMI]: '0x6E336032d30dc94aa876C9Ff03095b76fb447a41'
 }
 
-export const FACTORY_ADDRESS = '0x6Ab63167DC0f41027863aA416068004A53523e8D'
+export const FACTORY_ADDRESS = '0x38aF92A36B7671571CeeBAfF2c8667edbfDb38d7'
 
 export const LANDING_PAGE = 'https://pangolin.exchange/'
 export const ANALYTICS_PAGE = 'https://info.pangolin.exchange/'
@@ -37,12 +38,12 @@ export const PNG: { [chainId in ChainId]: Token } = {
 
 export const wWAGMI: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 18, 'ETH', 'Ether'),
-  [ChainId.WAGMI]: new Token(ChainId.WAGMI, '0xa5bc6A87D9d2e0a1Db0302525D5378d01e09F7D2', 18, 'WETH', 'WETH9')
+  [ChainId.WAGMI]: new Token(ChainId.WAGMI, '0xB43DEb1587711C589A868159CDe16Fd7848AA23A', 18, 'WETH', 'WETH9')
 }
 
 export const OG: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 18, 'ETH', 'Ether'),
-  [ChainId.WAGMI]: new Token(ChainId.WAGMI, '0xf312709A37D0563eabe651E54CA50c85D2F0c6Dd', 18, 'OG', 'OG')
+  [ChainId.WAGMI]: new Token(ChainId.WAGMI, '0xdFD67965602C1f4EB81aA71cC2aA35A4872fca90', 18, 'Zeni', 'Zeni')
 }
 
 export const USDT: { [chainId in ChainId]: Token } = {
@@ -253,15 +254,15 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
 export const NetworkContextName = 'NETWORK'
 
 export const WAGMI_CHAIN_PARAMS = {
-  chainId: '0xE704', // A 0x-prefixed hexadecimal chainId
-  chainName: 'Kakarot Testnet',
+  chainId: '0x5', // A 0x-prefixed hexadecimal chainId
+  chainName: 'Goerli',
   nativeCurrency: {
-    name: 'Kakarot',
-    symbol: 'Kaka',
+    name: 'ETH',
+    symbol: 'ETH',
     decimals: 18
   },
-  rpcUrls: ['https://consensys-zkevm-goerli-prealpha.infura.io/v3/f4b15957ae81470c9329a53e05cb8fa7'],
-  blockExplorerUrls: ['https://etherscan.io/']
+  rpcUrls: ['https://goerli.infura.io/v3/f4b15957ae81470c9329a53e05cb8fa7'],
+  blockExplorerUrls: ['https://goerli.etherscan.io/']
 }
 
 // default allowed slippage, in bips

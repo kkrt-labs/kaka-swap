@@ -69,7 +69,7 @@ export default function PngBalanceContent({ setShowPngBalanceModal }: { setShowP
   const totalSupply: TokenAmount | undefined = useTotalSupply(png)
 
   // Determine PNG price in AVAX
-  const wavax = WAVAX[chainId ? chainId : 59140]
+  const wavax = WAVAX[chainId ? chainId : 5]
   const [, avaxPngTokenPair] = usePair(wavax, png)
   const oneToken = JSBI.BigInt(1000000000000000000)
   const { t } = useTranslation()

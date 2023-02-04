@@ -2370,10 +2370,10 @@
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
-"@jean1011/kakarot@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@jean1011/kakarot/-/kakarot-1.0.1.tgz#b5f6c080e23f589643049f8d5fdebab63e303944"
-  integrity sha512-yuobP8JziiWBTt8ubqUdVsWd37ppDfdG5vVJnGk8ERVzBW3UWqJCYPnbnbVxic2Fk9NdiD026VtS3IG/sPXwvw==
+"@jean1011/kakarot@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@jean1011/kakarot/-/kakarot-2.0.1.tgz#4fec47143df143605c1a1ab0ac907f8e62c93ac5"
+  integrity sha512-UxjBvPzsnjAU2RJdo8SSCnrFIm9rq4ASMuhAqSWQBTl7JRXg3I5dSpqXmwtqeXp/OIeRR5TBZ+Y7OWXrdDHRGg==
   dependencies:
     "@openzeppelin/cli" "^2.8.2"
     "@pangolindex/exchange-contracts" "^1.0.1"
