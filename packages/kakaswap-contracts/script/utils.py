@@ -14,7 +14,15 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
 deployments = {}
-RPC = os.environ["GOERLI_RPC_URL"]
+RPC = os.getenv("RPC_URL", os.environ["GOERLI_RPC_URL"])
+CHAIN_ID = int(
+    subprocess.run(
+        shlex.split(f"cast chain-id --rpc-url {RPC}"),
+        capture_output=True,
+    ).stdout[:-1]
+)
+
+logger.info(f"Using CHAIN_ID {CHAIN_ID} with RPC {RPC}")
 
 
 def deploy_contract(path: str, *args):
@@ -44,27 +52,18 @@ def deploy_contract(path: str, *args):
     return address[1].strip()
 
 
-chain_id = int(
-    subprocess.run(
-        shlex.split(f"cast chain-id --rpc-url {RPC}"),
-        capture_output=True,
-    ).stdout[:-1]
-)
-
-
 def dump():
     previous_deployments = {}
     if Path("deployments.json").is_file():
-        previous_deployments = json.loads(Path("deployments.json").read_text()).get(
-            str(chain_id), {}
-        )
+        previous_deployments = json.loads(Path("deployments.json").read_text())
     _deployments = {
-        **previous_deployments,
+        **previous_deployments.get(str(CHAIN_ID), {}),
         **deployments,
     }
     json.dump(
         {
-            str(chain_id): _deployments,
+            **previous_deployments,
+            str(CHAIN_ID): _deployments,
         },
         open("deployments.json", "w"),
         indent=2,
