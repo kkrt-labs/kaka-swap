@@ -4,9 +4,10 @@ import os
 import re
 import shlex
 import subprocess
-from pathlib import Path
 
 from dotenv import load_dotenv
+
+from script.constants import CHAIN_ID, DEPLOYMENTS_PATH, RPC
 
 load_dotenv()
 logging.basicConfig(level=logging.INFO)
@@ -14,13 +15,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
 deployments = {}
-RPC = os.getenv("RPC_URL", os.environ["GOERLI_RPC_URL"])
-CHAIN_ID = int(
-    subprocess.run(
-        shlex.split(f"cast chain-id --rpc-url {RPC}"),
-        capture_output=True,
-    ).stdout[:-1]
-)
+
 
 logger.info(f"Using CHAIN_ID {CHAIN_ID} with RPC {RPC}")
 
@@ -54,8 +49,8 @@ def deploy_contract(path: str, *args):
 
 def dump():
     previous_deployments = {}
-    if Path("deployments.json").is_file():
-        previous_deployments = json.loads(Path("deployments.json").read_text())
+    if DEPLOYMENTS_PATH.is_file():
+        previous_deployments = json.loads(DEPLOYMENTS_PATH.read_text())
     _deployments = {
         **previous_deployments.get(str(CHAIN_ID), {}),
         **deployments,
@@ -65,7 +60,7 @@ def dump():
             **previous_deployments,
             str(CHAIN_ID): _deployments,
         },
-        open("deployments.json", "w"),
+        open(DEPLOYMENTS_PATH, "w"),
         indent=2,
     )
-    logger.info(f"✅ Deployments saved at deployments.json")
+    logger.info(f"✅ Deployments saved at {DEPLOYMENTS_PATH}")
