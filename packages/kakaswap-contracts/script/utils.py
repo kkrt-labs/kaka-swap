@@ -78,5 +78,9 @@ def get_contract(name):
     if deployments is None:
         raise ValueError(f"No deployments found for CHAIN_ID {CHAIN_ID}")
 
-    abi = json.loads((OUT_PATH / "Tokens.sol" / f"{name}.json").read_text())["abi"]
+    abis = list(OUT_PATH.glob(f"*/{name}.json"))
+    if len(abis) != 1:
+        raise ValueError(f"Cannot locate a unique abi, got\n{abis}")
+
+    abi = json.loads(abis[0].read_text())["abi"]
     return w3.eth.contract(address=deployments[name], abi=abi)
