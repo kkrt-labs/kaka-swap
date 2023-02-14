@@ -1,11 +1,11 @@
-import { toChecksumAddress } from 'web3-utils';
 import DEFAULT_TOKEN_LIST from '@uniswap/default-token-list';
 import { ChainId, Token } from '@uniswap/sdk';
 import { Tags, TokenInfo, TokenList } from '@uniswap/token-lists';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import { AppState } from '../index';
 import sortByListPriority from 'utils/listSort';
+import { toChecksumAddress } from 'web3-utils';
+import { AppState } from '../index';
 
 type TagDetails = Tags[keyof Tags];
 export interface TagInfo extends TagDetails {

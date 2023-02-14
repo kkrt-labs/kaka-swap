@@ -9,11 +9,19 @@ import {
 } from '../connectors';
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
-export const FACTORY_ADDRESS = '0x5CdCcb8b368dd2abBDE4F9bE03d03487a97114be';
-export const ROUTER_ADDRESS = '0x2D522af2EDB863E976921A50b4A1fCac76d83707';
+export const FACTORY_ADDRESS = '0x90b5e89934DF64192753F528dD55516847cDEE92';
+export const ROUTER_ADDRESS = '0x6FE8938B7e58efD931D3FE7961145e9C669290e3';
 
 export const LP_TOKEN_NAME = 'Uniswap V2';
 export const LP_TOKEN_SYMBOL = 'UNI-V2';
+
+WETH[ChainId.GÖRLI] = new Token(
+  ChainId.GÖRLI,
+  '0xfCbddd6B663a408cd070D1d63BB48a6Ae96c7581',
+  18,
+  'WETH',
+  'Wrapped Ether'
+);
 
 // a list of tokens by chain
 type ChainTokenList = {
@@ -33,6 +41,7 @@ export const COMP = new Token(ChainId.MAINNET, '0xc00e94Cb662C3520282E6f57172140
 export const MKR = new Token(ChainId.MAINNET, '0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2', 18, 'MKR', 'Maker');
 export const AMPL = new Token(ChainId.MAINNET, '0xD46bA6D942050d489DBd938a2C909A5d5039A161', 9, 'AMPL', 'Ampleforth');
 export const WBTC = new Token(ChainId.MAINNET, '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599', 8, 'WBTC', 'Wrapped BTC');
+export const ZENI = new Token(ChainId.GÖRLI, '0x29F022cd7E4320d454C105DA24a0C0dd3c7B9d86', 18, 'ZN', 'Zeni');
 
 // Block time here is slightly higher (~1s) than average in order to avoid ongoing proposals past the displayed time
 export const AVERAGE_BLOCK_TIME_IN_SECS = 13;
@@ -80,7 +89,7 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT, WBTC],
   [ChainId.ROPSTEN]: [...WETH_ONLY[ChainId.ROPSTEN]],
   [ChainId.RINKEBY]: [...WETH_ONLY[ChainId.RINKEBY]],
-  [ChainId.GÖRLI]: [...WETH_ONLY[ChainId.GÖRLI]],
+  [ChainId.GÖRLI]: [...WETH_ONLY[ChainId.GÖRLI], ZENI],
   [ChainId.KOVAN]: [...WETH_ONLY[ChainId.KOVAN]],
 };
 
@@ -142,33 +151,6 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     href: null,
     color: '#315CF5',
   },
-  // COINBASE_LINK: {
-  //   name: 'Open in Coinbase Wallet',
-  //   iconName: 'coinbaseWalletIcon.svg',
-  //   description: 'Open in Coinbase Wallet app.',
-  //   href: 'https://go.cb-w.com/mtUDhEZPy1',
-  //   color: '#315CF5',
-  //   mobile: true,
-  //   mobileOnly: true
-  // },
-  // FORTMATIC: {
-  //   connector: fortmatic,
-  //   name: 'Fortmatic',
-  //   iconName: 'fortmaticIcon.png',
-  //   description: 'Login using Fortmatic hosted wallet',
-  //   href: null,
-  //   color: '#6748FF',
-  //   mobile: true,
-  // },
-  // Portis: {
-  //   connector: portis,
-  //   name: 'Portis',
-  //   iconName: 'portisIcon.png',
-  //   description: 'Login using Portis hosted wallet',
-  //   href: null,
-  //   color: '#4A6C9B',
-  //   mobile: true,
-  // },
 };
 
 export const NetworkContextName = 'NETWORK';
