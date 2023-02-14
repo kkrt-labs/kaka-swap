@@ -1,19 +1,19 @@
-import { isTradeBetter } from 'utils/trades';
 import { Currency, CurrencyAmount, Pair, Token, Trade } from '@uniswap/sdk';
 import flatMap from 'lodash.flatmap';
 import { useMemo } from 'react';
+import { isTradeBetter } from 'utils/trades';
 
-import { BASES_TO_CHECK_TRADES_AGAINST, CUSTOM_BASES, BETTER_TRADE_LESS_HOPS_THRESHOLD } from '../constants';
+import { BASES_TO_CHECK_TRADES_AGAINST, BETTER_TRADE_LESS_HOPS_THRESHOLD, CUSTOM_BASES } from '../constants';
 import { PairState, usePairs } from '../data/Reserves';
 import { wrappedCurrency } from '../utils/wrappedCurrency';
 
-import { useActiveWeb3React } from './index';
 import { useUserSingleHopOnly } from 'state/user/hooks';
+import { useActiveWeb3React } from './index';
 
 function useAllCommonPairs(currencyA?: Currency, currencyB?: Currency): Pair[] {
   const { chainId } = useActiveWeb3React();
 
-  const bases: Token[] = chainId ? BASES_TO_CHECK_TRADES_AGAINST[chainId] : [];
+  const bases: Token[] = useMemo(() => (chainId ? BASES_TO_CHECK_TRADES_AGAINST[chainId] : []), [chainId]);
 
   const [tokenA, tokenB] = chainId
     ? [wrappedCurrency(currencyA, chainId), wrappedCurrency(currencyB, chainId)]
