@@ -1,16 +1,13 @@
 import json
 import logging
-import os
-import re
-import shlex
-import subprocess
 
 from dotenv import load_dotenv
 from web3 import Web3
 
-from script.constants import CHAIN_ID, DEPLOYMENTS_PATH, OUT_PATH, RPC
-
 load_dotenv()
+
+from script.constants import CHAIN_ID, DEPLOYMENTS_PATH, OUT_PATH, PRIVATE_KEY, RPC
+
 logging.basicConfig(level=logging.INFO)
 
 logger = logging.getLogger()
@@ -21,31 +18,34 @@ deployments = {}
 logger.info(f"Using CHAIN_ID {CHAIN_ID} with RPC {RPC}")
 
 
-def deploy_contract(path: str, *args):
-    contract_name = path.split(":")[-1]
+w3 = Web3(Web3.HTTPProvider(RPC))
+account = w3.eth.account.from_key(PRIVATE_KEY)
+
+
+def deploy_contract(contract_name: str, *args, **kwargs):
     logger.info(f"⏳ Deploying {contract_name}")
-    res = subprocess.run(
-        shlex.split(
-            f"forge create "
-            + f"--rpc-url {RPC} "
-            + f"--private-key {os.environ['PRIVATE_KEY']} "
-            + f"{path} "
-            + (f"--constructor-args {' '.join(args)}" if args else ""),
-        ),
-        capture_output=True,
+    artifacts = json.loads(
+        (OUT_PATH / f"{contract_name}.sol" / f"{contract_name}.json").read_text()
     )
-    address = re.search(
-        r"Deployed to:(.*)Transaction hash",
-        str(res.stdout).replace("\\n", ""),
-        re.IGNORECASE,
+    contract = w3.eth.contract(
+        abi=artifacts["abi"],
+        bytecode=artifacts["bytecode"]["object"],
+    )
+    tx = contract.constructor(*args, **kwargs).build_transaction(
+        {"from": account.address, "nonce": w3.eth.getTransactionCount(account.address)}
+    )
+    signed_tx = account.sign_transaction(tx)
+    tx_hash = w3.eth.sendRawTransaction(signed_tx.rawTransaction)
+    tx_receipt = w3.eth.waitForTransactionReceipt(tx_hash)
+    contract_address = tx_receipt.contractAddress
+    contract = w3.eth.contract(
+        address=contract_address,
+        abi=artifacts["abi"],
     )
 
-    if address is None:
-        raise ValueError(f"Cannot deploy {path}: {res.stderr}")
-
-    deployments[contract_name] = address[1].strip()
-    logger.info(f"✅ {contract_name} deployed at {address[1].strip()}")
-    return address[1].strip()
+    deployments[contract_name] = contract_address
+    logger.info(f"✅ {contract_name} deployed at {contract_address}")
+    return contract
 
 
 def dump():
@@ -84,3 +84,18 @@ def get_contract(name):
 
     abi = json.loads(abis[0].read_text())["abi"]
     return w3.eth.contract(address=deployments[name], abi=abi)
+
+
+def invoke_contract(contract, function_name, *args, **kwargs):
+    logger.info(f"⏳ Invoking {function_name}")
+    function = contract.get_function_by_name(function_name)
+    transaction_hash = w3.eth.sendRawTransaction(
+        account.sign_transaction(
+            function(*args, **kwargs).buildTransaction(
+                {"nonce": w3.eth.getTransactionCount(account.address)}
+            )
+        ).rawTransaction
+    )
+    transaction_receipt = w3.eth.waitForTransactionReceipt(transaction_hash)
+    logger.info(f"✅ {function_name} tx hash {transaction_hash}")
+    return transaction_receipt

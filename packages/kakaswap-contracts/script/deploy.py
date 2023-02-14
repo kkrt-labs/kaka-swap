@@ -1,26 +1,14 @@
-import json
-import os
+from script.constants import OWNER
+from script.utils import deploy_contract, dump, invoke_contract
 
-from dotenv import load_dotenv
-from eth_utils import keccak
+zeni = deploy_contract("Zeni")
+tx = invoke_contract(zeni, "mint", OWNER, int(1e18))
 
-load_dotenv()
-
-from script.utils import deploy_contract, dump
-
-deploy_contract("src/Zeni.sol:Zeni")
-weth = deploy_contract("src/WETH.sol:WETH9")
-
-factory = deploy_contract("src/Factory.sol:Factory", os.environ["ADDRESS"])
-pair_class_hash = keccak(
-    bytes.fromhex(
-        json.load(open("out/UniswapV2Pair.sol/UniswapV2Pair.json"))["bytecode"][
-            "object"
-        ][2:]
-    )
-).hex()
+weth = deploy_contract("WETH")
+factory = deploy_contract("Factory", OWNER)
+pair_class_hash = factory.functions.INIT_CODE_HASH().call().hex()
 print(f"Pair class hash is {pair_class_hash}")
 input("Check that this class hash is the same as the one in UniswapV2Library.pairFor")
-deploy_contract("src/Router.sol:Router", factory, weth)
+router = deploy_contract("Router", factory.address, weth.address)
 
 dump()

@@ -4,6 +4,10 @@ import subprocess
 from pathlib import Path
 
 import toml
+from dotenv import load_dotenv
+from web3 import Web3
+
+load_dotenv()
 
 RPC = os.getenv("RPC_URL", os.environ["GOERLI_RPC_URL"])
 CHAIN_ID = int(
@@ -16,3 +20,4 @@ CHAIN_ID = int(
 DEPLOYMENTS_PATH = Path("deployments.json")
 OUT_PATH = Path(toml.load(open("foundry.toml"))["profile"]["default"]["out"])
 PRIVATE_KEY = os.environ["PRIVATE_KEY"]
+OWNER = Web3.toChecksumAddress(os.environ["ADDRESS"])
