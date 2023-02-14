@@ -1,3 +1,3 @@
 pragma solidity >=0.5.0;
 
-import "v2-periphery/UniswapV2Router01.sol";
+import {UniswapV2Router01} from "v2-periphery/UniswapV2Router01.sol";
