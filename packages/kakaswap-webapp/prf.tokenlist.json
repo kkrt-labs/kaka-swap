@@ -1,0 +1,32 @@
+{
+  "name": "prf",
+  "logoURI": "https://raw.githubusercontent.com/compound-finance/token-list/master/assets/compound-interface.svg",
+  "keywords": [
+    "compound",
+    "defi"
+  ],
+  "timestamp": "2021-05-27T20:37:00.000+00:00",
+  "tokens": [
+   {
+    "chainId": 3,
+    "address": "0x7Bdf61288879FbeA55dbB81d12c6f3e3D9285388",
+    "name": "Prosperite Future 2024",
+    "symbol": "PRF-24",
+    "decimals": 18,
+    "logoURI": "https://raw.githubusercontent.com/crawazaky/Uniswap-UI-fork/master/asset_PRG-svg.svg"
+  },
+   {
+    "chainId": 3,
+    "address": "0xcAF0Bb9d12Db478F1ff11437a112cfa24992111B",
+    "name": "Prosperite Future 2025",
+    "symbol": "PRF-25",
+    "decimals": 18,
+    "logoURI": "https://raw.githubusercontent.com/crawazaky/Uniswap-UI-fork/master/asset_PRG-svg.svg"
+  }
+  ],
+  "version": {
+    "major": 2,
+    "minor": 0,
+    "patch": 0
+  }
+}
