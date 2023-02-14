@@ -1,7 +1,7 @@
-# Uniswap-UI-fork template
+# Kaka-swap
 
-### Rinkeby
+## Goerli
 
-- Factory: 0x6Bd5A1A63ffF10De3c6B7C667040E9AE1B47fDf2
-- Router: 0xA4E1f3fD10E2397f58926E215Ed331D7cDA14056
-- Pair hash: 0xaf88dd15a55596feb9d67243c727bfd6144af12453963809bc91f0cfcf8241bc
+- Factory: 0x5CdCcb8b368dd2abBDE4F9bE03d03487a97114be
+- Router: 0x2D522af2EDB863E976921A50b4A1fCac76d83707
+- Pair hash: 0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470

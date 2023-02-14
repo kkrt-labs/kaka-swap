@@ -9,11 +9,11 @@ import {
 } from '../connectors';
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
-export const FACTORY_ADDRESS = '0x6Bd5A1A63ffF10De3c6B7C667040E9AE1B47fDf2';
-export const ROUTER_ADDRESS = '0xA4E1f3fD10E2397f58926E215Ed331D7cDA14056';
+export const FACTORY_ADDRESS = '0x5CdCcb8b368dd2abBDE4F9bE03d03487a97114be';
+export const ROUTER_ADDRESS = '0x2D522af2EDB863E976921A50b4A1fCac76d83707';
 
-export const LP_TOKEN_NAME = 'Swap-LP-Token';
-export const LP_TOKEN_SYMBOL = 'SWAP-LP';
+export const LP_TOKEN_NAME = 'Uniswap V2';
+export const LP_TOKEN_SYMBOL = 'UNI-V2';
 
 // a list of tokens by chain
 type ChainTokenList = {
