@@ -144,19 +144,6 @@ function StatusIcon({ connector }: { connector: AbstractConnector }) {
       </IconWrapper>
     );
   }
-  // else if (connector === fortmatic) {
-  //   return (
-  //     <IconWrapper size={16}>
-  //       <img src={FortmaticIcon} alt={''} />
-  //     </IconWrapper>
-  //   );
-  // } else if (connector === portis) {
-  //   return (
-  //     <IconWrapper size={16}>
-  //       <img src={PortisIcon} alt={''} />
-  //     </IconWrapper>
-  //   );
-  // }
   return null;
 }
 

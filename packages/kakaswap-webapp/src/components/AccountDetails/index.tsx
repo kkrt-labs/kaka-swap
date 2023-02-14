@@ -257,28 +257,6 @@ export default function AccountDetails({
         </IconWrapper>
       );
     }
-    // else if (connector === fortmatic) {
-    //   return (
-    //     <IconWrapper size={16}>
-    //       <img src={FortmaticIcon} alt={'fortmatic logo'} />
-    //     </IconWrapper>
-    //   );
-    // } else if (connector === portis) {
-    //   return (
-    //     <>
-    //       <IconWrapper size={16}>
-    //         <img src={PortisIcon} alt={'portis logo'} />
-    //         <MainWalletAction
-    //           onClick={() => {
-    //             portis.portis.showPortis();
-    //           }}
-    //         >
-    //           Show Portis
-    //         </MainWalletAction>
-    //       </IconWrapper>
-    //     </>
-    //   );
-    // }
     return null;
   }
 
