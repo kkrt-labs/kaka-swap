@@ -33,5 +33,22 @@ export const DEFAULT_TOKEN_LIST = {
       logoURI:
         'https://assets-cdn.trustwallet.com/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
     },
+    {
+      name: 'Zeni',
+      address: '0x69AF21eF850a9f0B0303c239C87b765d1664C60C',
+      symbol: 'ZN',
+      decimals: 18,
+      chainId: 59140,
+      logoURI: require('../assets/images/zeni_token.png'),
+    },
+    {
+      name: 'Wrapped Ether',
+      address: '0xBf44988fa2ED7C8C3a28af2dB13F75765258459a',
+      symbol: 'WETH',
+      decimals: 18,
+      chainId: 59140,
+      logoURI:
+        'https://assets-cdn.trustwallet.com/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
+    },
   ],
 };

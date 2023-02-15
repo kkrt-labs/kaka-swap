@@ -47,6 +47,7 @@ var ChainId
   ChainId[(ChainId['RINKEBY'] = 4)] = 'RINKEBY'
   ChainId[(ChainId['G\xD6RLI'] = 5)] = 'G\xD6RLI'
   ChainId[(ChainId['KOVAN'] = 42)] = 'KOVAN'
+  ChainId[(ChainId['CONSENSYS_ZK_EVM'] = 59140)] = 'CONSENSYS_ZK_EVM'
 })(ChainId || (ChainId = {}))
 
 var TradeType
@@ -62,7 +63,7 @@ var Rounding
   Rounding[(Rounding['ROUND_UP'] = 2)] = 'ROUND_UP'
 })(Rounding || (Rounding = {}))
 
-var FACTORY_ADDRESS = '0xd1654fC9BE213E17a8B5E77120cb8C4BadC7ae4b'
+var FACTORY_ADDRESS = '0xdE55955569f11Cb25A41d00fa5b6236E5dEC25e2'
 var INIT_CODE_HASH = '0xc3ba597df61b8241a2d6d42ca2b0298eefd0016d41c50c8687ac3b8c16e30cab'
 var MINIMUM_LIQUIDITY = /*#__PURE__*/ JSBI.BigInt(1000) // exports for internal consumption
 
@@ -549,6 +550,13 @@ var WETH =
   (_WETH[ChainId.KOVAN] = /*#__PURE__*/ new Token(
     ChainId.KOVAN,
     '0xd0A1E359811322d97991E03f863a0C30C2cF029C',
+    18,
+    'WETH',
+    'Wrapped Ether'
+  )),
+  (_WETH[ChainId.CONSENSYS_ZK_EVM] = /*#__PURE__*/ new Token(
+    ChainId.CONSENSYS_ZK_EVM,
+    '0xBf44988fa2ED7C8C3a28af2dB13F75765258459a',
     18,
     'WETH',
     'Wrapped Ether'

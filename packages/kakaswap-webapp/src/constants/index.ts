@@ -3,23 +3,15 @@ import { AbstractConnector } from '@web3-react/abstract-connector';
 import { injected, walletconnect, walletlink } from '../connectors';
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
-export const FACTORY_ADDRESS = '0xd1654fC9BE213E17a8B5E77120cb8C4BadC7ae4b';
-export const ROUTER_ADDRESS = '0x7DF5a16A946A41f6943f64b8e961420b596dFD96';
+export const FACTORY_ADDRESS = '0xdE55955569f11Cb25A41d00fa5b6236E5dEC25e2';
+export const ROUTER_ADDRESS = '0xfc99C54CF54C24376215221Fe8CD9B590c158736';
 
 export const LP_TOKEN_NAME = 'Uniswap V2';
 export const LP_TOKEN_SYMBOL = 'UNI-V2';
 
-WETH[ChainId.GÖRLI] = new Token(
-  ChainId.GÖRLI,
-  '0x98159B3bb5E04F1b11c4967B1de81329CD3C8345',
-  18,
-  'WETH',
-  'Wrapped Ether'
-);
-
 // a list of tokens by chain
 type ChainTokenList = {
-  readonly [chainId in ChainId]: Token[];
+  readonly [chainId in ChainId]?: Token[];
 };
 
 export const DAI = new Token(
@@ -35,7 +27,17 @@ export const COMP = new Token(ChainId.MAINNET, '0xc00e94Cb662C3520282E6f57172140
 export const MKR = new Token(ChainId.MAINNET, '0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2', 18, 'MKR', 'Maker');
 export const AMPL = new Token(ChainId.MAINNET, '0xD46bA6D942050d489DBd938a2C909A5d5039A161', 9, 'AMPL', 'Ampleforth');
 export const WBTC = new Token(ChainId.MAINNET, '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599', 8, 'WBTC', 'Wrapped BTC');
-export const ZENI = new Token(ChainId.GÖRLI, '0x82BcaCd36deA496C4F90B5FfA2347380a7C265d1', 18, 'ZN', 'Zeni');
+
+export const ZENI = {
+  [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, '0x82BcaCd36deA496C4F90B5FfA2347380a7C265d1', 18, 'ZN', 'Zeni'),
+  [ChainId.CONSENSYS_ZK_EVM]: new Token(
+    ChainId.CONSENSYS_ZK_EVM,
+    '0x69AF21eF850a9f0B0303c239C87b765d1664C60C',
+    18,
+    'ZN',
+    'Zeni'
+  ),
+};
 
 // Block time here is slightly higher (~1s) than average in order to avoid ongoing proposals past the displayed time
 export const AVERAGE_BLOCK_TIME_IN_SECS = 13;
@@ -53,12 +55,13 @@ const WETH_ONLY: ChainTokenList = {
   [ChainId.RINKEBY]: [WETH[ChainId.RINKEBY]],
   [ChainId.GÖRLI]: [WETH[ChainId.GÖRLI]],
   [ChainId.KOVAN]: [WETH[ChainId.KOVAN]],
+  [ChainId.CONSENSYS_ZK_EVM]: [WETH[ChainId.CONSENSYS_ZK_EVM]],
 };
 
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT, COMP, MKR, WBTC],
+  [ChainId.MAINNET]: [WETH[ChainId.MAINNET], DAI, USDC, USDT, COMP, MKR, WBTC],
 };
 
 /**
@@ -74,17 +77,18 @@ export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: To
 // used for display in the default list when adding liquidity
 export const SUGGESTED_BASES: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT, WBTC],
+  [ChainId.MAINNET]: [WETH[ChainId.MAINNET], DAI, USDC, USDT, WBTC],
 };
 
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT, WBTC],
-  [ChainId.ROPSTEN]: [...WETH_ONLY[ChainId.ROPSTEN]],
-  [ChainId.RINKEBY]: [...WETH_ONLY[ChainId.RINKEBY]],
-  [ChainId.GÖRLI]: [...WETH_ONLY[ChainId.GÖRLI], ZENI],
-  [ChainId.KOVAN]: [...WETH_ONLY[ChainId.KOVAN]],
+  [ChainId.MAINNET]: [WETH[ChainId.MAINNET], DAI, USDC, USDT, WBTC],
+  [ChainId.ROPSTEN]: [WETH[ChainId.ROPSTEN]],
+  [ChainId.RINKEBY]: [WETH[ChainId.RINKEBY]],
+  [ChainId.GÖRLI]: [WETH[ChainId.GÖRLI], ZENI[ChainId.GÖRLI]],
+  [ChainId.KOVAN]: [WETH[ChainId.KOVAN]],
+  [ChainId.CONSENSYS_ZK_EVM]: [WETH[ChainId.CONSENSYS_ZK_EVM], ZENI[ChainId.CONSENSYS_ZK_EVM]],
 };
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {

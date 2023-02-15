@@ -47,7 +47,11 @@ const EMPTY_LIST: TokenAddressMap = {
   [ChainId.ROPSTEN]: {},
   [ChainId.GÖRLI]: {},
   [ChainId.MAINNET]: {},
+  [ChainId.CONSENSYS_ZK_EVM]: {},
 };
+
+console.log('EMPTY_LIST', EMPTY_LIST);
+console.log('ChainId', ChainId);
 
 const listCache: WeakMap<TokenList, TokenAddressMap> | null =
   typeof WeakMap !== 'undefined' ? new WeakMap<TokenList, TokenAddressMap>() : null;
@@ -66,6 +70,7 @@ export function listToTokenMap(list: TokenList): TokenAddressMap {
           })
           ?.filter((x): x is TagInfo => Boolean(x)) ?? [];
       const token = new WrappedTokenInfo(tokenInfo, tags);
+      console.log('tokenMap', tokenMap);
       if (tokenMap[token.chainId][token.address] !== undefined) throw Error('Duplicate tokens.');
       return {
         ...tokenMap,
@@ -102,6 +107,7 @@ function combineMaps(map1: TokenAddressMap, map2: TokenAddressMap): TokenAddress
     4: { ...map1[4], ...map2[4] },
     5: { ...map1[5], ...map2[5] },
     42: { ...map1[42], ...map2[42] },
+    59140: { ...map1[59140], ...map2[59140] },
   };
 }
 
