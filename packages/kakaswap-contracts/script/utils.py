@@ -1,24 +1,21 @@
 import json
 import logging
 
-from dotenv import load_dotenv
 from web3 import Web3
-
-load_dotenv()
+from web3.middleware import geth_poa_middleware
 
 from script.constants import CHAIN_ID, DEPLOYMENTS_PATH, OUT_PATH, PRIVATE_KEY, RPC
 
 logging.basicConfig(level=logging.INFO)
-
 logger = logging.getLogger()
-
 deployments = {}
 
 
 logger.info(f"Using CHAIN_ID {CHAIN_ID} with RPC {RPC}")
 
-
 w3 = Web3(Web3.HTTPProvider(RPC))
+w3.middleware_onion.inject(geth_poa_middleware, layer=0)
+
 account = w3.eth.account.from_key(PRIVATE_KEY)
 
 
@@ -97,5 +94,5 @@ def invoke_contract(contract, function_name, *args, **kwargs):
         ).rawTransaction
     )
     transaction_receipt = w3.eth.waitForTransactionReceipt(transaction_hash)
-    logger.info(f"✅ {function_name} tx hash {transaction_hash}")
+    logger.info(f"✅ {function_name} tx hash {transaction_hash.hex()}")
     return transaction_receipt
