@@ -1,3 +1,5 @@
+import ZENI_LOGO from '../assets/images/zeni_token.png';
+
 // lower index == higher priority for token import
 export const DEFAULT_LIST_OF_LISTS: string[] = [];
 
@@ -22,7 +24,7 @@ export const DEFAULT_TOKEN_LIST = {
       symbol: 'ZN',
       decimals: 18,
       chainId: 5,
-      logoURI: require('../assets/images/zeni_token.png'),
+      logoURI: ZENI_LOGO,
     },
     {
       name: 'Wrapped Ether',
@@ -39,7 +41,7 @@ export const DEFAULT_TOKEN_LIST = {
       symbol: 'ZN',
       decimals: 18,
       chainId: 59140,
-      logoURI: require('../assets/images/zeni_token.png'),
+      logoURI: ZENI_LOGO,
     },
     {
       name: 'Wrapped Ether',
