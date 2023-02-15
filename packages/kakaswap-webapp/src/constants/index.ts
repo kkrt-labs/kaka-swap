@@ -1,12 +1,6 @@
 import { ChainId, JSBI, Percent, Token, WETH } from '@uniswap/sdk';
 import { AbstractConnector } from '@web3-react/abstract-connector';
-import {
-  // fortmatic,
-  injected,
-  // portis,
-  walletconnect,
-  walletlink,
-} from '../connectors';
+import { injected, walletconnect, walletlink } from '../connectors';
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
 export const FACTORY_ADDRESS = '0xd1654fC9BE213E17a8B5E77120cb8C4BadC7ae4b';

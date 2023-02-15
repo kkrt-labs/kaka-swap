@@ -3,12 +3,17 @@ import { useMemo } from 'react';
 import styled from 'styled-components';
 
 import EthereumLogo from '../../assets/images/ethereum-logo.png';
-import useHttpLocations from '../../hooks/useHttpLocations';
-import { WrappedTokenInfo } from '../../state/lists/hooks';
+import { DEFAULT_TOKEN_LIST } from '../../constants/lists';
 import Logo from '../Logo';
 
-const getTokenLogoURL = (address: string) =>
-  `https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${address}/logo.png`;
+const getTokenLogoURL = (address: string) => {
+  return (
+    DEFAULT_TOKEN_LIST.tokens
+      .filter((token) => token.address.toLowerCase() === address.toLowerCase())
+      .map((token) => token.logoURI)
+      .pop() || `https://assets-cdn.trustwallet.com/blockchains/ethereum/assets/${address}/logo.png`
+  );
+};
 
 const StyledEthereumLogo = styled.img<{ size: string }>`
   width: ${({ size }) => size};
@@ -34,20 +39,14 @@ export default function CurrencyLogo({
   size?: string;
   style?: React.CSSProperties;
 }) {
-  const uriLocations = useHttpLocations(currency instanceof WrappedTokenInfo ? currency.logoURI : undefined);
-
   const srcs: string[] = useMemo(() => {
     if (currency === ETHER) return [];
 
     if (currency instanceof Token) {
-      if (currency instanceof WrappedTokenInfo) {
-        return [...uriLocations, getTokenLogoURL(currency.address)];
-      }
-
       return [getTokenLogoURL(currency.address)];
     }
     return [];
-  }, [currency, uriLocations]);
+  }, [currency]);
 
   if (currency === ETHER) {
     return <StyledEthereumLogo src={EthereumLogo} size={size} style={style} />;
