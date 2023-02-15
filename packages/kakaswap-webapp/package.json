@@ -2,6 +2,9 @@
   "name": "name",
   "private": true,
   "license": "GPL-3.0-or-later",
+  "engines": {
+    "node": "16.x"
+  },
   "devDependencies": {
     "@popperjs/core": "2.9.2",
     "@reach/dialog": "0.15.0",
