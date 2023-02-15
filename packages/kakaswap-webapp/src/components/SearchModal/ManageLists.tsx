@@ -1,5 +1,5 @@
 import { TokenList } from '@uniswap/token-lists';
-import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { ChangeEvent, memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { CheckCircle, Settings } from 'react-feather';
 import { usePopper } from 'react-popper';
 import { useDispatch, useSelector } from 'react-redux';
@@ -210,7 +210,7 @@ export function ManageLists({
     }
   }, [activeCopy, activeListUrls]);
 
-  const handleInput = useCallback((e) => {
+  const handleInput = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setListUrlInput(e.target.value);
   }, []);
 

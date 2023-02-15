@@ -61,7 +61,7 @@ export const Input = React.memo(function InnerInput({
     <StyledInput
       {...rest}
       value={value}
-      onChange={(event) => enforcer(event.target.value.replace(/,/g, '.'))}
+      onChange={(event: React.ChangeEvent<HTMLInputElement>) => enforcer(event.target.value.replace(/,/g, '.'))}
       // universal input options
       inputMode="decimal"
       title="Token Amount"

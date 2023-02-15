@@ -265,7 +265,7 @@ export default function Header() {
 
       <HeaderLinks>
         <StyledNavLink id={`swap-nav-link`} to={'/swap'}>
-          {t('swap')}
+          <>{t('swap')}</>
         </StyledNavLink>
         <StyledNavLink
           id={`pool-nav-link`}
@@ -278,7 +278,7 @@ export default function Header() {
             pathname.startsWith('/find')
           }
         >
-          {t('pool')}
+          <>{t('pool')}</>
         </StyledNavLink>
       </HeaderLinks>
 

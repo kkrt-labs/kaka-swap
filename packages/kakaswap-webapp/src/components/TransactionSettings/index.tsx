@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 
 import { TYPE } from '../../theme';
@@ -199,7 +199,7 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
                 onBlur={() => {
                   parseCustomSlippage((rawSlippage / 100).toFixed(2));
                 }}
-                onChange={(e) => parseCustomSlippage(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => parseCustomSlippage(e.target.value)}
                 color={!slippageInputIsValid ? 'red' : ''}
               />
               %
@@ -239,7 +239,7 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
               }}
               placeholder={(deadline / 60).toString()}
               value={deadlineInput}
-              onChange={(e) => parseCustomDeadline(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => parseCustomDeadline(e.target.value)}
             />
           </OptionCustom>
           <TYPE.body style={{ paddingLeft: '8px' }} fontSize={14}>

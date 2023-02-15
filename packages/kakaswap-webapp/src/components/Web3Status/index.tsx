@@ -190,7 +190,9 @@ function Web3StatusInner() {
   } else {
     return (
       <Web3StatusConnect id="connect-wallet" onClick={toggleWalletModal} faded={!account}>
-        <Text>{t('Connect to a wallet')}</Text>
+        <Text>
+          <>{t('Connect to a wallet')}</>
+        </Text>
       </Web3StatusConnect>
     );
   }

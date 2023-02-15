@@ -58,7 +58,9 @@ export default function Web3ReactManager({ children }: { children: JSX.Element }
   if (!active && networkError) {
     return (
       <MessageWrapper>
-        <Message>{t('unknownError')}</Message>
+        <Message>
+          <>{t('unknownError')}</>
+        </Message>
       </MessageWrapper>
     );
   }
