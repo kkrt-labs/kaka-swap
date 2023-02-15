@@ -16,7 +16,6 @@ import { AddRemoveTabs } from '../../components/NavigationTabs';
 import { MinimalPositionCard } from '../../components/PositionCard';
 import Row, { RowBetween, RowFixed } from '../../components/Row';
 import TransactionConfirmationModal, { ConfirmationModalContent } from '../../components/TransactionConfirmationModal';
-console.log('WETH', WETH);
 
 import CurrencyLogo from '../../components/CurrencyLogo';
 import Slider from '../../components/Slider';

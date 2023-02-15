@@ -15,7 +15,6 @@ import WETH_ABI from '../constants/abis/weth.json';
 import { MULTICALL_ABI, MULTICALL_NETWORKS } from '../constants/multicall';
 import { getContract } from '../utils';
 import { useActiveWeb3React } from './index';
-console.log('WETH', WETH);
 
 // returns null on errors
 function useContract(address: string | undefined, ABI: any, withSignerIfPossible = true): Contract | null {

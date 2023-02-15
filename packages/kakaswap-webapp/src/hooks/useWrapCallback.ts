@@ -5,7 +5,6 @@ import { useTransactionAdder } from '../state/transactions/hooks';
 import { useCurrencyBalance } from '../state/wallet/hooks';
 import { useActiveWeb3React } from './index';
 import { useWETHContract } from './useContract';
-console.log('WETH', WETH);
 export enum WrapType {
   NOT_APPLICABLE,
   WRAP,

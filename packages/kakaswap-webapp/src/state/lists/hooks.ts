@@ -1,4 +1,3 @@
-import DEFAULT_TOKEN_LIST from '@uniswap/default-token-list';
 import { ChainId, Token } from '@uniswap/sdk';
 import { Tags, TokenInfo, TokenList } from '@uniswap/token-lists';
 import { useMemo } from 'react';
@@ -6,6 +5,38 @@ import { useSelector } from 'react-redux';
 import sortByListPriority from 'utils/listSort';
 import { toChecksumAddress } from 'web3-utils';
 import { AppState } from '../index';
+
+const DEFAULT_TOKEN_LIST = {
+  name: 'KakaSwap Default List',
+  timestamp: '2023-02-15T23:57:10.982Z',
+  version: {
+    major: 1,
+    minor: 0,
+    patch: 0,
+  },
+  tags: {},
+  logoURI: '',
+  keywords: ['kakaswap', 'default'],
+  tokens: [
+    {
+      name: 'Zeni',
+      address: '0x82BcaCd36deA496C4F90B5FfA2347380a7C265d1',
+      symbol: 'ZN',
+      decimals: 18,
+      chainId: 5,
+      logoURI: '',
+    },
+    {
+      name: 'Wrapped Ether',
+      address: '0x98159B3bb5E04F1b11c4967B1de81329CD3C8345',
+      symbol: 'WETH',
+      decimals: 18,
+      chainId: 5,
+      logoURI:
+        'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xd0A1E359811322d97991E03f863a0C30C2cF029C/logo.png',
+    },
+  ],
+};
 
 type TagDetails = Tags[keyof Tags];
 export interface TagInfo extends TagDetails {

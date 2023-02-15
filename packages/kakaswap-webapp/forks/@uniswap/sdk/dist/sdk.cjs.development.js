@@ -37,7 +37,7 @@ var _SOLIDITY_TYPE_MAXIMA
   Rounding[(Rounding['ROUND_UP'] = 2)] = 'ROUND_UP'
 })(exports.Rounding || (exports.Rounding = {}))
 
-var FACTORY_ADDRESS = '0x90b5e89934DF64192753F528dD55516847cDEE92'
+var FACTORY_ADDRESS = '0xd1654fC9BE213E17a8B5E77120cb8C4BadC7ae4b'
 var INIT_CODE_HASH = '0xc3ba597df61b8241a2d6d42ca2b0298eefd0016d41c50c8687ac3b8c16e30cab'
 var MINIMUM_LIQUIDITY = /*#__PURE__*/ JSBI.BigInt(1000) // exports for internal consumption
 
@@ -494,7 +494,7 @@ var WETH =
   )),
   (_WETH[exports.ChainId.GÖRLI] = /*#__PURE__*/ new Token(
     exports.ChainId.GÖRLI,
-    '0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6',
+    '0x98159B3bb5E04F1b11c4967B1de81329CD3C8345',
     18,
     'WETH',
     'Wrapped Ether'

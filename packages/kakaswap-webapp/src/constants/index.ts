@@ -9,15 +9,15 @@ import {
 } from '../connectors';
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
-export const FACTORY_ADDRESS = '0x90b5e89934DF64192753F528dD55516847cDEE92';
-export const ROUTER_ADDRESS = '0x6FE8938B7e58efD931D3FE7961145e9C669290e3';
+export const FACTORY_ADDRESS = '0xd1654fC9BE213E17a8B5E77120cb8C4BadC7ae4b';
+export const ROUTER_ADDRESS = '0x7DF5a16A946A41f6943f64b8e961420b596dFD96';
 
 export const LP_TOKEN_NAME = 'Uniswap V2';
 export const LP_TOKEN_SYMBOL = 'UNI-V2';
 
 WETH[ChainId.GÖRLI] = new Token(
   ChainId.GÖRLI,
-  '0xfCbddd6B663a408cd070D1d63BB48a6Ae96c7581',
+  '0x98159B3bb5E04F1b11c4967B1de81329CD3C8345',
   18,
   'WETH',
   'Wrapped Ether'
@@ -41,7 +41,7 @@ export const COMP = new Token(ChainId.MAINNET, '0xc00e94Cb662C3520282E6f57172140
 export const MKR = new Token(ChainId.MAINNET, '0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2', 18, 'MKR', 'Maker');
 export const AMPL = new Token(ChainId.MAINNET, '0xD46bA6D942050d489DBd938a2C909A5d5039A161', 9, 'AMPL', 'Ampleforth');
 export const WBTC = new Token(ChainId.MAINNET, '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599', 8, 'WBTC', 'Wrapped BTC');
-export const ZENI = new Token(ChainId.GÖRLI, '0x29F022cd7E4320d454C105DA24a0C0dd3c7B9d86', 18, 'ZN', 'Zeni');
+export const ZENI = new Token(ChainId.GÖRLI, '0x82BcaCd36deA496C4F90B5FfA2347380a7C265d1', 18, 'ZN', 'Zeni');
 
 // Block time here is slightly higher (~1s) than average in order to avoid ongoing proposals past the displayed time
 export const AVERAGE_BLOCK_TIME_IN_SECS = 13;
