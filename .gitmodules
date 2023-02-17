@@ -10,3 +10,6 @@
 [submodule "packages/kakaswap-contracts/lib/v2-periphery"]
 	path = packages/kakaswap-contracts/lib/v2-periphery
 	url = https://github.com/Uniswap/v2-periphery
+[submodule "packages/kakaswap-contracts/lib/solidity-lib"]
+	path = packages/kakaswap-contracts/lib/solidity-lib
+	url = https://github.com/Uniswap/solidity-lib
