@@ -1,3 +1,6 @@
 [submodule "packages/kakaswap-contracts/lib/solmate"]
 	path = packages/kakaswap-contracts/lib/solmate
 	url = https://github.com/transmissions11/solmate
+[submodule "packages/kakaswap-contracts/lib/multicall"]
+	path = packages/kakaswap-contracts/lib/multicall
+	url = https://github.com/makerdao/multicall
