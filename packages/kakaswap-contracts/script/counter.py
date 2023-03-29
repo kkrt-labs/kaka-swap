@@ -1,7 +1,7 @@
 import asyncio
 
 from script.constants import DEVNET, OWNER, RPC
-from script.utils import call, deploy, dump, fund_address, invoke, w3
+from script.utils import call, deploy, dump, fund_address, invoke
 
 
 async def main():
