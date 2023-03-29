@@ -9,7 +9,8 @@ from web3 import Web3
 
 load_dotenv()
 
-RPC = os.getenv("RPC_URL", os.environ["GOERLI_RPC_URL"])
+DEVNET = "http://127.0.0.1:8000"
+RPC = os.getenv("RPC_URL", DEVNET)
 CHAIN_ID = int(
     subprocess.run(
         shlex.split(f"cast chain-id --rpc-url {RPC}"),

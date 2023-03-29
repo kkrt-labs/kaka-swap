@@ -1,10 +1,19 @@
 import json
 import logging
+from typing import Union
 
+import requests
 from web3 import Web3
 from web3.middleware import geth_poa_middleware
 
-from script.constants import CHAIN_ID, DEPLOYMENTS_PATH, OUT_PATH, PRIVATE_KEY, RPC
+from script.constants import (
+    CHAIN_ID,
+    DEPLOYMENTS_PATH,
+    DEVNET,
+    OUT_PATH,
+    PRIVATE_KEY,
+    RPC,
+)
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
@@ -13,13 +22,14 @@ deployments = {}
 
 logger.info(f"Using CHAIN_ID {CHAIN_ID} with RPC {RPC}")
 
-w3 = Web3(Web3.HTTPProvider(RPC))
+w3 = Web3(Web3.HTTPProvider(RPC, request_kwargs={"timeout": 180}))
 w3.middleware_onion.inject(geth_poa_middleware, layer=0)
 
 account = w3.eth.account.from_key(PRIVATE_KEY)
+w3.eth.accounts
 
 
-def deploy_contract(contract_name: str, *args, **kwargs):
+def deploy(contract_name: str, *args, **kwargs):
     logger.info(f"⏳ Deploying {contract_name}")
     artifacts = json.loads(
         (OUT_PATH / f"{contract_name}.sol" / f"{contract_name}.json").read_text()
@@ -29,11 +39,14 @@ def deploy_contract(contract_name: str, *args, **kwargs):
         bytecode=artifacts["bytecode"]["object"],
     )
     tx = contract.constructor(*args, **kwargs).build_transaction(
-        {"from": account.address, "nonce": w3.eth.getTransactionCount(account.address)}
+        {
+            "from": account.address,
+            "nonce": w3.eth.get_transaction_count(account.address),
+        }
     )
     signed_tx = account.sign_transaction(tx)
-    tx_hash = w3.eth.sendRawTransaction(signed_tx.rawTransaction)
-    tx_receipt = w3.eth.waitForTransactionReceipt(tx_hash)
+    tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+    tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
     contract_address = tx_receipt.contractAddress
     contract = w3.eth.contract(
         address=contract_address,
@@ -83,16 +96,40 @@ def get_contract(name):
     return w3.eth.contract(address=deployments[name], abi=abi)
 
 
-def invoke_contract(contract, function_name, *args, **kwargs):
-    logger.info(f"⏳ Invoking {function_name}")
+def invoke(contract_name: str, function_name: str, *args, **kwargs):
+    logger.info(f"⏳ Invoking {contract_name}.{function_name}")
+
+    contract = get_contract(contract_name)
     function = contract.get_function_by_name(function_name)
-    transaction_hash = w3.eth.sendRawTransaction(
+    transaction_hash = w3.eth.send_raw_transaction(
         account.sign_transaction(
-            function(*args, **kwargs).buildTransaction(
-                {"nonce": w3.eth.getTransactionCount(account.address)}
+            function(*args, **kwargs).build_transaction(
+                {"nonce": w3.eth.get_transaction_count(account.address)}
             )
         ).rawTransaction
     )
-    transaction_receipt = w3.eth.waitForTransactionReceipt(transaction_hash)
+    transaction_receipt = w3.eth.wait_for_transaction_receipt(transaction_hash)
     logger.info(f"✅ {function_name} tx hash {transaction_hash.hex()}")
     return transaction_receipt
+
+
+def call(contract_name: str, function_name: str, *args, **kwargs):
+    logger.info(f"⏳ Calling {contract_name}.{function_name}")
+    contract = get_contract(contract_name)
+    return contract.get_function_by_name(function_name)(*args, **kwargs).call()
+
+
+async def fund_address(address: Union[int, str], amount: float):
+    """
+    Fund a given starknet address with {amount} ETH
+    """
+    address = hex(address) if isinstance(address, int) else address
+    amount = amount * 1e18
+    if RPC != DEVNET:
+        raise ValueError("Can only mint in devnet mode")
+    response = requests.post(f"{RPC}/mint", json={"address": address, "amount": amount})
+    if response.status_code != 200:
+        logger.error(f"Cannot mint token to {address}: {response.text}")
+    logger.info(
+        f"{amount / 1e18} ETH minted to {address}; new balance {response.json()['new_balance'] / 1e18} ETH"
+    )
