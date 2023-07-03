@@ -1,19 +1,9 @@
 import json
 import logging
-from typing import Union
 
-import requests
+from script.constants import CHAIN_ID, DEPLOYMENTS_PATH, OUT_PATH, PRIVATE_KEY, RPC
 from web3 import Web3
 from web3.middleware import geth_poa_middleware
-
-from script.constants import (
-    CHAIN_ID,
-    DEPLOYMENTS_PATH,
-    DEVNET,
-    OUT_PATH,
-    PRIVATE_KEY,
-    RPC,
-)
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
@@ -117,19 +107,3 @@ def call(contract_name: str, function_name: str, *args, **kwargs):
     logger.info(f"⏳ Calling {contract_name}.{function_name}")
     contract = get_contract(contract_name)
     return contract.get_function_by_name(function_name)(*args, **kwargs).call()
-
-
-async def fund_address(address: Union[int, str], amount: float):
-    """
-    Fund a given starknet address with {amount} ETH
-    """
-    address = hex(address) if isinstance(address, int) else address
-    amount = amount * 1e18
-    if RPC != DEVNET:
-        raise ValueError("Can only mint in devnet mode")
-    response = requests.post(f"{RPC}/mint", json={"address": address, "amount": amount})
-    if response.status_code != 200:
-        logger.error(f"Cannot mint token to {address}: {response.text}")
-    logger.info(
-        f"{amount / 1e18} ETH minted to {address}; new balance {response.json()['new_balance'] / 1e18} ETH"
-    )

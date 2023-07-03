@@ -1,27 +1,25 @@
 import asyncio
 
-from script.constants import DEVNET, OWNER, RPC
-from script.utils import deploy, dump, fund_address, invoke
+from script.constants import OWNER
+from script.utils import deploy, dump, invoke
 
 
 async def main():
-    if RPC == DEVNET:
-        await fund_address(OWNER, 10)
-
-    deploy("Zeni")
-    tx = invoke("Zeni", "mint", OWNER, int(1e18))
-
-    weth = deploy("WETH")
-    multicall = deploy("Multicall")
     factory = deploy("Factory", OWNER)
     pair_class_hash = factory.functions.INIT_CODE_HASH().call().hex()
     print(f"Pair class hash is {pair_class_hash}")
     input(
-        "Check that this class hash is the same as the one in UniswapV2Library.pairFor"
+        "\n⚠ Check that this class hash is the same as the one in lib/v2-periphery/contracts/libraries/UniswapV2Library.pairFor"
+        "\nIf yes, press enter to continue"
+        "\nOtherwise, fix it, kill this process, forge build and run again"
     )
-    router = deploy("Router", factory.address, weth.address)
 
+    deploy("Zeni")
+    weth = deploy("WETH")
+    deploy("Multicall")
+    deploy("Router", factory.address, weth.address)
     dump()
+    invoke("Zeni", "mint", OWNER, int(1e18))
 
 
 if __name__ == "__main__":

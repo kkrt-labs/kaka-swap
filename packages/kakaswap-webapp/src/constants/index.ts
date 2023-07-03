@@ -3,8 +3,8 @@ import { AbstractConnector } from '@web3-react/abstract-connector';
 import { injected, walletconnect, walletlink } from '../connectors';
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
-export const FACTORY_ADDRESS = '0xdE55955569f11Cb25A41d00fa5b6236E5dEC25e2';
-export const ROUTER_ADDRESS = '0xfc99C54CF54C24376215221Fe8CD9B590c158736';
+export const FACTORY_ADDRESS = '0x1613beB3B2C4f22Ee086B2b38C1476A3cE7f78E8';
+export const ROUTER_ADDRESS = '0x998abeb3E57409262aE5b751f60747921B33613E';
 
 export const LP_TOKEN_NAME = 'Uniswap V2';
 export const LP_TOKEN_SYMBOL = 'UNI-V2';
@@ -29,10 +29,10 @@ export const AMPL = new Token(ChainId.MAINNET, '0xD46bA6D942050d489DBd938a2C909A
 export const WBTC = new Token(ChainId.MAINNET, '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599', 8, 'WBTC', 'Wrapped BTC');
 
 export const ZENI = {
-  [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, '0x82BcaCd36deA496C4F90B5FfA2347380a7C265d1', 18, 'ZN', 'Zeni'),
+  [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, '0x1613beB3B2C4f22Ee086B2b38C1476A3cE7f78E8', 18, 'ZN', 'Zeni'),
   [ChainId.CONSENSYS_ZK_EVM]: new Token(
     ChainId.CONSENSYS_ZK_EVM,
-    '0x69AF21eF850a9f0B0303c239C87b765d1664C60C',
+    '0x1613beB3B2C4f22Ee086B2b38C1476A3cE7f78E8',
     18,
     'ZN',
     'Zeni'
@@ -56,6 +56,7 @@ const WETH_ONLY: ChainTokenList = {
   [ChainId.GÖRLI]: [WETH[ChainId.GÖRLI]],
   [ChainId.KOVAN]: [WETH[ChainId.KOVAN]],
   [ChainId.CONSENSYS_ZK_EVM]: [WETH[ChainId.CONSENSYS_ZK_EVM]],
+  [ChainId.ANVIL]: [WETH[ChainId.ANVIL]],
 };
 
 // used to construct intermediary pairs for trading

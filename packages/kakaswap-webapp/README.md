@@ -1,25 +1,33 @@
 # Kaka-swap
 
-To update address, search for all the old hashes down below in the project, replace with new ones **and** run `npm install`.
+The project works with a hacky fork of uniswap sdk that needs to be updated manually after each deployment or when
+adding a network. The app was developed to work on several chains with the same front end but this is currently not
+supported as two `constants.ts` files define the global
 
-Pair hash: 0xc3ba597df61b8241a2d6d42ca2b0298eefd0016d41c50c8687ac3b8c16e30cab
+```javascript
+const INIT_CODE_HASH = '0xff7d4c259a81d786617e52f1ebf6b453071c53117f51d12bc4a40466eb741d44';
+const FACTORY_ADDRESS = '0x1613beB3B2C4f22Ee086B2b38C1476A3cE7f78E8';
+const ROUTER_ADDRESS = '0x998abeb3E57409262aE5b751f60747921B33613E';
+```
 
-## Addresses
+while the current deployment script doesn't set the `Factory` and `Router` at a constant address. Furthermore, the front
+end defines enum to store addresses per chain id that needs to be updated as well when redeploying or adding a new
+chain.
 
-```json
-{
-  "5": {
-    "Zeni": "0x82BcaCd36deA496C4F90B5FfA2347380a7C265d1",
-    "WETH": "0x98159B3bb5E04F1b11c4967B1de81329CD3C8345",
-    "Factory": "0xd1654fC9BE213E17a8B5E77120cb8C4BadC7ae4b",
-    "Router": "0x7DF5a16A946A41f6943f64b8e961420b596dFD96"
-  },
-  "59140": {
-    "Zeni": "0x69AF21eF850a9f0B0303c239C87b765d1664C60C",
-    "WETH": "0xBf44988fa2ED7C8C3a28af2dB13F75765258459a",
-    "Multicall": "0x912094e187A442012d418b54A3A25eeB69d85041",
-    "Factory": "0xdE55955569f11Cb25A41d00fa5b6236E5dEC25e2",
-    "Router": "0xfc99C54CF54C24376215221Fe8CD9B590c158736"
-  }
-}
+## Configuration
+
+In order to run the app, you need to:
+
+- deploy the contracts using `kakaswap-contracts` package
+- search for all and update the given `const` above mentioned
+- search for all the mention of your target network name (e.g. "anvil") and update the addresses to the latest
+  deployment
+  - (optional): if you are the first to deploy to a given chain, search for an existing chain (e.g. "anvil") and add
+    entries accordingly. Search by both name ("anvil") and chain id ("31337")
+- `npm install`
+
+## Run
+
+```bash
+npm start
 ```

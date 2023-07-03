@@ -245,6 +245,8 @@ const NETWORK_LABELS: { [chainId in ChainId]?: string } = {
   [ChainId.ROPSTEN]: 'Ropsten',
   [ChainId.GÖRLI]: 'Goerli',
   [ChainId.KOVAN]: 'Kovan',
+  [ChainId.ANVIL]: 'Anvil',
+  [ChainId.CONSENSYS_ZK_EVM]: 'Consensys zkEVM',
 };
 
 export default function Header() {

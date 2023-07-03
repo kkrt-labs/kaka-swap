@@ -9,7 +9,7 @@ from web3 import Web3
 
 load_dotenv()
 
-DEVNET = "http://127.0.0.1:8000"
+DEVNET = "http://127.0.0.1:8545"
 RPC = os.getenv("RPC_URL", DEVNET)
 CHAIN_ID = int(
     subprocess.run(

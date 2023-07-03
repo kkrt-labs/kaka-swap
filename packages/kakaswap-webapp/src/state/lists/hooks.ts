@@ -48,6 +48,7 @@ const EMPTY_LIST: TokenAddressMap = {
   [ChainId.GÖRLI]: {},
   [ChainId.MAINNET]: {},
   [ChainId.CONSENSYS_ZK_EVM]: {},
+  [ChainId.ANVIL]: {},
 };
 
 const listCache: WeakMap<TokenList, TokenAddressMap> | null =
@@ -104,6 +105,7 @@ function combineMaps(map1: TokenAddressMap, map2: TokenAddressMap): TokenAddress
     5: { ...map1[5], ...map2[5] },
     42: { ...map1[42], ...map2[42] },
     59140: { ...map1[59140], ...map2[59140] },
+    31337: { ...map1[31337], ...map2[31337] },
   };
 }
 

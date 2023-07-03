@@ -24,6 +24,7 @@ const ETHERSCAN_PREFIXES: { [chainId in ChainId]: string } = {
   5: 'goerli.etherscan.io',
   42: 'kovan.etherscan.io',
   59140: 'explorer.goerli.zkevm.consensys.net',
+  31337: '',
 };
 
 export function getEtherscanLink(
