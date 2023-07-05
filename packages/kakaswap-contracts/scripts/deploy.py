@@ -7,6 +7,7 @@ async def main():
     factory = deploy("Factory", OWNER.address)
     pair_class_hash = factory.functions.INIT_CODE_HASH().call().hex()
     input(
+         f"\nPair class hash is {pair_class_hash}"
         "\n⚠ Check that this class hash is the same as the one in lib/v2-periphery/contracts/libraries/UniswapV2Library.pairFor"
         "\nIf yes, press enter to continue"
         "\nOtherwise, fix it, kill this process, forge build and run again"
