@@ -1,7 +1,8 @@
 import json
 import logging
+import time
 
-from script.constants import CHAIN_ID, DEPLOYMENTS_PATH, OUT_PATH, PRIVATE_KEY, RPC
+from scripts.constants import CHAIN_ID, DEPLOYMENTS_PATH, OUT_PATH, PRIVATE_KEY, RPC, W3, OWNER, DELAY_BETWEEN_TX
 from web3 import Web3
 from web3.middleware import geth_poa_middleware
 
@@ -12,33 +13,33 @@ deployments = {}
 
 logger.info(f"Using CHAIN_ID {CHAIN_ID} with RPC {RPC}")
 
-w3 = Web3(Web3.HTTPProvider(RPC, request_kwargs={"timeout": 180}))
-w3.middleware_onion.inject(geth_poa_middleware, layer=0)
-
-account = w3.eth.account.from_key(PRIVATE_KEY)
-w3.eth.accounts
-
-
 def deploy(contract_name: str, *args, **kwargs):
     logger.info(f"⏳ Deploying {contract_name}")
     artifacts = json.loads(
         (OUT_PATH / f"{contract_name}.sol" / f"{contract_name}.json").read_text()
     )
-    contract = w3.eth.contract(
+    contract = W3.eth.contract(
         abi=artifacts["abi"],
         bytecode=artifacts["bytecode"]["object"],
     )
+
     tx = contract.constructor(*args, **kwargs).build_transaction(
         {
-            "from": account.address,
-            "nonce": w3.eth.get_transaction_count(account.address),
+            "from": OWNER.address,
+            "nonce": W3.eth.get_transaction_count(OWNER.address),
         }
     )
-    signed_tx = account.sign_transaction(tx)
-    tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
-    tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+    signed_tx = OWNER.sign_transaction(tx)
+    tx_hash = W3.eth.send_raw_transaction(signed_tx.rawTransaction)
+
+    logger.info("sleep start")
+    time.sleep(DELAY_BETWEEN_TX)  
+    logger.info("sleep end")
+    
+    tx_receipt = W3.eth.wait_for_transaction_receipt(tx_hash)
+
     contract_address = tx_receipt.contractAddress
-    contract = w3.eth.contract(
+    contract = W3.eth.contract(
         address=contract_address,
         abi=artifacts["abi"],
     )
@@ -68,10 +69,13 @@ def dump():
 
 
 def get_contract(name):
-    w3 = Web3(Web3.HTTPProvider(RPC))
+    global W3
 
-    if not w3.isConnected():
-        raise ValueError(f"Cannot connect to RPC {RPC}")
+    # commented out because or rpc currently doesn't implement
+    # `web3_clientVersion`
+    # https://github.com/ethereum/web3.py/blob/02e426ab15d58c145cb4d86b9d72a1a90d185192/web3/providers/base.py#L113
+    # if not w3.isConnected():
+    #     raise ValueError(f"Cannot connect to RPC {RPC}")
 
     deployments = json.loads(DEPLOYMENTS_PATH.read_text()).get(str(CHAIN_ID))
 
@@ -83,7 +87,7 @@ def get_contract(name):
         raise ValueError(f"Cannot locate a unique abi, got\n{abis}")
 
     abi = json.loads(abis[0].read_text())["abi"]
-    return w3.eth.contract(address=deployments[name], abi=abi)
+    return W3.eth.contract(address=deployments[name], abi=abi)
 
 
 def invoke(contract_name: str, function_name: str, *args, **kwargs):
@@ -91,14 +95,18 @@ def invoke(contract_name: str, function_name: str, *args, **kwargs):
 
     contract = get_contract(contract_name)
     function = contract.get_function_by_name(function_name)
-    transaction_hash = w3.eth.send_raw_transaction(
-        account.sign_transaction(
+    transaction_hash = W3.eth.send_raw_transaction(
+        OWNER.sign_transaction(
             function(*args, **kwargs).build_transaction(
-                {"nonce": w3.eth.get_transaction_count(account.address)}
+                {"nonce": W3.eth.get_transaction_count(OWNER.address)}
             )
         ).rawTransaction
     )
-    transaction_receipt = w3.eth.wait_for_transaction_receipt(transaction_hash)
+    logger.info("sleep start")
+    time.sleep(DELAY_BETWEEN_TX)  
+    logger.info("sleep end")
+  
+    transaction_receipt = W3.eth.wait_for_transaction_receipt(transaction_hash)
     logger.info(f"✅ {function_name} tx hash {transaction_hash.hex()}")
     return transaction_receipt
 

@@ -25,6 +25,7 @@ Just copying this `.env.example` file will be enough to target `anvil` network. 
 ## Deployment
 
 ```bash
+poetry install
 forge build
 poetry run python scripts/deploy.py
 ```

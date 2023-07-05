@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Clément Walter <clement0walter@gmail.com>"]
 readme = "README.md"
-packages = [{ include = "script" }]
+packages = [{ include = "scripts" }]
 
 [tool.poetry.dependencies]
 python = "^3.9"
