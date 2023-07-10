@@ -7,4 +7,4 @@ install:
 	poetry install
 
 deploy: build install
-	poetry run python script/deploy.py
+	poetry run python scripts/deploy.py
