@@ -1,7 +1,8 @@
 import asyncio
 
-from scripts.constants import  OWNER
+from scripts.constants import OWNER
 from scripts.utils import deploy, dump, invoke
+
 
 async def main():
     factory = deploy("Factory", OWNER.address)

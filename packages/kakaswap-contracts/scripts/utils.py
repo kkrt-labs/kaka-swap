@@ -2,7 +2,16 @@ import json
 import logging
 import time
 
-from scripts.constants import CHAIN_ID, DEPLOYMENTS_PATH, OUT_PATH, PRIVATE_KEY, RPC, W3, OWNER, DELAY_BETWEEN_TX
+from scripts.constants import (
+    CHAIN_ID,
+    DELAY_BETWEEN_TX,
+    DEPLOYMENTS_PATH,
+    OUT_PATH,
+    OWNER,
+    PRIVATE_KEY,
+    RPC,
+    W3,
+)
 from web3 import Web3
 from web3.middleware import geth_poa_middleware
 
