@@ -3,5 +3,8 @@ include .env
 build:
 	forge build --names --force
 
-deploy: build
-	python script/deploy.py
+install:
+	poetry install
+
+deploy: build install
+	poetry run python script/deploy.py

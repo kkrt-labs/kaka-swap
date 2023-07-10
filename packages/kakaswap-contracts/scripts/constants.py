@@ -26,4 +26,4 @@ W3 = Web3(Web3.HTTPProvider(RPC, request_kwargs={"timeout": 180}))
 W3.middleware_onion.inject(geth_poa_middleware, layer=0)
 OWNER = W3.eth.account.from_key(PRIVATE_KEY)
 # The seconds amount we take between a transaction and looking up the transaction hash
-DELAY_BETWEEN_TX = 6
+DELAY_BETWEEN_TX = 12
