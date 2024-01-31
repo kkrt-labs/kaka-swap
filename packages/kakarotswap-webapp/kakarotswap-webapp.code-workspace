@@ -1,0 +1,15 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "../kakarotswap-contracts"
+    }
+  ],
+  "settings": {
+    "i18n-ally.localesPaths": ["public/locales"],
+    "jest.disabledWorkspaceFolders": ["kakarot-contracts"],
+    "cSpell.words": ["checksummed"]
+  }
+}
