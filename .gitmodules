@@ -1,15 +1,15 @@
-[submodule "packages/kakaswap-contracts/lib/solmate"]
-	path = packages/kakaswap-contracts/lib/solmate
+[submodule "packages/kakarotswap-contracts/lib/solmate"]
+	path = packages/kakarotswap-contracts/lib/solmate
 	url = https://github.com/transmissions11/solmate
-[submodule "packages/kakaswap-contracts/lib/multicall"]
-	path = packages/kakaswap-contracts/lib/multicall
+[submodule "packages/kakarotswap-contracts/lib/multicall"]
+	path = packages/kakarotswap-contracts/lib/multicall
 	url = https://github.com/makerdao/multicall
-[submodule "packages/kakaswap-contracts/lib/v2-core"]
-	path = packages/kakaswap-contracts/lib/v2-core
+[submodule "packages/kakarotswap-contracts/lib/v2-core"]
+	path = packages/kakarotswap-contracts/lib/v2-core
 	url = https://github.com/Uniswap/v2-core
-[submodule "packages/kakaswap-contracts/lib/v2-periphery"]
-	path = packages/kakaswap-contracts/lib/v2-periphery
+[submodule "packages/kakarotswap-contracts/lib/v2-periphery"]
+	path = packages/kakarotswap-contracts/lib/v2-periphery
 	url = https://github.com/Uniswap/v2-periphery
-[submodule "packages/kakaswap-contracts/lib/solidity-lib"]
-	path = packages/kakaswap-contracts/lib/solidity-lib
+[submodule "packages/kakarotswap-contracts/lib/solidity-lib"]
+	path = packages/kakarotswap-contracts/lib/solidity-lib
 	url = https://github.com/Uniswap/solidity-lib
